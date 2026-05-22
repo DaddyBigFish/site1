@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="12 -4 254 92" height="160" width="350">
+  
+  <path stroke-linejoin="round" stroke-width="8" stroke="#10b981" fill="#111827" d="M38 15 L65 8 L92 15 L92 42 Q92 62 65 73 Q38 62 38 42 Z"/>
+  
+  
+  <path fill-opacity="0.15" fill="#10b981" d="M48 22 L65 17 L82 22 L82 40 Q82 53 65 60 Q48 53 48 40 Z"/>
+  
+  
+  <text fill="#e5e7eb" font-weight="600" font-size="27" font-family="system-ui" y="39" x="105">Secured By</text>
+  <text fill="#10b981" font-weight="700" font-size="27" font-family="system-ui" y="67" x="105">OFFENSE</text>
+</svg>

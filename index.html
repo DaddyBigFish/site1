@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact For A Personalised Quote   -   UK Based Security Consulting   -   securedbyoffense.uk</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: 'Inter', system-ui, sans-serif; }
+  .hero-bg { background: linear-gradient(135deg, #0a0a1f 0%, #111827 100%); }
+
+  /* Nav link styling */
+  nav a {
+    font-size: 1.125rem;
+    font-weight: 400;
+  }
+  /* Larger logo */
+  .h-11 {
+    height: 6.75rem !important;
+  }
+  /* Badge styling */
+  .badge-container {
+    box-shadow: 0px 0px 0px 4px rgb(95 178 134),
+                0 25px 50px -12px rgb(0 0 0 / 40%);
+    border-radius: 7rem;
+  }
+  .badge-inner {
+    padding: 5px 30px 5px 30px;
+    background: #0a0e18;
+    border-radius: 7em;
+  }
+  .py-5 {
+    padding-top: .45rem !important;
+    padding-bottom: .45rem !important;
+  }
+.cert-logo {
+    width: 130px;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 25px;
+  }
+  p.uppercase.tracking-widest.text-emerald-400.text-sm {
+    font-size: 1.5em;
+    font-weight: 200;
+}
+footer .max-w-md {
+    max-width: 60rem;
+  }
+</style>
+</head>
+<body class="bg-zinc-950 text-zinc-200">
+
+<!-- NAV -->
+<nav class="fixed top-0 w-full bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800 z-50">
+  <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <img src="logo.svg" alt="Secured By Offense" class="h-11">
+    </div>
+    <div class="flex gap-10 text-sm font-medium">
+      <a href="#about" class="hover:text-emerald-400 transition">About</a>
+      <a href="#services" class="hover:text-emerald-400 transition">Services</a>
+      <a href="#certs" class="hover:text-emerald-400 transition">Certifications</a>
+      <a href="#pricing" class="hover:text-emerald-400 transition">Pricing</a>
+      <a href="#badge" class="hover:text-emerald-400 transition">Client Accreditation</a>
+      <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-bg min-h-screen flex items-center pt-20">
+  <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <p class="uppercase tracking-widest text-emerald-400 text-sm">UK Based Security Consulting</p>
+      <h1 class="text-6xl md:text-7xl font-bold leading-tight mt-6">Penetration Testing &amp; Red Team Operations</h1>
+      <p class="mt-8 text-xl text-zinc-400">As an independent security consultant I deliver detailed, real-world penetration testing and red team exercises to help organisations identify and reduce cyber risk.</p>
+      <div class="mt-12">
+        <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+                class="bg-emerald-500 hover:bg-emerald-400 text-black px-10 py-4 rounded-2xl font-semibold text-lg transition">
+          Discuss an Engagement
+        </button>
+      </div>
+    </div>
+    <div class="relative">
+      <img src="photo.jpg" class="rounded-3xl shadow-2xl border border-zinc-700 w-full" alt="Profile">
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 border-t border-zinc-800 bg-zinc-950">
+  <div class="max-w-4xl mx-auto px-8 text-center">
+    <h2 class="text-4xl font-semibold mb-10">About Secured By Offense</h2>
+    <p class="text-lg leading-relaxed text-zinc-400">
+      I am a UK-based security consultant specialising in authorised penetration testing and red team operations.
+      I work with organisations of all sizes to identify vulnerabilities through realistic attack simulation and provide actionable recommendations to strengthen their security posture.
+    </p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-24 bg-zinc-900">
+  <div class="max-w-7xl mx-auto px-8">
+    <h2 class="text-4xl font-semibold text-center mb-16">Services</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-zinc-950 p-10 rounded-3xl border border-zinc-800 hover:border-emerald-500/30 transition">
+        <h3 class="text-xl font-semibold mb-4">Web Application &amp; API Testing</h3>
+        <p class="text-zinc-400">Comprehensive manual testing of web applications and APIs.</p>
+      </div>
+      <div class="bg-zinc-950 p-10 rounded-3xl border border-zinc-800 hover:border-emerald-500/30 transition">
+        <h3 class="text-xl font-semibold mb-4">Network &amp; Infrastructure Testing</h3>
+        <p class="text-zinc-400">External, internal, and Active Directory assessments.</p>
+      </div>
+      <div class="bg-zinc-950 p-10 rounded-3xl border border-zinc-800 hover:border-emerald-500/30 transition">
+        <h3 class="text-xl font-semibold mb-4">Red Team Operations</h3>
+        <p class="text-zinc-400">Realistic adversary emulation exercises.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs" class="py-24 bg-zinc-950 border-t border-zinc-800">
+  <div class="max-w-7xl mx-auto px-8">
+    <h2 class="text-4xl font-semibold text-center mb-16">Certifications</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-700 flex gap-6 items-start">
+        <img src="logos/portswigger.jpg" class="cert-logo" alt="BSCP">
+        <div>
+          <p class="font-semibold text-emerald-400">Burp Suite Certified Practitioner (BSCP)</p>
+          <p class="text-sm text-zinc-500">PortSwigger</p>
+          <p class="mt-3 text-zinc-400">Advanced certification demonstrating expert-level skills in web application security testing, including multi-stage exploitation of complex vulnerabilities such as IDOR, stored XSS, OS command injection, and SQL injection.</p>
+        </div>
+      </div>
+
+      <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-700 flex gap-6 items-start">
+        <img src="logos/zeropoint.jpg" class="cert-logo" alt="CRTO">
+        <div>
+          <p class="font-semibold text-emerald-400">Certified Red Team Operator (CRTO)</p>
+          <p class="text-sm text-zinc-500">Zero-Point Security</p>
+          <p class="mt-3 text-zinc-400">Advanced red team certification focused on real-world enterprise Active Directory attacks, Cobalt Strike operations, lateral movement, persistence, and privilege escalation techniques.</p>
+        </div>
+      </div>
+
+      <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-700 flex gap-6 items-start">
+        <img src="logos/hackthebox.jpg" class="cert-logo" alt="HackTheBox">
+        <div>
+          <p class="font-semibold text-emerald-400">Pro Labs</p>
+          <p class="text-sm text-zinc-500">HackTheBox</p>
+          <p class="mt-3 text-zinc-400">Advanced practical training in real-world Active Directory environments, covering enumeration, lateral movement, persistence, and privilege escalation in complex enterprise networks.</p>
+        </div>
+      </div>
+
+      <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-700 flex gap-6 items-start">
+        <img src="logos/cyberscheme.jpg" class="cert-logo" alt="CSTM">
+        <div>
+          <p class="font-semibold text-emerald-400">Cyber Scheme Team Member (CSTM)</p>
+          <p class="text-sm text-zinc-500">The Cyber Scheme</p>
+          <p class="mt-3 text-zinc-400">NCSC-recognised UK certification covering penetration testing fundamentals across network infrastructure and web applications.</p>
+        </div>
+      </div>
+
+      <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-700 flex gap-6 items-start">
+        <img src="logos/ine.jpg" class="cert-logo" alt="eJPT">
+        <div>
+          <p class="font-semibold text-emerald-400">Junior Penetration Tester (eJPT)</p>
+          <p class="text-sm text-zinc-500">INE Security</p>
+          <p class="mt-3 text-zinc-400">Practical entry-level certification validating hands-on skills in network and web penetration testing.</p>
+        </div>
+      </div>
+
+      <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-700 flex gap-6 items-start">
+        <img src="logos/comptia.jpg" class="cert-logo" alt="CompTIA">
+        <div>
+          <p class="font-semibold text-emerald-400">CompTIA Security+</p>
+          <p class="text-sm text-zinc-500">CompTIA</p>
+          <p class="mt-3 text-zinc-400">Vendor-neutral certification covering core cybersecurity principles, risk management, and best practices.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="py-24 bg-zinc-900">
+  <div class="max-w-7xl mx-auto px-8">
+    <h2 class="text-4xl font-semibold text-center mb-4">Typical Engagement Costs</h2>
+    <p class="text-center text-zinc-400 mb-16 max-w-2xl mx-auto">
+      All pricing is indicative and based on typical scope. A fixed price quotation will be provided following an initial scoping call.
+    </p>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-zinc-950 p-10 rounded-3xl border border-zinc-700 hover:border-emerald-500/30 transition">
+        <h3 class="text-2xl font-semibold text-emerald-400 mb-2">Web Application Test</h3>
+        <p class="text-4xl font-bold mb-6">£3,500 – £9,500</p>
+        <p class="text-zinc-400">Typical engagement covering external web applications and APIs.</p>
+      </div>
+      <div class="bg-zinc-950 p-10 rounded-3xl border border-zinc-700 hover:border-emerald-500/30 transition">
+        <h3 class="text-2xl font-semibold text-emerald-400 mb-2">External Network Test</h3>
+        <p class="text-4xl font-bold mb-6">£2,800 – £7,500</p>
+        <p class="text-zinc-400">Perimeter and external infrastructure assessment.</p>
+      </div>
+      <div class="bg-zinc-950 p-10 rounded-3xl border border-zinc-700 hover:border-emerald-500/30 transition relative">
+        <div class="absolute -top-3 right-6 bg-emerald-500 text-black text-xs font-bold px-4 py-1 rounded-full">Most Popular</div>
+        <h3 class="text-2xl font-semibold text-emerald-400 mb-2">Internal / AD Red Team</h3>
+        <p class="text-4xl font-bold mb-6">£6,500 – £14,500</p>
+        <p class="text-zinc-400">Internal network and Active Directory attack simulation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT ACCREDITATION -->
+<section id="badge" class="py-24 bg-zinc-950 border-t border-zinc-800">
+  <div class="max-w-4xl mx-auto px-8 text-center">
+    <h2 class="text-4xl font-semibold mb-6">Client Accreditation</h2>
+    <p class="text-lg text-zinc-400 mb-12">
+      Upon successful completion of testing, clients are awarded the official 
+      <strong>“Secured By Offense”</strong> accreditation badge unlocking further rewards and benefits.
+    </p>
+    <div class="flex justify-center mb-10">
+      <div class="badge-container">
+        <img src="badge.svg" alt="Secured By Offense Accreditation" class="badge-inner">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 bg-zinc-900 border-t border-zinc-800">
+  <div class="max-w-4xl mx-auto px-8 text-center">
+    <h2 class="text-4xl font-semibold">Ready to Strengthen Your Security Posture?</h2>
+    <p class="mt-6 text-zinc-400">All work is conducted under formal contracts, NDAs and clearly defined Rules of Engagement.</p>
+    <a href="mailto:sales@securedbyoffense.uk" class="mt-10 inline-block bg-emerald-500 text-black px-14 py-6 rounded-2xl text-xl font-semibold hover:bg-emerald-400 transition">
+      sales@securedbyoffense.uk
+    </a>
+  </div>
+</section>
+
+<footer class="py-12 text-center text-xs text-zinc-500 border-t border-zinc-900">
+  <div class="max-w-md mx-auto px-6">
+    © 2026 Secured By Offense UK<br><br>
+    
+    All penetration testing, red team exercises, and offensive security operations are performed exclusively under formal written contracts, signed Rules of Engagement (RoE), and Non-Disclosure Agreements (NDAs). 
+    Activities are conducted in strict accordance with the Computer Misuse Act 1990, the Data Protection Act 2018, GDPR, and all other applicable UK and EU legislation. 
+    No testing is ever undertaken without explicit written authorisation from the client. 
+    This ensures full legal protection for both parties and maintains the highest standards of professional and ethical conduct in the cybersecurity industry.
+  </div>
+</footer>
+
+</body>
+</html>
