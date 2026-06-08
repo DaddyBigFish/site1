@@ -305,19 +305,20 @@ main{padding-top:64px}
 .day-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:0}
 #day-times-container{display:flex;flex-direction:column;margin-top:4px}
 .day-time-row{
-  display:flex;align-items:flex-start;gap:12px;
+  display:flex;align-items:center;gap:12px;
   padding:10px 0;border-bottom:1px solid var(--border);
   animation:slideIn .18s ease;
 }
 .day-time-row:first-child{border-top:1px solid var(--border);margin-top:10px}
 @keyframes slideIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
-.day-time-label{font-size:.78rem;font-weight:700;color:var(--muted);min-width:34px;flex-shrink:0;padding-top:10px}
-.day-time-btns{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;flex:1}
+.day-time-label{font-size:.82rem;font-weight:700;color:var(--muted);min-width:34px;flex-shrink:0}
+.day-time-btns{display:flex;gap:6px;flex:1;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.day-time-btns::-webkit-scrollbar{display:none}
 .day-btn,.time-btn{
   background:var(--bg-3);border:1px solid var(--border);border-radius:6px;
-  padding:9px 4px;font-size:.7rem;font-weight:500;color:var(--muted);
+  padding:10px 0;font-size:.82rem;font-weight:500;color:var(--muted);
   cursor:pointer;transition:all .15s var(--ease);text-align:center;
-  white-space:nowrap;
+  white-space:nowrap;flex:1;min-width:0;
 }
 .day-btn:hover,.time-btn:hover{border-color:var(--border-s);color:var(--text)}
 .day-btn.active,.time-btn.active{background:var(--accent-d);border-color:var(--accent);color:var(--text);font-weight:600}
