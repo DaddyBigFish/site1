@@ -99,9 +99,17 @@ main{padding-top:64px}
   padding:0;min-height:100vh;background:var(--bg);
   display:flex;align-items:center;position:relative;overflow:hidden;
 }
-#hero-canvas{
-  position:absolute;inset:0;width:100%;height:100%;
-  pointer-events:none;opacity:.55;will-change:transform;
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(232,25,44,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 20%, rgba(232,25,44,.05) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 60% 80%, rgba(232,25,44,.04) 0%, transparent 50%);
+  animation:hero-glow 8s ease-in-out infinite alternate;
+}
+@keyframes hero-glow{
+  0%  {opacity:.6;transform:scale(1)}
+  100%{opacity:1;transform:scale(1.05)}
 }
 .hero-inner{
   display:grid;gap:52px;align-items:center;
@@ -204,11 +212,7 @@ main{padding-top:64px}
   transition:background .18s var(--ease);
 }
 .pc:hover{background:var(--bg-3)}
-.pc-label{
-  font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--dim);margin-bottom:14px;
-  display:flex;align-items:center;justify-content:space-between;
-}
+.pc-label{display:none}
 .pc-name{font-size:1.05rem;font-weight:800;color:var(--text);line-height:1.25;margin-bottom:18px}
 .pc-price{
   font-size:clamp(1.8rem,4.5vw,2.6rem);font-weight:900;
@@ -227,15 +231,15 @@ main{padding-top:64px}
   padding:20px 20px 20px 20px;
 }
 .pf-offer-ribbon{
-  position:absolute;top:14px;right:-26px;
-  width:110px;background:var(--accent);color:#fff;
-  text-align:center;font-size:.7rem;font-weight:800;
+  position:absolute;top:34px;right:-63px;
+  width:230px;background:var(--accent);color:#fff;
+  text-align:center;font-size:1.162rem;font-weight:800;
   letter-spacing:.1em;text-transform:uppercase;
-  padding:6px 0;transform:rotate(45deg);
+  padding:8px 0;transform:rotate(45deg);
   pointer-events:none;line-height:1.4;
 }
-.pf-offer-title{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:5px;padding-right:60px}
-.pf-offer-text{font-size:.9rem;color:var(--muted);line-height:1.7;margin:0;padding-right:60px}
+.pf-offer-title{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:5px;padding-right:88px}
+.pf-offer-text{font-size:.9rem;color:var(--muted);line-height:1.7;margin:0;padding-right:88px}
 .pf-divider{border:none;border-top:1px solid var(--border);margin:0}
 .pf-includes{display:flex;flex-direction:column;gap:6px}
 .pf-includes-title{
@@ -247,15 +251,15 @@ main{padding-top:64px}
 }
 .pf-tick{
   display:flex;align-items:center;gap:8px;
-  font-size:.84rem;font-weight:500;color:var(--text);white-space:nowrap;
+  font-size:.84rem;font-weight:500;color:var(--text);
 }
 .pf-tick svg{color:var(--green);flex-shrink:0;width:13px;height:13px}
 .pf-bottom{
   display:flex;flex-direction:column;gap:14px;align-items:flex-start;
 }
 .pf-note{font-size:.8rem;color:var(--dim)}
-@media(min-width:480px){.pf-includes-grid{grid-template-columns:repeat(2,auto);justify-content:start;gap:7px 32px}}
-@media(min-width:760px){.pf-includes-grid{grid-template-columns:repeat(4,auto);gap:7px 32px}}
+@media(min-width:480px){.pf-includes-grid{grid-template-columns:repeat(2,1fr);gap:7px 24px}}
+@media(min-width:760px){.pf-includes-grid{grid-template-columns:repeat(4,1fr);gap:7px 20px}}
 @media(min-width:560px){.pricing-grid{grid-template-columns:repeat(2,1fr)};.pf-offers{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:860px){
   .pf-bottom{flex-direction:row;align-items:center;justify-content:space-between;gap:24px}
@@ -267,10 +271,7 @@ main{padding-top:64px}
 .accred-inner{display:flex;flex-direction:column;align-items:center;gap:40px}
 .accred-img{
   width:clamp(260px,50vw,400px);
-  filter:drop-shadow(0 20px 40px rgba(232,25,44,.18));
-  transition:filter .4s,transform .4s var(--ease2);
 }
-.accred-img:hover{transform:scale(1.04);filter:drop-shadow(0 28px 50px rgba(232,25,44,.3))}
 .accred-body p{max-width:560px;text-align:center}
 
 /* CONTACT FORM */
@@ -410,7 +411,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 
 <!-- HERO -->
 <section class="hero">
-  <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-inner">
     <div>
       <p class="label reveal">Independent UK Cyber Security Consultancy</p>
@@ -771,97 +771,6 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transitionDelay=(i%4*60)+'ms';io.observe(el)});
 </script>
 <script>
-(function(){
-  const canvas = document.getElementById('hero-canvas');
-  if(!canvas) return;
-  const ctx = canvas.getContext('2d');
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    canvas.style.display='none'; return;
-  }
-
-  const ACCENT = '232,25,44';
-  const DIM    = '255,255,255';
-  let W, H, particles, visible = true;
-
-  function isMobile(){ return window.innerWidth < 768; }
-
-  function rand(min,max){ return Math.random()*(max-min)+min; }
-
-  function setup(){
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-    // Lock hero height to avoid mobile browser chrome resize shifts
-    canvas.parentElement.style.height = H + 'px';
-    const count = isMobile() ? 40 : 80;
-    particles = [];
-    for(let i=0;i<count;i++){
-      const isRed = Math.random() < .12;
-      particles.push({
-        x:rand(0,W), y:rand(0,H),
-        vx:rand(-.25,.25), vy:rand(-.25,.25),
-        r:isRed ? rand(1.5,2.5) : rand(1,2),
-        red:isRed,
-        pulse:rand(0,Math.PI*2),
-        pulseSpeed:rand(.008,.02)
-      });
-    }
-  }
-
-  function draw(){
-    if(!visible){ requestAnimationFrame(draw); return; }
-
-    ctx.clearRect(0,0,W,H);
-    const CONNECT = isMobile() ? 110 : 150;
-
-    for(let i=0;i<particles.length;i++){
-      for(let j=i+1;j<particles.length;j++){
-        const a=particles[i], b=particles[j];
-        const dx=a.x-b.x, dy=a.y-b.y;
-        const dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist<CONNECT){
-          ctx.beginPath();
-          ctx.strokeStyle=`rgba(${(a.red||b.red)?ACCENT:DIM},${(1-dist/CONNECT)*.18})`;
-          ctx.lineWidth=.7;
-          ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
-          ctx.stroke();
-        }
-      }
-    }
-
-    particles.forEach(p=>{
-      p.pulse += p.pulseSpeed;
-      const g = p.red ? .55+Math.sin(p.pulse)*.2 : .35+Math.sin(p.pulse)*.1;
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle=`rgba(${p.red?ACCENT:DIM},${p.red?g:g*.7})`;
-      ctx.fill();
-      p.x+=p.vx; p.y+=p.vy;
-      if(p.x<-10)p.x=W+10; if(p.x>W+10)p.x=-10;
-      if(p.y<-10)p.y=H+10; if(p.y>H+10)p.y=-10;
-    });
-
-    requestAnimationFrame(draw);
-  }
-
-  // Pause when hero scrolls out of view
-  new IntersectionObserver(e=>{ visible=e[0].isIntersecting; },{threshold:0})
-    .observe(canvas.parentElement);
-
-  // On mobile, never reinitialise — toolbar show/hide causes resize events
-  // On desktop, only reinitialise if width actually changes
-  let lastW = window.innerWidth;
-  let resizeTimer;
-  window.addEventListener('resize',()=>{
-    if(isMobile()) return;
-    if(window.innerWidth === lastW) return;
-    lastW = window.innerWidth;
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(setup, 200);
-  });
-
-  setup();
-  draw();
-})();
 // Contact form
 (function(){
   const selEnquiry = new Set();
