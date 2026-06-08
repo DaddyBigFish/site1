@@ -168,16 +168,14 @@ main{padding-top:64px}
 .cert-ticker-outer{
   overflow:hidden;width:100%;
   -webkit-mask:linear-gradient(90deg,transparent 0%,#000 0.5%,#000 99.5%,transparent 100%);
-  mask:linear-gradient(90deg,transparent 0%,#000 0.5%,#000 99.5%,transparent 100%);
+  mask:linear-gradient(90deg,transparent 0%,#000 0.33%,#000 99.66%,transparent 100%);
 }
-/* ── Change --logo-size to resize everything at once ── */
 .cert-ticker{
-  --logo-size: 230px;
-  --logo-gap:  0px;
+  --logo-size:225px;
+  --logo-gap:0px;
   display:flex;width:max-content;
-  animation:ticker 28s linear infinite;
+  animation:ticker 17s linear infinite;
 }
-.cert-ticker:hover{animation-play-state:paused}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .cert-badge{
   width:var(--logo-size);height:var(--logo-size);
@@ -187,7 +185,7 @@ main{padding-top:64px}
   transition:border-color .2s var(--ease);
 }
 .cert-badge:hover{border-color:var(--border-s)}
-.cert-badge img{width:100%;object-fit:contain;padding:22px}
+.cert-badge img{width:100%;object-fit:contain;padding:24px}
 
 /* PRICING */
 .pricing-intro{max-width:500px;margin-bottom:52px}
