@@ -302,8 +302,17 @@ main{padding-top:64px}
 }
 .opt-btn:hover{border-color:var(--border-s);color:var(--text)}
 .opt-btn.active{background:var(--accent-d);border-color:var(--accent);color:var(--text);font-weight:600}
-.day-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:12px}
-.time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.day-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:0}
+#day-times-container{display:flex;flex-direction:column;margin-top:4px}
+.day-time-row{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 0;border-bottom:1px solid var(--border);
+  animation:slideIn .18s ease;
+}
+.day-time-row:first-child{border-top:1px solid var(--border);margin-top:10px}
+@keyframes slideIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.day-time-label{font-size:.78rem;font-weight:700;color:var(--muted);min-width:34px;flex-shrink:0}
+.day-time-btns{display:flex;gap:6px;flex-wrap:wrap}
 .day-btn,.time-btn{
   background:var(--bg-3);border:1px solid var(--border);border-radius:6px;
   padding:9px 6px;font-size:.78rem;font-weight:500;color:var(--muted);
@@ -588,16 +597,16 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
         </div>
         <hr class="pf-divider">
         <div class="pf-includes">
-          <div class="pf-includes-title">All Assessments Include</div>
+          <div class="pf-includes-title">Every Engagement Includes</div>
           <div class="pf-includes-grid">
-            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Comprehensive Technical Report</div>
-            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Executive Summary</div>
-            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Risk-Rated Findings &amp; Remediation</div>
-            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Legally Binding Contract &amp; NDA</div>
-            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Fixed-Price Quotations</div>
-            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Weekend Work Included</div>
+            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Technical &amp; Executive Report</div>
+            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Risk Rated Findings and Remediation</div>
+            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Formal Contract &amp; NDA</div>
+            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Fixed Price, No Hidden Costs</div>
+            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>24/7 Working Hours</div>
             <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Direct Consultant Access</div>
-            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-Engagement Support</div>
+            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post Engagement Support</div>
+            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Free Scoping Call</div>
           </div>
         </div>
 
@@ -632,7 +641,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 <!-- CONTACT -->
 <section id="contact" class="contact-section">
   <div class="wrap">
-    <p class="label reveal" style="text-align:center">Contact</p>
+    <p class="label reveal" style="display:block;text-align:center">Contact</p>
     <h2 class="headline reveal" style="text-align:center">Get in Touch</h2>
     <p class="reveal" style="text-align:center">We offer a no-obligation scoping call for all enquiries. Fill in the details below and we will be in touch shortly.</p>
 
@@ -714,15 +723,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
             <button type="button" class="day-btn" data-val="Sat">Sat</button>
             <button type="button" class="day-btn" data-val="Sun">Sun</button>
           </div>
-        </div>
-
-        <div class="form-field" style="margin-bottom:14px">
-          <label>Preferred Times</label>
-          <div class="time-grid">
-            <button type="button" class="time-btn" data-val="Morning (9am-12pm)">Morning</button>
-            <button type="button" class="time-btn" data-val="Afternoon (12pm-5pm)">Afternoon</button>
-            <button type="button" class="time-btn" data-val="Evening (5pm-7pm)">Evening</button>
-          </div>
+          <div id="day-times-container"></div>
         </div>
 
         <div class="form-field">
@@ -783,9 +784,6 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
 (function(){
   const selEnquiry = new Set();
   const selScope   = new Set();
-  const selDays    = new Set();
-  const selTimes   = new Set();
-
   document.querySelectorAll('.opt-btn').forEach(btn=>{
     btn.addEventListener('click',()=>{
       btn.classList.toggle('active');
@@ -794,18 +792,54 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       else set.delete(btn.dataset.val);
     });
   });
+
+  const selDays  = [];
+  const dayTimes = {};
+  const TIMES = ['09:00 – 12:00','12:00 – 15:00','15:00 – 18:00'];
+  const DAYS_ORDER = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  const container = document.getElementById('day-times-container');
+
+  function renderTimeRows(){
+    container.innerHTML = '';
+    DAYS_ORDER.filter(d=>selDays.includes(d)).forEach(day=>{
+      const row = document.createElement('div');
+      row.className = 'day-time-row';
+      const lbl = document.createElement('span');
+      lbl.className = 'day-time-label';
+      lbl.textContent = day;
+      row.appendChild(lbl);
+      const btns = document.createElement('div');
+      btns.className = 'day-time-btns';
+      TIMES.forEach(t=>{
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'time-btn' + (dayTimes[day]?.has(t) ? ' active' : '');
+        b.textContent = t;
+        b.addEventListener('click',()=>{
+          if(!dayTimes[day]) dayTimes[day] = new Set();
+          if(dayTimes[day].has(t)) dayTimes[day].delete(t);
+          else dayTimes[day].add(t);
+          b.classList.toggle('active');
+        });
+        btns.appendChild(b);
+      });
+      row.appendChild(btns);
+      container.appendChild(row);
+    });
+  }
+
   document.querySelectorAll('.day-btn').forEach(btn=>{
     btn.addEventListener('click',()=>{
+      const day = btn.dataset.val;
       btn.classList.toggle('active');
-      if(btn.classList.contains('active')) selDays.add(btn.dataset.val);
-      else selDays.delete(btn.dataset.val);
-    });
-  });
-  document.querySelectorAll('.time-btn').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      btn.classList.toggle('active');
-      if(btn.classList.contains('active')) selTimes.add(btn.dataset.val);
-      else selTimes.delete(btn.dataset.val);
+      if(btn.classList.contains('active')){
+        selDays.push(day);
+        dayTimes[day] = new Set();
+      } else {
+        selDays.splice(selDays.indexOf(day),1);
+        delete dayTimes[day];
+      }
+      renderTimeRows();
     });
   });
 
@@ -817,8 +851,10 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const message = document.getElementById('cf-message').value.trim();
     const enquiry = selEnquiry.size ? Array.from(selEnquiry).join(', ') : 'Not specified';
     const scope   = selScope.size   ? Array.from(selScope).join(', ')   : 'Not specified';
-    const days    = selDays.size    ? Array.from(selDays).join(', ')    : 'No preference';
-    const times   = selTimes.size   ? Array.from(selTimes).join(', ')   : 'No preference';
+    const days = selDays.length ? selDays.map(d=>{
+      const t = dayTimes[d] && dayTimes[d].size ? Array.from(dayTimes[d]).join(', ') : 'Any time';
+      return d + ': ' + t;
+    }).join(' | ') : 'No preference';
 
     const subject = encodeURIComponent('Enquiry: ' + enquiry + (org ? ' - ' + org : ''));
     const body = encodeURIComponent(
@@ -828,8 +864,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       (name  ? 'Name: '          + name  + '\n' : '') +
       (email ? 'Contact Email: ' + email + '\n' : '') +
       (start ? 'Estimated Start: '+ start + '\n' : '') +
-      'Preferred Call Days: '  + days  + '\n' +
-      'Preferred Call Times: ' + times + '\n' +
+      'Preferred Call Days & Times: ' + days + '\n' +
       '\nAdditional Information:\n' + (message || 'None provided') +
       '\n\n---\nSent via securedbyoffense.uk'
     );
