@@ -96,7 +96,7 @@ main{padding-top:64px}
 
 /* HERO */
 .hero{
-  padding:0;min-height:100svh;background:var(--bg);
+  padding:0;min-height:100vh;background:var(--bg);
   display:flex;align-items:center;position:relative;overflow:hidden;
 }
 #hero-canvas{
@@ -175,8 +175,12 @@ main{padding-top:64px}
   --logo-gap:0px;
   display:flex;width:max-content;
   animation:ticker 17s linear infinite;
+  will-change:transform;
 }
-@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes ticker{
+  0%{transform:translate3d(0,0,0)}
+  100%{transform:translate3d(-50%,0,0)}
+}
 .cert-badge{
   width:var(--logo-size);height:var(--logo-size);
   flex-shrink:0;margin-right:var(--logo-gap);
@@ -784,9 +788,10 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   function rand(min,max){ return Math.random()*(max-min)+min; }
 
   function setup(){
-    // Lock size once — never change during scroll
     W = canvas.width  = window.innerWidth;
     H = canvas.height = window.innerHeight;
+    // Lock hero height to avoid mobile browser chrome resize shifts
+    canvas.parentElement.style.height = H + 'px';
     const count = isMobile() ? 40 : 80;
     particles = [];
     for(let i=0;i<count;i++){
@@ -842,9 +847,14 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   new IntersectionObserver(e=>{ visible=e[0].isIntersecting; },{threshold:0})
     .observe(canvas.parentElement);
 
-  // Only reinitialise on true window resize, not scroll
+  // On mobile, never reinitialise — toolbar show/hide causes resize events
+  // On desktop, only reinitialise if width actually changes
+  let lastW = window.innerWidth;
   let resizeTimer;
   window.addEventListener('resize',()=>{
+    if(isMobile()) return;
+    if(window.innerWidth === lastW) return;
+    lastW = window.innerWidth;
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(setup, 200);
   });
