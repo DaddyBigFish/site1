@@ -231,12 +231,14 @@ main{padding-top:64px}
   padding:20px 20px 20px 20px;
 }
 .pf-offer-ribbon{
-  position:absolute;top:34px;right:-63px;
-  width:230px;background:var(--accent);color:#fff;
-  text-align:center;font-size:1.162rem;font-weight:800;
-  letter-spacing:.1em;text-transform:uppercase;
-  padding:8px 0;transform:rotate(45deg);
-  pointer-events:none;line-height:1.4;
+  position:absolute;align-content:end;
+  top:-32px;right:-130px;
+  width:314px;height:110px;margin:auto;
+  background:var(--accent);color:#fff;
+  text-align:center;font-size:1.382rem;font-weight:800;
+  text-transform:uppercase;
+  padding:19px 0;transform:rotate(45deg);
+  pointer-events:none;
 }
 .pf-offer-title{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:5px;padding-right:88px}
 .pf-offer-text{font-size:.9rem;color:var(--muted);line-height:1.7;margin:0;padding-right:88px}
@@ -251,15 +253,16 @@ main{padding-top:64px}
 }
 .pf-tick{
   display:flex;align-items:center;gap:8px;
-  font-size:.84rem;font-weight:500;color:var(--text);
+  font-size:1.14rem;font-weight:500;color:var(--text);
+  white-space:nowrap;
 }
 .pf-tick svg{color:var(--green);flex-shrink:0;width:13px;height:13px}
 .pf-bottom{
   display:flex;flex-direction:column;gap:14px;align-items:flex-start;
 }
 .pf-note{font-size:.8rem;color:var(--dim)}
-@media(min-width:480px){.pf-includes-grid{grid-template-columns:repeat(2,1fr);gap:7px 24px}}
-@media(min-width:760px){.pf-includes-grid{grid-template-columns:repeat(4,1fr);gap:7px 20px}}
+@media(min-width:480px){.pf-includes-grid{grid-template-columns:repeat(2,max-content);justify-content:start;gap:10px 40px}}
+@media(min-width:760px){.pf-includes-grid{grid-template-columns:repeat(4,max-content);justify-content:space-between;gap:10px 0}}
 @media(min-width:560px){.pricing-grid{grid-template-columns:repeat(2,1fr)};.pf-offers{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:860px){
   .pf-bottom{flex-direction:row;align-items:center;justify-content:space-between;gap:24px}
@@ -566,12 +569,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
       <div class="pricing-footer">
         <div class="pf-offers">
           <div class="pf-offer-block">
-            <div class="pf-offer-ribbon">25% OFF</div>
+            <div class="pf-offer-ribbon">-25%</div>
             <div class="pf-offer-title">Multi-Assessment</div>
             <p class="pf-offer-text">Book two or more assessments within a 12-month period and receive 25% off the combined fee. Mention it when you get in touch.</p>
           </div>
           <div class="pf-offer-block">
-            <div class="pf-offer-ribbon">50% OFF</div>
+            <div class="pf-offer-ribbon">-50%</div>
             <div class="pf-offer-title">3-Year Partnership</div>
             <p class="pf-offer-text">Sign a 3-year agreement for your chosen annual assessment and pay 50% of the standard rate, spread across monthly direct debit payments. Contact us to get started.</p>
           </div>
@@ -590,9 +593,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
             <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-Engagement Support</div>
           </div>
         </div>
-        <div class="pf-bottom">
-          <a href="mailto:sales@securedbyoffense.uk" class="btn btn-primary" style="flex-shrink:0">Request a Quotation</a>
-        </div>
+
       </div>
     </div>
 
