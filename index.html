@@ -174,8 +174,10 @@ main{padding-top:64px}
 .cert-ticker:hover{animation-play-state:paused}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-25%)}}
 .cert-badge{
-  width:160px;height:160px;flex-shrink:0;margin-right:20px;
-  background:var(--bg-3);border:1px solid var(--border);border-radius:8px;
+  width:clamp(120px, calc(100vw / 6.5), 160px);
+  height:clamp(120px, calc(100vw / 6.5), 160px);
+  flex-shrink:0;margin-right:20px;
+  background:#ffffff;border:1px solid var(--border);border-radius:8px;
   display:flex;align-items:center;justify-content:center;overflow:hidden;
   transition:border-color .2s var(--ease);
 }
