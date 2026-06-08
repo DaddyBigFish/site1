@@ -1,255 +1,919 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact For A Personalised Quote   -   UK Based Security Consulting   -   securedbyoffense.uk</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<title>Penetration Testing &amp; Cyber Security Audit UK | Cyber Essentials | Secured By Offense</title>
+<meta name="description" content="Secured By Offense — independent UK cyber security consultancy. Penetration testing, cyber security audits, attack path simulation and Cyber Essentials certification. Fixed-price engagements. Contact for a scoped quotation.">
+<meta name="keywords" content="penetration testing UK, cyber security audit, cyber essentials, penetration test, attack path simulation, active directory security, cloud security assessment, Azure penetration testing, AWS security testing, web application penetration testing, network security audit, cyber essentials plus, NCSC cyber security, UK security consultancy">
+<link rel="canonical" href="https://securedbyoffense.uk/">
+<link rel="icon" href="https://securedbyoffense.uk/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  body { font-family: 'Inter', system-ui, sans-serif; }
-  .hero-bg { background: linear-gradient(135deg, #0a0a1f 0%, #111827 100%); }
-
-  /* Nav link styling */
-  nav a {
-    font-size: 1.125rem;
-    font-weight: 400;
-  }
-  /* Larger logo */
-  .h-11 {
-    height: 6.75rem !important;
-  }
-  /* Badge styling */
-  .badge-container {
-    box-shadow: 0px 0px 0px 4px rgb(95 178 134),
-                0 25px 50px -12px rgb(0 0 0 / 40%);
-    border-radius: 7rem;
-  }
-  .badge-inner {
-    padding: 5px 30px 5px 30px;
-    background: #0a0e18;
-    border-radius: 7em;
-  }
-  .py-5 {
-    padding-top: .45rem !important;
-    padding-bottom: .45rem !important;
-  }
-.cert-logo {
-    width: 130px;
-    height: auto;
-    object-fit: contain;
-    flex-shrink: 0;
-    border-radius: 25px;
-  }
-  p.uppercase.tracking-widest.text-emerald-400.text-sm {
-    font-size: 1.5em;
-    font-weight: 200;
+:root{
+  --bg:#0b0b0d;--bg-1:#111114;--bg-2:#17171b;--bg-3:#1e1e23;
+  --border:rgba(255,255,255,.09);--border-s:rgba(255,255,255,.16);
+  --text:#eeeef0;--muted:#9898a6;--dim:#5a5a68;
+  --accent:#e8192c;--accent-d:rgba(232,25,44,.12);
+  --green:#22c55e;
+  --ease:cubic-bezier(.25,.46,.45,.94);--ease2:cubic-bezier(.16,1,.3,1);
+  --maxw:1100px;
 }
-footer .max-w-md {
-    max-width: 60rem;
-  }
-</style>
-</head>
-<body class="bg-zinc-950 text-zinc-200">
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;font-size:18px}
+body{
+  font-family:'Geist',system-ui,sans-serif;
+  background:var(--bg);color:var(--text);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-weight:800;letter-spacing:-.025em;line-height:1.12;color:var(--text)}
+.display{font-size:clamp(2.4rem,8vw,4.8rem);letter-spacing:-.03em;line-height:1.04}
+.headline{font-size:clamp(1.8rem,4.5vw,2.8rem)}
+.label{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+p{color:var(--muted);line-height:1.85;font-size:1rem}
+.lead{font-size:clamp(1rem,2.5vw,1.15rem);line-height:1.8}
 
-<!-- NAV -->
-<nav class="fixed top-0 w-full bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800 z-50">
-  <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
-    <div class="flex items-center gap-3">
-      <img src="logo.svg" alt="Secured By Offense" class="h-11">
-    </div>
-    <div class="flex gap-10 text-sm font-medium">
-      <a href="#about" class="hover:text-emerald-400 transition">About</a>
-      <a href="#services" class="hover:text-emerald-400 transition">Services</a>
-      <a href="#certs" class="hover:text-emerald-400 transition">Certifications</a>
-      <a href="#pricing" class="hover:text-emerald-400 transition">Pricing</a>
-      <a href="#badge" class="hover:text-emerald-400 transition">Client Accreditation</a>
-      <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
-    </div>
+/* BUTTONS */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:'Geist',sans-serif;font-weight:600;font-size:.95rem;
+  padding:13px 26px;border-radius:4px;min-height:48px;cursor:pointer;white-space:nowrap;
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .15s,border-color .15s;
+}
+.btn svg{flex-shrink:0;transition:transform .2s var(--ease2)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+.btn-primary:hover{background:#c8102e;border-color:#c8102e;transform:translateY(-2px);box-shadow:0 12px 32px rgba(232,25,44,.3)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border-s)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
+
+/* HEADER */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:80;height:64px;
+  background:rgba(11,11,13,.85);
+  backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);
+  border-bottom:1px solid var(--border);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:100%}
+.brand-svg{width:126px;height:auto;display:block}
+.footer-brand-svg{width:160px;height:auto;display:block}
+.nav-links{display:none;align-items:center;gap:1px}
+.nav-links a{font-size:.88rem;font-weight:500;color:var(--muted);padding:7px 14px;border-radius:6px;transition:color .15s,background .15s}
+.nav-links a:hover{color:var(--text);background:var(--bg-2)}
+.nav-cta{display:none}
+.burger{
+  background:none;border:1px solid var(--border-s);border-radius:6px;cursor:pointer;
+  width:42px;height:42px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+}
+.burger span{display:block;width:18px;height:2px;background:var(--text);border-radius:2px;transition:.26s var(--ease)}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{
+  position:fixed;top:64px;left:0;right:0;z-index:70;
+  background:rgba(17,17,20,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);padding:8px 20px 24px;
+  opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);
+  transition:opacity .25s var(--ease),transform .25s var(--ease),visibility .25s;
+}
+.mobile-menu.open{opacity:1;visibility:visible;pointer-events:all;transform:translateY(0)}
+.mobile-menu a{display:flex;align-items:center;gap:14px;padding:14px 4px;font-size:1rem;font-weight:500;color:var(--text);border-bottom:1px solid var(--border)}
+.mobile-menu a:last-of-type{border:none}
+.mm-num{font-size:.8rem;font-weight:700;color:var(--dim);letter-spacing:.08em;width:20px}
+.mm-cta{margin-top:16px}
+.mm-cta .btn{width:100%;justify-content:center;border-radius:4px}
+
+/* SECTIONS */
+section{padding:112px 0;scroll-margin-top:64px}
+section.s1{background:var(--bg)}
+section.s2{background:var(--bg-1)}
+main{padding-top:64px}
+
+/* HERO */
+.hero{
+  padding:0;min-height:100svh;background:var(--bg);
+  display:flex;align-items:center;position:relative;overflow:hidden;
+}
+#hero-canvas{
+  position:absolute;inset:0;width:100%;height:100%;
+  pointer-events:none;opacity:.55;will-change:transform;
+}
+.hero-inner{
+  display:grid;gap:52px;align-items:center;
+  padding:120px 24px 100px;max-width:var(--maxw);margin:0 auto;width:100%;
+  position:relative;z-index:1;
+}
+.hero h1{margin-bottom:24px}
+.hero h1 em{color:var(--accent);font-style:normal}
+.hero-lead{max-width:500px;margin-bottom:36px}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
+.hero-img{display:none;position:relative}
+.hero-img img{
+  width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top center;
+  border-radius:4px;border:1px solid var(--border);
+  box-shadow:0 40px 80px rgba(0,0,0,.55);
+}
+.hero-chip{
+  position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);
+  background:var(--bg-2);border:1px solid var(--border-s);border-radius:4px;
+  padding:10px 18px;white-space:nowrap;display:flex;align-items:center;gap:9px;
+  font-size:.85rem;font-weight:600;color:var(--text);box-shadow:0 8px 24px rgba(0,0,0,.4);
+}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pulse 2.2s ease infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}60%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+
+/* STATS */
+.stats{padding:0;background:var(--bg-1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr)}
+.stat{padding:30px 20px;text-align:center;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat:nth-child(2n){border-right:none}
+.stat:nth-child(3),.stat:nth-child(4){border-bottom:none}
+.stat-val{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:900;letter-spacing:-.03em;color:var(--text);line-height:1}
+.stat-lbl{font-size:.78rem;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:6px}
+
+/* ABOUT */
+.about-grid{display:grid;gap:44px;align-items:center}
+.about-photo{position:relative;border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.about-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center}
+.about-tag{
+  position:absolute;bottom:16px;left:16px;
+  background:rgba(11,11,13,.82);backdrop-filter:blur(10px);
+  border:1px solid var(--border-s);border-radius:4px;
+  padding:7px 14px;font-size:.86rem;font-weight:600;color:var(--text);
+}
+.about-body h2{margin-bottom:22px}
+.about-body p{margin-bottom:18px}
+.about-body p:last-of-type{margin-bottom:36px}
+
+/* SERVICES */
+.services-grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.svc{
+  background:var(--bg-2);padding:32px 28px;
+  transition:background .2s var(--ease);
+  position:relative;
+}
+.svc:hover{background:var(--bg-3)}
+.svc-num{font-size:.8rem;font-weight:700;color:var(--dim);letter-spacing:.1em;margin-bottom:16px}
+.svc h3{font-size:1.15rem;font-weight:800;margin-bottom:10px;color:var(--text);line-height:1.3}
+.svc p{font-size:.95rem;color:var(--muted);line-height:1.7}
+
+/* CERTIFICATIONS TICKER */
+.cert-head{text-align:center;margin-bottom:52px}
+.cert-head h2{margin-bottom:0}
+.cert-ticker-outer{
+  overflow:hidden;
+  -webkit-mask:linear-gradient(90deg,transparent 0%,#000 10%,#000 90%,transparent 100%);
+  mask:linear-gradient(90deg,transparent 0%,#000 10%,#000 90%,transparent 100%);
+}
+.cert-ticker{display:flex;width:max-content;animation:ticker 30s linear infinite}
+.cert-ticker:hover{animation-play-state:paused}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.cert-badge{
+  width:110px;height:110px;flex-shrink:0;margin-right:16px;
+  background:var(--bg-3);border:1px solid var(--border);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  transition:border-color .2s var(--ease);
+}
+.cert-badge:hover{border-color:var(--border-s)}
+
+/* PRICING */
+.pricing-intro{max-width:500px;margin-bottom:52px}
+.pricing-intro h2{margin-bottom:16px}
+.pricing-panel{
+  border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;background:var(--border);
+}
+.pricing-grid{display:grid;gap:1px}
+.pc{
+  background:var(--bg-2);padding:36px 32px;
+  transition:background .18s var(--ease);
+}
+.pc:hover{background:var(--bg-3)}
+.pc-label{
+  font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:14px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.pc-name{font-size:1.05rem;font-weight:800;color:var(--text);line-height:1.25;margin-bottom:18px}
+.pc-price{
+  font-size:clamp(1.8rem,4.5vw,2.6rem);font-weight:900;
+  letter-spacing:-.035em;color:var(--text);line-height:1;
+}
+.pc-duration{font-size:.78rem;color:var(--dim);margin-top:8px;margin-bottom:20px}
+.pc-desc{font-size:.9rem;color:var(--muted);line-height:1.75}
+.pricing-footer{
+  background:var(--bg-2);border-top:1px solid var(--border);
+  padding:32px 32px 36px;display:flex;flex-direction:column;gap:24px;
+}
+.pf-offers{display:grid;gap:12px}
+.pf-offer-block{
+  position:relative;overflow:hidden;
+  border:1px solid var(--border);border-radius:8px;
+  padding:20px 20px 20px 20px;
+}
+.pf-offer-ribbon{
+  position:absolute;top:14px;right:-26px;
+  width:110px;background:var(--accent);color:#fff;
+  text-align:center;font-size:.7rem;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:6px 0;transform:rotate(45deg);
+  pointer-events:none;line-height:1.4;
+}
+.pf-offer-title{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:5px;padding-right:60px}
+.pf-offer-text{font-size:.9rem;color:var(--muted);line-height:1.7;margin:0;padding-right:60px}
+.pf-divider{border:none;border-top:1px solid var(--border);margin:0}
+.pf-includes{display:flex;flex-direction:column;gap:6px}
+.pf-includes-title{
+  font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:12px;
+}
+.pf-includes-grid{
+  display:grid;grid-template-columns:1fr;gap:7px;
+}
+.pf-tick{
+  display:flex;align-items:center;gap:8px;
+  font-size:.84rem;font-weight:500;color:var(--text);white-space:nowrap;
+}
+.pf-tick svg{color:var(--green);flex-shrink:0;width:13px;height:13px}
+.pf-bottom{
+  display:flex;flex-direction:column;gap:14px;align-items:flex-start;
+}
+.pf-note{font-size:.8rem;color:var(--dim)}
+@media(min-width:480px){.pf-includes-grid{grid-template-columns:repeat(2,auto);justify-content:start;gap:7px 32px}}
+@media(min-width:760px){.pf-includes-grid{grid-template-columns:repeat(4,auto);gap:7px 32px}}
+@media(min-width:560px){.pricing-grid{grid-template-columns:repeat(2,1fr)};.pf-offers{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:860px){
+  .pf-bottom{flex-direction:row;align-items:center;justify-content:space-between;gap:24px}
+}
+
+/* ACCREDITATION */
+.accred-head{text-align:center;margin-bottom:52px}
+.accred-head h2{margin-bottom:0}
+.accred-inner{display:flex;flex-direction:column;align-items:center;gap:40px}
+.accred-img{
+  width:clamp(260px,50vw,400px);
+  filter:drop-shadow(0 20px 40px rgba(232,25,44,.18));
+  transition:filter .4s,transform .4s var(--ease2);
+}
+.accred-img:hover{transform:scale(1.04);filter:drop-shadow(0 28px 50px rgba(232,25,44,.3))}
+.accred-body p{max-width:560px;text-align:center}
+
+/* CONTACT FORM */
+.contact-section{background:var(--bg-1);border-top:1px solid var(--border);padding:72px 0}
+.contact-section h2{margin-bottom:12px}
+.contact-section > .wrap > p{max-width:480px;margin:0 auto 36px}
+.contact-form{max-width:680px;margin:0 auto}
+.form-section{padding:24px 0;border-top:1px solid var(--border)}
+.form-section:first-child{border-top:none;padding-top:0}
+.form-section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:16px}
+.form-section-num{font-size:.7rem;font-weight:700;letter-spacing:.1em;color:var(--dim)}
+.form-section-title{font-size:.88rem;font-weight:700;color:var(--text)}
+.opt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:4px}
+.opt-btn{
+  background:var(--bg-3);border:1px solid var(--border);border-radius:6px;
+  padding:10px 14px;font-size:.84rem;font-weight:500;color:var(--muted);
+  cursor:pointer;transition:all .15s var(--ease);text-align:left;
+}
+.opt-btn:hover{border-color:var(--border-s);color:var(--text)}
+.opt-btn.active{background:var(--accent-d);border-color:var(--accent);color:var(--text);font-weight:600}
+.day-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:12px}
+.time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.day-btn,.time-btn{
+  background:var(--bg-3);border:1px solid var(--border);border-radius:6px;
+  padding:9px 6px;font-size:.78rem;font-weight:500;color:var(--muted);
+  cursor:pointer;transition:all .15s var(--ease);text-align:center;
+}
+.day-btn:hover,.time-btn:hover{border-color:var(--border-s);color:var(--text)}
+.day-btn.active,.time-btn.active{background:var(--accent-d);border-color:var(--accent);color:var(--text);font-weight:600}
+.form-row{display:grid;gap:12px;margin-bottom:12px}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field label{font-size:.76rem;font-weight:600;color:var(--muted);letter-spacing:.02em}
+.form-input,.form-select,.form-textarea{
+  background:var(--bg-3);border:1px solid var(--border);border-radius:6px;
+  color:var(--text);font-family:'Geist',system-ui,sans-serif;font-size:.9rem;
+  padding:10px 14px;width:100%;transition:border-color .15s var(--ease);
+  -webkit-appearance:none;
+}
+.form-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235a5a68' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;cursor:pointer}
+.form-select option{background:var(--bg-2)}
+.form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:var(--accent)}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--dim)}
+.form-textarea{resize:vertical;min-height:80px;line-height:1.6}
+.form-submit{width:100%;margin-top:20px;justify-content:center;font-size:.95rem;padding:14px}
+@media(min-width:560px){
+  .form-row{grid-template-columns:1fr 1fr}
+  .opt-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38px}
+.footer-top{display:flex;flex-direction:column;gap:20px;margin-bottom:28px}
+.footer-brand{display:flex;align-items:center}
+.footer-nav{display:flex;flex-wrap:wrap;gap:5px 18px}
+.footer-nav a{font-size:.85rem;color:var(--muted);transition:color .15s}
+.footer-nav a:hover{color:var(--text)}
+.footer-rule{border:none;border-top:1px solid var(--border);margin-bottom:22px}
+.footer-legal{font-size:.78rem;line-height:1.8;color:var(--dim);max-width:740px;margin-bottom:22px}
+.footer-bottom{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+.footer-copy{font-size:.78rem;color:var(--dim)}
+.footer-meta{display:flex;gap:16px}
+.footer-meta a{font-size:.76rem;color:var(--dim);transition:color .15s}
+.footer-meta a:hover{color:var(--muted)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease2),transform .7s var(--ease2)}
+.reveal.in{opacity:1;transform:none}
+.reveal-up{opacity:0;transform:translateY(8px);transition:opacity .55s var(--ease2),transform .55s var(--ease2)}
+.reveal-up.in{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(min-width:560px){
+  .stats-grid{grid-template-columns:repeat(4,1fr)}
+  .stat{border-bottom:none}
+  .stat:nth-child(2n){border-right:1px solid var(--border)}
+  .stat:nth-child(4){border-right:none}
+}
+@media(min-width:720px){
+  .wrap{padding:0 40px}
+  .about-grid{grid-template-columns:.85fr 1.15fr;gap:60px}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .accred-inner{flex-direction:column;align-items:center}
+}
+@media(min-width:860px){
+  .burger{display:none}
+  .nav-links{display:flex}
+  .nav-cta{display:inline-flex}
+  .hero-inner{grid-template-columns:1fr .65fr;gap:64px;padding:140px 40px 120px}
+  .hero-img{display:block}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal,.reveal-up{opacity:1;transform:none}
+  .cert-ticker{animation:none}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://securedbyoffense.uk","name":"Secured By Offense","description":"Independent UK cyber security consultancy providing penetration testing, cyber security audits, attack path simulation, and Cyber Essentials certification support.","url":"https://securedbyoffense.uk","email":"sales@securedbyoffense.uk","areaServed":{"@type":"Country","name":"United Kingdom"},"knowsAbout":["Penetration Testing","Cyber Security Audit","Cyber Essentials","Attack Path Simulation","Attack Path Simulation","Cloud Security Assessment","Azure Security","AWS Security","Internal Infrastructure Assessment","Web Application Security Testing","Network Security Assessment"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a penetration test?","acceptedAnswer":{"@type":"Answer","text":"A penetration test is an authorised, simulated attack conducted by a qualified consultant to identify exploitable vulnerabilities in your systems, applications, or network. The objective is to find weaknesses before adversaries do, and to deliver prioritised remediation guidance."}},{"@type":"Question","name":"What is a cyber security audit?","acceptedAnswer":{"@type":"Answer","text":"A cyber security audit is a structured assessment of an organisation's IT infrastructure and security controls, evaluated against recognised frameworks. It identifies technical weaknesses, misconfigurations, and compliance gaps."}},{"@type":"Question","name":"What is Cyber Essentials?","acceptedAnswer":{"@type":"Answer","text":"Cyber Essentials is a UK government-backed certification scheme developed by the NCSC. It covers five technical controls and is mandatory for many public sector and government supply chain contracts. Two levels exist: Cyber Essentials (self-assessed) and Cyber Essentials Plus (independently verified)."}},{"@type":"Question","name":"How much does a penetration test cost in the UK?","acceptedAnswer":{"@type":"Answer","text":"UK penetration test fees vary by scope. All engagements are priced at a fixed day rate from £1,350. Web application tests typically range from £4,000 to £9,500. External network assessments from £4,000 to £7,000. Attack path simulation engagements from £10,500 to £19,000. Fixed-price quotations are provided following a scoping call."}}]}]}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top">
+      <svg class="brand-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="12 -4 254 92" aria-label="Secured By Offense">
+        <path stroke-linejoin="round" stroke-width="8" stroke="#e8192c" fill="#1e1e23" d="M38 15 L65 8 L92 15 L92 42 Q92 62 65 73 Q38 62 38 42 Z"/>
+        <path fill-opacity="0.18" fill="#e8192c" d="M48 22 L65 17 L82 22 L82 40 Q82 53 65 60 Q48 53 48 40 Z"/>
+        <polyline points="53,39 62,48 77,30" stroke="#e8192c" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <text fill="#9898a6" font-weight="600" font-size="27" font-family="Geist,system-ui,sans-serif" y="39" x="105">Secured By</text>
+        <text fill="#eeeef0" font-weight="800" font-size="27" font-family="Geist,system-ui,sans-serif" y="67" x="105">OFFENSE</text>
+      </svg>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#pricing">Fees</a>
+      <a href="#accreditation">Accreditation</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary nav-cta" style="padding:10px 20px;min-height:38px;font-size:.85rem;border-radius:4px">Contact Us</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-</nav>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#about"><span class="mm-num">01</span>About</a>
+    <a href="#services"><span class="mm-num">02</span>Services</a>
+    <a href="#certifications"><span class="mm-num">03</span>Certifications</a>
+    <a href="#pricing"><span class="mm-num">04</span>Fees</a>
+    <a href="#accreditation"><span class="mm-num">05</span>Accreditation</a>
+    <div class="mm-cta"><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+  </nav>
+</header>
+
+<main>
 
 <!-- HERO -->
-<section class="hero-bg min-h-screen flex items-center pt-20">
-  <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center">
+<section class="hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-inner">
     <div>
-      <p class="uppercase tracking-widest text-emerald-400 text-sm">UK Based Security Consulting</p>
-      <h1 class="text-6xl md:text-7xl font-bold leading-tight mt-6">Penetration Testing &amp; Red Team Operations</h1>
-      <p class="mt-8 text-xl text-zinc-400">As an independent security consultant I deliver detailed, real-world penetration testing and red team exercises to help organisations identify and reduce cyber risk.</p>
-      <div class="mt-12">
-        <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
-                class="bg-emerald-500 hover:bg-emerald-400 text-black px-10 py-4 rounded-2xl font-semibold text-lg transition">
-          Discuss an Engagement
-        </button>
+      <p class="label reveal">Independent UK Cyber Security Consultancy</p>
+      <h1 class="display reveal">Penetration Testing &amp; <em>Attack Path</em> Simulation</h1>
+      <p class="lead hero-lead reveal">We test your defences the way an attacker would, identifying exploitable weaknesses before they are found by others. Every engagement is formally scoped, contracted, and delivered with clear findings that technical and executive audiences can act on.</p>
+      <div class="hero-btns reveal">
+        <a href="#contact" class="btn btn-primary">
+          Contact Us
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#services" class="btn btn-ghost">Our Services</a>
       </div>
     </div>
-    <div class="relative">
-      <img src="photo.jpg" class="rounded-3xl shadow-2xl border border-zinc-700 w-full" alt="Profile">
+    <div class="hero-img reveal">
+      <img src="https://securedbyoffense.uk/photo.jpg" alt="Secured By Offense UK cyber security consultant" onerror="this.parentElement.style.display='none'">
+      <div class="hero-chip">
+        <span class="live-dot"></span>
+        All engagements formally contracted
+      </div>
     </div>
   </div>
 </section>
 
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap" style="padding:0">
+    <div class="stats-grid">
+      <div class="stat reveal-up"><div class="stat-val">6+</div><div class="stat-lbl">Certifications</div></div>
+      <div class="stat reveal-up"><div class="stat-val">100%</div><div class="stat-lbl">Authorised</div></div>
+      <div class="stat reveal-up"><div class="stat-val">UK</div><div class="stat-lbl">Based</div></div>
+      <div class="stat reveal-up"><div class="stat-val">CMA</div><div class="stat-lbl">Compliant</div></div>
+    </div>
+  </div>
+</div>
+
 <!-- ABOUT -->
-<section id="about" class="py-24 border-t border-zinc-800 bg-zinc-950">
-  <div class="max-w-4xl mx-auto px-8 text-center">
-    <h2 class="text-4xl font-semibold mb-10">About Secured By Offense</h2>
-    <p class="text-lg leading-relaxed text-zinc-400">
-      I am a UK-based security consultant specialising in authorised penetration testing and red team operations.
-      I work with organisations of all sizes to identify vulnerabilities through realistic attack simulation and provide actionable recommendations to strengthen their security posture.
-    </p>
+<section id="about" class="s2">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <img src="https://securedbyoffense.uk/photo.jpg" alt="Secured By Offense independent cyber security consultant United Kingdom" onerror="this.parentElement.style.display='none'">
+        <span class="about-tag">United Kingdom</span>
+      </div>
+      <div class="about-body">
+        <p class="label reveal">About</p>
+        <h2 class="headline reveal">Secured By Offense</h2>
+        <p class="reveal">Secured By Offense is an independent cyber security consultancy based in the United Kingdom. We provide penetration testing, cyber security audits, attack path simulation, and Cyber Essentials certification support to organisations across the private and public sectors.</p>
+        <p class="reveal">Our work is grounded in current offensive security techniques and aligned to NCSC guidance and recognised industry frameworks. All findings are documented with risk ratings and practical recommendations, structured to be understood at board level and acted upon by technical teams.</p>
+        <p class="reveal">Every engagement is governed by a formal written contract, signed Rules of Engagement, and a Non-Disclosure Agreement, providing legal certainty for both parties from the outset.</p>
+        <a href="#contact" class="btn btn-primary reveal">
+          Get in Touch
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="py-24 bg-zinc-900">
-  <div class="max-w-7xl mx-auto px-8">
-    <h2 class="text-4xl font-semibold text-center mb-16">Services</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-zinc-950 p-10 rounded-3xl border border-zinc-800 hover:border-emerald-500/30 transition">
-        <h3 class="text-xl font-semibold mb-4">Web Application &amp; API Testing</h3>
-        <p class="text-zinc-400">Comprehensive manual testing of web applications and APIs.</p>
+<section id="services" class="s1">
+  <div class="wrap">
+    <div style="max-width:560px;margin-bottom:48px">
+      <p class="label reveal">Services</p>
+      <h2 class="headline reveal">What We Do</h2>
+      <p class="reveal">We work across the full spectrum of offensive security, from government-backed certification through to complex adversary simulation.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc reveal">
+        <div class="svc-num">01</div>
+        <h3>Web Application &amp; API</h3>
+        <p>Manual penetration testing of web applications and APIs conducted in accordance with OWASP methodology. The assessment identifies authentication weaknesses, injection vulnerabilities, business logic flaws, and access control failures beyond the reach of automated scanning. Findings are delivered with full technical detail, risk ratings, and prioritised remediation steps.</p>
       </div>
-      <div class="bg-zinc-950 p-10 rounded-3xl border border-zinc-800 hover:border-emerald-500/30 transition">
-        <h3 class="text-xl font-semibold mb-4">Network &amp; Infrastructure Testing</h3>
-        <p class="text-zinc-400">External, internal, and Active Directory assessments.</p>
+      <div class="svc reveal">
+        <div class="svc-num">02</div>
+        <h3>Internal Infrastructure Assessment</h3>
+        <p>Assessment of services and software running within a specified network range. Domain credentials are not required but can be provided to assess from both an authenticated and unauthenticated perspective. Covers vulnerability identification, service misconfiguration, and exposure across the internal network, delivering a risk-rated findings report.</p>
       </div>
-      <div class="bg-zinc-950 p-10 rounded-3xl border border-zinc-800 hover:border-emerald-500/30 transition">
-        <h3 class="text-xl font-semibold mb-4">Red Team Operations</h3>
-        <p class="text-zinc-400">Realistic adversary emulation exercises.</p>
+      <div class="svc reveal">
+        <div class="svc-num">03</div>
+        <h3>Attack Path Simulation</h3>
+        <p>A fully comprehensive infrastructure assessment with all systems within scope. Conducted from a position of provided credentials or a provisioned corporate device, the engagement tests every viable attack path across on-premise and cloud environments, including Azure, AWS, and GCP. Each path leading to a defined objective, typically administrative access to a system, is documented in full, producing a structured record of exploitable routes through your environment.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-num">04</div>
+        <h3>Cyber Essentials Certification</h3>
+        <p>Structured preparation for Cyber Essentials and Cyber Essentials Plus certification. The NCSC-backed scheme is a requirement across many public sector and supply chain contracts. We conduct a gap assessment against the five technical control areas, provide remediation guidance for identified weaknesses, and carry out a pre-submission review to support first-time certification.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CERTIFICATIONS -->
-<section id="certs" class="py-24 bg-zinc-950 border-t border-zinc-800">
-  <div class="max-w-7xl mx-auto px-8">
-    <h2 class="text-4xl font-semibold text-center mb-16">Certifications</h2>
-    <div class="grid md:grid-cols-2 gap-8">
-
-      <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-700 flex gap-6 items-start">
-        <img src="logos/portswigger.jpg" class="cert-logo" alt="BSCP">
-        <div>
-          <p class="font-semibold text-emerald-400">Burp Suite Certified Practitioner (BSCP)</p>
-          <p class="text-sm text-zinc-500">PortSwigger</p>
-          <p class="mt-3 text-zinc-400">Advanced certification demonstrating expert-level skills in web application security testing, including multi-stage exploitation of complex vulnerabilities such as IDOR, stored XSS, OS command injection, and SQL injection.</p>
-        </div>
-      </div>
-
-      <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-700 flex gap-6 items-start">
-        <img src="logos/zeropoint.jpg" class="cert-logo" alt="CRTO">
-        <div>
-          <p class="font-semibold text-emerald-400">Certified Red Team Operator (CRTO)</p>
-          <p class="text-sm text-zinc-500">Zero-Point Security</p>
-          <p class="mt-3 text-zinc-400">Advanced red team certification focused on real-world enterprise Active Directory attacks, Cobalt Strike operations, lateral movement, persistence, and privilege escalation techniques.</p>
-        </div>
-      </div>
-
-      <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-700 flex gap-6 items-start">
-        <img src="logos/hackthebox.jpg" class="cert-logo" alt="HackTheBox">
-        <div>
-          <p class="font-semibold text-emerald-400">Pro Labs</p>
-          <p class="text-sm text-zinc-500">HackTheBox</p>
-          <p class="mt-3 text-zinc-400">Advanced practical training in real-world Active Directory environments, covering enumeration, lateral movement, persistence, and privilege escalation in complex enterprise networks.</p>
-        </div>
-      </div>
-
-      <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-700 flex gap-6 items-start">
-        <img src="logos/cyberscheme.jpg" class="cert-logo" alt="CSTM">
-        <div>
-          <p class="font-semibold text-emerald-400">Cyber Scheme Team Member (CSTM)</p>
-          <p class="text-sm text-zinc-500">The Cyber Scheme</p>
-          <p class="mt-3 text-zinc-400">NCSC-recognised UK certification covering penetration testing fundamentals across network infrastructure and web applications.</p>
-        </div>
-      </div>
-
-      <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-700 flex gap-6 items-start">
-        <img src="logos/ine.jpg" class="cert-logo" alt="eJPT">
-        <div>
-          <p class="font-semibold text-emerald-400">Junior Penetration Tester (eJPT)</p>
-          <p class="text-sm text-zinc-500">INE Security</p>
-          <p class="mt-3 text-zinc-400">Practical entry-level certification validating hands-on skills in network and web penetration testing.</p>
-        </div>
-      </div>
-
-      <div class="bg-zinc-900 p-8 rounded-3xl border border-zinc-700 flex gap-6 items-start">
-        <img src="logos/comptia.jpg" class="cert-logo" alt="CompTIA">
-        <div>
-          <p class="font-semibold text-emerald-400">CompTIA Security+</p>
-          <p class="text-sm text-zinc-500">CompTIA</p>
-          <p class="mt-3 text-zinc-400">Vendor-neutral certification covering core cybersecurity principles, risk management, and best practices.</p>
-        </div>
-      </div>
-
+<section id="certifications" class="s2">
+  <div class="wrap">
+    <div class="cert-head reveal">
+      <p class="label">Certified</p>
+      <h2 class="headline">Our Credentials</h2>
+    </div>
+  </div>
+  <div class="cert-ticker-outer">
+    <div class="cert-ticker">
+      <div class="cert-badge"></div>
+      <div class="cert-badge"></div>
+      <div class="cert-badge"></div>
+      <div class="cert-badge"></div>
+      <div class="cert-badge"></div>
+      <div class="cert-badge"></div>
+      <div class="cert-badge"></div>
+      <div class="cert-badge"></div>
+      <div class="cert-badge"></div>
+      <div class="cert-badge"></div>
+      <div class="cert-badge"></div>
+      <div class="cert-badge"></div>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
-<section id="pricing" class="py-24 bg-zinc-900">
-  <div class="max-w-7xl mx-auto px-8">
-    <h2 class="text-4xl font-semibold text-center mb-4">Typical Engagement Costs</h2>
-    <p class="text-center text-zinc-400 mb-16 max-w-2xl mx-auto">
-      All pricing is indicative and based on typical scope. A fixed price quotation will be provided following an initial scoping call.
-    </p>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-zinc-950 p-10 rounded-3xl border border-zinc-700 hover:border-emerald-500/30 transition">
-        <h3 class="text-2xl font-semibold text-emerald-400 mb-2">Web Application Test</h3>
-        <p class="text-4xl font-bold mb-6">£3,500 – £9,500</p>
-        <p class="text-zinc-400">Typical engagement covering external web applications and APIs.</p>
+<section id="pricing" class="s1">
+  <div class="wrap">
+    <div class="pricing-intro">
+      <p class="label reveal">Fees</p>
+      <h2 class="headline reveal">Engagement Fees</h2>
+      <p class="reveal">All engagements are priced at a fixed day rate. Indicative fees based on typical engagement duration. A fixed-price quotation follows every scoping discussion.</p>
+    </div>
+
+    <div class="pricing-panel reveal">
+      <div class="pricing-grid">
+
+        <div class="pc">
+          <div class="pc-label">NCSC Scheme</div>
+          <div class="pc-name">Cyber Essentials</div>
+          <div class="pc-price">£800 – £2,500</div>
+          <div class="pc-duration">Per engagement · 1 – 2 weeks</div>
+          <p class="pc-desc">Gap assessment against the five NCSC technical controls, remediation guidance for identified weaknesses, and a pre-submission review for both CE and CE Plus pathways.</p>
+        </div>
+
+        <div class="pc">
+          <div class="pc-label">Web &amp; API</div>
+          <div class="pc-name">Web Application &amp; API</div>
+          <div class="pc-price">£3,300 – £5,500</div>
+          <div class="pc-duration">3 – 5 days · from £1,100 per day</div>
+          <p class="pc-desc">Manual OWASP-aligned testing of web applications and APIs, with a full technical report, executive summary, and risk-rated remediation guidance.</p>
+        </div>
+
+        <div class="pc">
+          <div class="pc-label">Internal Network</div>
+          <div class="pc-name">Internal Infrastructure Assessment</div>
+          <div class="pc-price">£6,000 – £8,400</div>
+          <div class="pc-duration">5 – 7 days · from £1,200 per day</div>
+          <p class="pc-desc">Assessment of services and software within a specified network range, conducted from an unauthenticated or authenticated perspective, with a risk-rated technical report.</p>
+        </div>
+
+        <div class="pc">
+          <div class="pc-label">Attack Simulation</div>
+          <div class="pc-name">Attack Path Simulation</div>
+          <div class="pc-price">£21,000 – £42,000</div>
+          <div class="pc-duration">15 – 30 days · from £1,400 per day</div>
+          <p class="pc-desc">Fully comprehensive assessment of on-premise and cloud infrastructure with all systems in scope. Every attack path leading to administrator-level access is enumerated and documented, covering Azure, AWS, and GCP. Includes post-engagement debrief.</p>
+        </div>
+
       </div>
-      <div class="bg-zinc-950 p-10 rounded-3xl border border-zinc-700 hover:border-emerald-500/30 transition">
-        <h3 class="text-2xl font-semibold text-emerald-400 mb-2">External Network Test</h3>
-        <p class="text-4xl font-bold mb-6">£2,800 – £7,500</p>
-        <p class="text-zinc-400">Perimeter and external infrastructure assessment.</p>
-      </div>
-      <div class="bg-zinc-950 p-10 rounded-3xl border border-zinc-700 hover:border-emerald-500/30 transition relative">
-        <div class="absolute -top-3 right-6 bg-emerald-500 text-black text-xs font-bold px-4 py-1 rounded-full">Most Popular</div>
-        <h3 class="text-2xl font-semibold text-emerald-400 mb-2">Internal / AD Red Team</h3>
-        <p class="text-4xl font-bold mb-6">£6,500 – £14,500</p>
-        <p class="text-zinc-400">Internal network and Active Directory attack simulation.</p>
+
+      <div class="pricing-footer">
+        <div class="pf-offers">
+          <div class="pf-offer-block">
+            <div class="pf-offer-ribbon">25% OFF</div>
+            <div class="pf-offer-title">Multi-Assessment</div>
+            <p class="pf-offer-text">Book two or more assessments within a 12-month period and receive 25% off the combined fee. Mention it when you get in touch.</p>
+          </div>
+          <div class="pf-offer-block">
+            <div class="pf-offer-ribbon">50% OFF</div>
+            <div class="pf-offer-title">3-Year Partnership</div>
+            <p class="pf-offer-text">Sign a 3-year agreement for your chosen annual assessment and pay 50% of the standard rate, spread across monthly direct debit payments. Contact us to get started.</p>
+          </div>
+        </div>
+        <hr class="pf-divider">
+        <div class="pf-includes">
+          <div class="pf-includes-title">All Assessments Include</div>
+          <div class="pf-includes-grid">
+            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Comprehensive Technical Report</div>
+            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Executive Summary</div>
+            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Risk-Rated Findings &amp; Remediation</div>
+            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Legally Binding Contract &amp; NDA</div>
+            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Fixed-Price Quotations</div>
+            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Weekend Work Included</div>
+            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Direct Consultant Access</div>
+            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-Engagement Support</div>
+          </div>
+        </div>
+        <div class="pf-bottom">
+          <a href="mailto:sales@securedbyoffense.uk" class="btn btn-primary" style="flex-shrink:0">Request a Quotation</a>
+        </div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- CLIENT ACCREDITATION -->
-<section id="badge" class="py-24 bg-zinc-950 border-t border-zinc-800">
-  <div class="max-w-4xl mx-auto px-8 text-center">
-    <h2 class="text-4xl font-semibold mb-6">Client Accreditation</h2>
-    <p class="text-lg text-zinc-400 mb-12">
-      Upon successful completion of testing, clients are awarded the official 
-      <strong>“Secured By Offense”</strong> accreditation badge unlocking further rewards and benefits.
-    </p>
-    <div class="flex justify-center mb-10">
-      <div class="badge-container">
-        <img src="badge.svg" alt="Secured By Offense Accreditation" class="badge-inner">
+<!-- ACCREDITATION -->
+<section id="accreditation" class="s2">
+  <div class="wrap">
+    <div class="accred-head reveal">
+      <p class="label">Client Accreditation</p>
+      <h2 class="headline">Recognised on Completion</h2>
+    </div>
+    <div class="accred-inner">
+      <svg class="accred-img reveal" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="12 -4 254 92" aria-label="Secured By Offense accreditation badge">
+        <path stroke-linejoin="round" stroke-width="8" stroke="#e8192c" fill="#1e1e23" d="M38 15 L65 8 L92 15 L92 42 Q92 62 65 73 Q38 62 38 42 Z"/>
+        <path fill-opacity="0.18" fill="#e8192c" d="M48 22 L65 17 L82 22 L82 40 Q82 53 65 60 Q48 53 48 40 Z"/>
+        <polyline points="53,39 62,48 77,30" stroke="#e8192c" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <text fill="#9898a6" font-weight="600" font-size="27" font-family="Geist,system-ui,sans-serif" y="39" x="105">Secured By</text>
+        <text fill="#eeeef0" font-weight="800" font-size="27" font-family="Geist,system-ui,sans-serif" y="67" x="105">OFFENSE</text>
+      </svg>
+      <div class="accred-body">
+        <p class="reveal">Clients who complete an engagement receive the official Secured By Offense accreditation badge, confirming that their organisation has undergone independent security assessment. The badge can be displayed publicly and unlocks ongoing client benefits.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-24 bg-zinc-900 border-t border-zinc-800">
-  <div class="max-w-4xl mx-auto px-8 text-center">
-    <h2 class="text-4xl font-semibold">Ready to Strengthen Your Security Posture?</h2>
-    <p class="mt-6 text-zinc-400">All work is conducted under formal contracts, NDAs and clearly defined Rules of Engagement.</p>
-    <a href="mailto:sales@securedbyoffense.uk" class="mt-10 inline-block bg-emerald-500 text-black px-14 py-6 rounded-2xl text-xl font-semibold hover:bg-emerald-400 transition">
-      sales@securedbyoffense.uk
-    </a>
+<section id="contact" class="contact-section">
+  <div class="wrap">
+    <p class="label reveal" style="text-align:center">Contact</p>
+    <h2 class="headline reveal" style="text-align:center">Get in Touch</h2>
+    <p class="reveal" style="text-align:center">We offer a no-obligation scoping call for all enquiries. Fill in the details below and we will be in touch shortly.</p>
+
+    <div class="contact-form reveal">
+
+      <div class="form-section">
+        <div class="form-section-head">
+          <span class="form-section-num">01</span>
+          <span class="form-section-title">Enquiry Type</span>
+        </div>
+        <div class="opt-grid" id="enquiry-grid">
+          <button type="button" class="opt-btn" data-val="General Enquiry">General Enquiry</button>
+          <button type="button" class="opt-btn" data-val="Request a Quote">Request a Quote</button>
+          <button type="button" class="opt-btn" data-val="Scoping Discussion">Scoping Discussion</button>
+          <button type="button" class="opt-btn" data-val="Partnership Discussion">Partnership Discussion</button>
+          <button type="button" class="opt-btn" data-val="Technical Question">Technical Question</button>
+          <button type="button" class="opt-btn" data-val="Existing Client">Existing Client</button>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-head">
+          <span class="form-section-num">02</span>
+          <span class="form-section-title">Scoping Request</span>
+        </div>
+        <div class="opt-grid" id="scope-grid">
+          <button type="button" class="opt-btn" data-val="Web Application &amp; API">Web Application &amp; API</button>
+          <button type="button" class="opt-btn" data-val="Internal Infrastructure Assessment">Internal Infrastructure</button>
+          <button type="button" class="opt-btn" data-val="Attack Path Simulation">Attack Path Simulation</button>
+          <button type="button" class="opt-btn" data-val="Cyber Essentials">Cyber Essentials</button>
+          <button type="button" class="opt-btn" data-val="3-Year Partnership">3-Year Partnership</button>
+          <button type="button" class="opt-btn" data-val="Not Sure Yet">Not Sure Yet</button>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-head">
+          <span class="form-section-num">03</span>
+          <span class="form-section-title">Engagement Request</span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" class="form-input" type="text" placeholder="Jane Smith">
+          </div>
+          <div class="form-field">
+            <label for="cf-org">Organisation</label>
+            <input id="cf-org" class="form-input" type="text" placeholder="Acme Ltd">
+          </div>
+        </div>
+
+        <div class="form-row" style="margin-bottom:18px">
+          <div class="form-field">
+            <label for="cf-email">Email Address</label>
+            <input id="cf-email" class="form-input" type="email" placeholder="jane@acmeltd.co.uk">
+          </div>
+          <div class="form-field">
+            <label for="cf-start">Estimated Start Date</label>
+            <select id="cf-start" class="form-select">
+              <option value="">Select a timeframe</option>
+              <option>As soon as possible</option>
+              <option>Within 1 month</option>
+              <option>1 to 3 months</option>
+              <option>3 to 6 months</option>
+              <option>6 months or more</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field" style="margin-bottom:12px">
+          <label>Preferred Days for Scoping Call</label>
+          <div class="day-grid">
+            <button type="button" class="day-btn" data-val="Mon">Mon</button>
+            <button type="button" class="day-btn" data-val="Tue">Tue</button>
+            <button type="button" class="day-btn" data-val="Wed">Wed</button>
+            <button type="button" class="day-btn" data-val="Thu">Thu</button>
+            <button type="button" class="day-btn" data-val="Fri">Fri</button>
+            <button type="button" class="day-btn" data-val="Sat">Sat</button>
+            <button type="button" class="day-btn" data-val="Sun">Sun</button>
+          </div>
+        </div>
+
+        <div class="form-field" style="margin-bottom:14px">
+          <label>Preferred Times</label>
+          <div class="time-grid">
+            <button type="button" class="time-btn" data-val="Morning (9am-12pm)">Morning</button>
+            <button type="button" class="time-btn" data-val="Afternoon (12pm-5pm)">Afternoon</button>
+            <button type="button" class="time-btn" data-val="Evening (5pm-7pm)">Evening</button>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="cf-message">Additional Information</label>
+          <textarea id="cf-message" class="form-textarea" placeholder="Any further details about your environment, requirements, or questions."></textarea>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary form-submit" id="cf-submit">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        Send Enquiry
+      </button>
+    </div>
   </div>
 </section>
 
-<footer class="py-12 text-center text-xs text-zinc-500 border-t border-zinc-900">
-  <div class="max-w-md mx-auto px-6">
-    © 2026 Secured By Offense UK<br><br>
-    
-    All penetration testing, red team exercises, and offensive security operations are performed exclusively under formal written contracts, signed Rules of Engagement (RoE), and Non-Disclosure Agreements (NDAs). 
-    Activities are conducted in strict accordance with the Computer Misuse Act 1990, the Data Protection Act 2018, GDPR, and all other applicable UK and EU legislation. 
-    No testing is ever undertaken without explicit written authorisation from the client. 
-    This ensures full legal protection for both parties and maintains the highest standards of professional and ethical conduct in the cybersecurity industry.
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="#top" class="footer-brand">
+        <svg class="footer-brand-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="12 -4 254 92" aria-label="Secured By Offense">
+          <path stroke-linejoin="round" stroke-width="8" stroke="#e8192c" fill="#1e1e23" d="M38 15 L65 8 L92 15 L92 42 Q92 62 65 73 Q38 62 38 42 Z"/>
+          <path fill-opacity="0.18" fill="#e8192c" d="M48 22 L65 17 L82 22 L82 40 Q82 53 65 60 Q48 53 48 40 Z"/>
+          <polyline points="53,39 62,48 77,30" stroke="#e8192c" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <text fill="#9898a6" font-weight="600" font-size="27" font-family="Geist,system-ui,sans-serif" y="39" x="105">Secured By</text>
+          <text fill="#eeeef0" font-weight="800" font-size="27" font-family="Geist,system-ui,sans-serif" y="67" x="105">OFFENSE</text>
+        </svg>
+      </a>
+      <nav class="footer-nav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#pricing">Fees</a>
+        <a href="#accreditation">Accreditation</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <hr class="footer-rule">
+    <p class="footer-legal">Secured By Offense is an independent UK cyber security consultancy. All penetration testing, attack path simulation engagements, cyber security audits, and offensive security assessments are conducted under formal written contracts, signed Rules of Engagement, and Non-Disclosure Agreements. Services are delivered in accordance with the Computer Misuse Act 1990, the Data Protection Act 2018, and the UK GDPR. No assessment activity is initiated without explicit written authorisation from the client.</p>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Secured By Offense UK. All rights reserved.</span>
+      <div class="footer-meta"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
   </div>
 </footer>
 
-</body>
+<script>
+const burger=document.getElementById('burger'),menu=document.getElementById('mobileMenu');
+burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Close menu':'Open menu')});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded',false)}));
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -24px 0px'});
+document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transitionDelay=(i%4*60)+'ms';io.observe(el)});
+</script>
+<script>
+(function(){
+  const canvas = document.getElementById('hero-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    canvas.style.display='none'; return;
+  }
+
+  const ACCENT = '232,25,44';
+  const DIM    = '255,255,255';
+  let W, H, particles, visible = true;
+
+  function isMobile(){ return window.innerWidth < 768; }
+
+  function rand(min,max){ return Math.random()*(max-min)+min; }
+
+  function setup(){
+    // Lock size once — never change during scroll
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    const count = isMobile() ? 40 : 80;
+    particles = [];
+    for(let i=0;i<count;i++){
+      const isRed = Math.random() < .12;
+      particles.push({
+        x:rand(0,W), y:rand(0,H),
+        vx:rand(-.25,.25), vy:rand(-.25,.25),
+        r:isRed ? rand(1.5,2.5) : rand(1,2),
+        red:isRed,
+        pulse:rand(0,Math.PI*2),
+        pulseSpeed:rand(.008,.02)
+      });
+    }
+  }
+
+  function draw(){
+    if(!visible){ requestAnimationFrame(draw); return; }
+
+    ctx.clearRect(0,0,W,H);
+    const CONNECT = isMobile() ? 110 : 150;
+
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        const a=particles[i], b=particles[j];
+        const dx=a.x-b.x, dy=a.y-b.y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<CONNECT){
+          ctx.beginPath();
+          ctx.strokeStyle=`rgba(${(a.red||b.red)?ACCENT:DIM},${(1-dist/CONNECT)*.18})`;
+          ctx.lineWidth=.7;
+          ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    particles.forEach(p=>{
+      p.pulse += p.pulseSpeed;
+      const g = p.red ? .55+Math.sin(p.pulse)*.2 : .35+Math.sin(p.pulse)*.1;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(${p.red?ACCENT:DIM},${p.red?g:g*.7})`;
+      ctx.fill();
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<-10)p.x=W+10; if(p.x>W+10)p.x=-10;
+      if(p.y<-10)p.y=H+10; if(p.y>H+10)p.y=-10;
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  // Pause when hero scrolls out of view
+  new IntersectionObserver(e=>{ visible=e[0].isIntersecting; },{threshold:0})
+    .observe(canvas.parentElement);
+
+  // Only reinitialise on true window resize, not scroll
+  let resizeTimer;
+  window.addEventListener('resize',()=>{
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(setup, 200);
+  });
+
+  setup();
+  draw();
+})();
+// Contact form
+(function(){
+  const selEnquiry = new Set();
+  const selScope   = new Set();
+  const selDays    = new Set();
+  const selTimes   = new Set();
+
+  document.querySelectorAll('.opt-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      btn.classList.toggle('active');
+      const set = btn.closest('#enquiry-grid') ? selEnquiry : selScope;
+      if(btn.classList.contains('active')) set.add(btn.dataset.val);
+      else set.delete(btn.dataset.val);
+    });
+  });
+  document.querySelectorAll('.day-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      btn.classList.toggle('active');
+      if(btn.classList.contains('active')) selDays.add(btn.dataset.val);
+      else selDays.delete(btn.dataset.val);
+    });
+  });
+  document.querySelectorAll('.time-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      btn.classList.toggle('active');
+      if(btn.classList.contains('active')) selTimes.add(btn.dataset.val);
+      else selTimes.delete(btn.dataset.val);
+    });
+  });
+
+  document.getElementById('cf-submit').addEventListener('click',()=>{
+    const name    = document.getElementById('cf-name').value.trim();
+    const org     = document.getElementById('cf-org').value.trim();
+    const email   = document.getElementById('cf-email').value.trim();
+    const start   = document.getElementById('cf-start').value;
+    const message = document.getElementById('cf-message').value.trim();
+    const enquiry = selEnquiry.size ? Array.from(selEnquiry).join(', ') : 'Not specified';
+    const scope   = selScope.size   ? Array.from(selScope).join(', ')   : 'Not specified';
+    const days    = selDays.size    ? Array.from(selDays).join(', ')    : 'No preference';
+    const times   = selTimes.size   ? Array.from(selTimes).join(', ')   : 'No preference';
+
+    const subject = encodeURIComponent('Enquiry: ' + enquiry + (org ? ' - ' + org : ''));
+    const body = encodeURIComponent(
+      'Enquiry Type: '   + enquiry + '\n' +
+      'Scoping Request: '+ scope   + '\n' +
+      (org   ? 'Organisation: '  + org   + '\n' : '') +
+      (name  ? 'Name: '          + name  + '\n' : '') +
+      (email ? 'Contact Email: ' + email + '\n' : '') +
+      (start ? 'Estimated Start: '+ start + '\n' : '') +
+      'Preferred Call Days: '  + days  + '\n' +
+      'Preferred Call Times: ' + times + '\n' +
+      '\nAdditional Information:\n' + (message || 'None provided') +
+      '\n\n---\nSent via securedbyoffense.uk'
+    );
+    window.location.href = 'mailto:sales@securedbyoffense.uk?subject=' + subject + '&body=' + body;
+  });
+})();
+</script>
 </html>
