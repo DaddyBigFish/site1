@@ -253,21 +253,23 @@ main{padding-top:64px}
   color:var(--dim);margin-bottom:32px;margin-top:30px;
 }
 .pf-includes-grid{
-  display:grid;grid-template-columns:1fr;gap:10px;justify-items:start;
-  width:100%;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+  width:100%;max-width:420px;
+}
+@media(min-width:640px){
+  .pf-includes-grid{grid-template-columns:repeat(2,1fr);gap:10px 48px;max-width:760px}
 }
 .pf-tick{
   display:flex;align-items:center;gap:10px;
-  font-size:clamp(.78rem,1.8vw,1rem);font-weight:500;color:var(--text);
-  white-space:nowrap;
+  font-size:clamp(.82rem,1.5vw,.95rem);font-weight:500;color:var(--text);
 }
 .pf-tick svg{color:var(--green);flex-shrink:0;width:14px;height:14px}
 .pf-bottom{
   display:flex;flex-direction:column;gap:14px;align-items:flex-start;
 }
 .pf-note{font-size:.8rem;color:var(--dim)}
-@media(min-width:480px){.pf-includes-grid{grid-template-columns:repeat(2,auto);gap:10px 32px;justify-content:center}}
-@media(min-width:800px){.pf-includes-grid{grid-template-columns:repeat(4,auto);gap:10px 20px;justify-content:center}}
 @media(min-width:560px){.pricing-grid{grid-template-columns:repeat(2,1fr)};.pf-offers{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:860px){
   .pf-bottom{flex-direction:row;align-items:center;justify-content:space-between;gap:24px}
