@@ -372,9 +372,12 @@ main{padding-top:64px}
 }
 .cf-quote{
   border:1px solid var(--border);border-radius:8px;background:var(--bg-3);
-  padding:14px 16px;margin-bottom:18px;font-size:.85rem;color:var(--muted);line-height:1.65;
+  padding:16px 18px;margin-bottom:18px;font-size:.88rem;color:var(--muted);line-height:1.55;
 }
-.cf-quote b{color:var(--text)}
+.cf-quote b{color:var(--text);font-size:1rem}
+.cf-quote p{margin:0 0 6px}
+.cf-quote p:last-child{margin-bottom:0}
+.cf-quote .cq-k{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
 .cf-quote[hidden]{display:none}
 
 /* ACCREDITATION */
@@ -1159,13 +1162,22 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const q=window.__quote;
     const box=document.getElementById('cf-quote');
     box.hidden=false;
-    box.innerHTML='<b>Proposed work</b><br>'+q.service+' · '+q.days+' days testing'+(q.report?' + '+q.report+' reporting':'')+' · '+q.totalLabel+(q.monthly?' a month by direct debit':'')+(q.tests?' · '+q.tests+' assessments · '+q.contractLabel+' in all':'')+(q.saving?' · save '+q.savingLabel+' ('+q.off+' off)':'')
-      +(q.start?'<br>Proposed start: '+q.start:'')
-      +(q.end?'<br>Through to: '+q.end:'')
-      +(q.coverage.length?'<br>'+q.coverage.join('<br>'):'')
-      +(q.copy?'<br>'+q.copy:'')
-      +(q.rpt?'<br>Repeat instruction.':'')
-      +(q.ret?'<br>Three-year retainer.':'');
+    let h='<p class="cq-k">Proposed work</p><p><b>'+q.service+'</b></p>';
+    h+='<p>'+q.days+' days testing'+(q.report?', '+q.report+' day'+(q.report===1?'':'s')+' reporting':'')+'</p>';
+    if(q.rpt) h+='<p>One-year contract, two assessments</p>';
+    if(q.ret) h+='<p>Three-year contract, six assessments</p>';
+    if(q.monthly){
+      h+='<p>'+q.monthlyLabel+' a month × '+q.months+' months</p>';
+      h+='<p>Total '+q.contractLabel+', including VAT</p>';
+      if(q.saving) h+='<p>Saving '+q.savingLabel+' ('+q.off+' off)</p>';
+      h+='<p>Payable by Direct Debit</p>';
+    }else{
+      h+='<p>'+q.totalLabel+', including VAT</p>';
+    }
+    if(q.start&&q.end) h+='<p>Assessment starts '+q.start+' and finishes '+q.end+'.</p>';
+    else if(q.start) h+='<p>Assessment starts '+q.start+'.</p>';
+    if(q.coverage.length) h+='<p>'+q.coverage.join(', ')+'</p>';
+    box.innerHTML=h;
     document.querySelectorAll('#enquiry-grid .opt-btn').forEach(b=>b.classList.toggle('active',b.dataset.val==='Request a quotation'));
     document.querySelectorAll('#scope-grid .opt-btn').forEach(b=>{
       const on=b.dataset.val===q.scope||(q.rpt&&b.dataset.val==='One-year contract')||(q.ret&&b.dataset.val==='Three-year contract');
@@ -1268,19 +1280,16 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     let cal = '';
     if(q && (q.days || q.blocks.length)){
       cal =
-        '\nProposed work:\n' +
+        '\nProposed work\n' +
         q.service + '\n' +
-        q.days + ' days testing' + (q.report ? ' + ' + q.report + ' reporting' : '') + '\n' +
-        'Indicative fee: ' + q.totalLabel + (q.monthly ? ' a month by direct debit' : '') + '\n' +
-        (q.tests ? q.tests + ' assessments · ' + q.months + ' months by Direct Debit · ' + q.contractLabel + ' in all\n' : '') +
-        (q.saving ? 'Saving: ' + q.savingLabel + ' (' + q.off + ' off the full rate)\n' : '') +
-        (q.start ? 'Proposed start: ' + q.start + '\n' : '') +
-        (q.end ? 'Through to: ' + q.end + '\n' : '') +
-        (q.coverage && q.coverage.length ? 'Coverage:\n' + q.coverage.map(x => '  - ' + x).join('\n') + '\n' : '') +
-        (q.copy ? q.copy + '\n' : '') +
-        (q.rpt ? 'Repeat instruction.\n' : '') +
-        (q.ret ? 'Three-year retainer.\n' : '') +
-        (q.blocks.length ? 'Hours:\n' + q.blocks.map(b => '  - ' + b).join('\n') + '\n' : '');
+        q.days + ' days testing' + (q.report ? ', ' + q.report + ' day' + (q.report===1?'':'s') + ' reporting' : '') + '\n' +
+        (q.rpt ? 'One-year contract, two assessments\n' : '') +
+        (q.ret ? 'Three-year contract, six assessments\n' : '') +
+        (q.monthly
+          ? q.monthlyLabel + ' a month × ' + q.months + ' months\nTotal ' + q.contractLabel + ', including VAT\n' + (q.saving ? 'Saving ' + q.savingLabel + ' (' + q.off + ' off)\n' : '') + 'Payable by Direct Debit\n'
+          : q.totalLabel + ', including VAT\n') +
+        (q.start && q.end ? 'Assessment starts ' + q.start + ' and finishes ' + q.end + '.\n' : q.start ? 'Assessment starts ' + q.start + '.\n' : '') +
+        (q.coverage && q.coverage.length ? q.coverage.join(', ') + '\n' : '');
     }
 
     const subject = encodeURIComponent('Enquiry: ' + enquiry + (org ? ' — ' + org : ''));
