@@ -21,11 +21,15 @@
   --maxw:1100px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;font-size:18px}
+html{-webkit-text-size-adjust:100%;font-size:18px;overflow-x:clip}
 body{
   font-family:'Geist',system-ui,sans-serif;
   background:var(--bg);color:var(--text);
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  touch-action:pan-y;
+}
+@media (hover:hover) and (pointer:fine){
+  html{scroll-behavior:smooth}
 }
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
@@ -95,7 +99,7 @@ main{padding-top:64px}
 
 /* HERO */
 .hero{
-  padding:0;min-height:100vh;background:var(--bg);
+  padding:0;min-height:100svh;min-height:100dvh;background:var(--bg);
   display:flex;align-items:center;position:relative;overflow:hidden;
 }
 .hero::before{
@@ -405,7 +409,7 @@ main{padding-top:64px}
 .day-time-row:first-child{border-top:1px solid var(--border);margin-top:10px}
 @keyframes slideIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 .day-time-label{font-size:.82rem;font-weight:700;color:var(--muted);min-width:34px;flex-shrink:0}
-.day-time-btns{display:flex;gap:6px;flex:1;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.day-time-btns{display:flex;gap:6px;flex:1;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;touch-action:pan-x}
 .day-time-btns::-webkit-scrollbar{display:none}
 .day-btn,.time-btn{
   background:var(--bg-3);border:1px solid var(--border);border-radius:6px;
@@ -480,6 +484,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
   *{animation:none!important;transition:none!important}
   .reveal,.reveal-up{opacity:1;transform:none}
   .cert-ticker{animation:none}
+}
+@media (hover:none) and (pointer:coarse){
+  html{scroll-behavior:auto}
+  .reveal,.reveal-up{opacity:1;transform:none;transition:none}
+  .hero::before{animation:none}
+  header{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--bg)}
 }
 </style>
 <script type="application/ld+json">
