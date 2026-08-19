@@ -206,30 +206,42 @@ main{padding-top:64px}
   border:1px solid var(--border);border-radius:12px;
   overflow:hidden;background:var(--bg-2);
 }
-.cal-top{padding:24px 20px 18px;border-bottom:1px solid var(--border)}
-.cal-top .form-section-title{margin-bottom:12px}
-.cal-rate{font-size:.88rem;color:var(--muted);margin-top:12px;line-height:1.55}
-.cal-step{
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  margin-top:18px;padding-top:16px;border-top:1px solid var(--border);
+.cal-block{padding:28px 20px;border-bottom:1px solid var(--border)}
+.cal-block:last-child{border-bottom:none}
+.cal-kicker{
+  display:flex;align-items:baseline;gap:12px;margin-bottom:16px;
+  font-size:.88rem;font-weight:700;color:var(--text);
 }
-.cal-step-lbl{font-size:.88rem;font-weight:700;color:var(--text)}
-.cal-step-sub{font-size:.78rem;color:var(--dim);margin-top:3px}
-.cal-step-ctrl{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.cal-step-n{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;min-width:2.2ch;text-align:center;color:var(--text)}
-.cal-cov{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:16px}
-.cal-cov-item{background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:14px 14px 12px}
-.cal-cov-n{font-size:clamp(1.35rem,3vw,1.7rem);font-weight:900;letter-spacing:-.03em;color:var(--text);line-height:1}
-.cal-cov-l{font-size:.78rem;color:var(--muted);margin-top:6px;line-height:1.4}
-.cal-cov-copy{font-size:.88rem;color:var(--muted);line-height:1.7;margin-top:14px}
+.cal-kicker span{font-size:.7rem;font-weight:700;letter-spacing:.1em;color:var(--dim)}
+.cal-copy{font-size:.92rem;color:var(--muted);line-height:1.7;margin-top:14px;max-width:42em}
+.cal-step-ctrl{display:flex;align-items:center;gap:18px;margin:4px 0 10px}
+.cal-step-n{
+  font-size:clamp(2.2rem,6vw,3rem);font-weight:900;letter-spacing:-.045em;
+  min-width:2.4ch;text-align:center;color:var(--text);line-height:1;font-variant-numeric:tabular-nums;
+}
+.cal-step-line{font-size:.9rem;color:var(--muted);line-height:1.55}
+.cal-step[hidden]{display:none}
+.cal-cov{
+  margin-top:18px;border:1px solid var(--border);border-radius:8px;overflow:hidden;
+}
+.cal-cov[hidden]{display:none}
+.cal-cov-item{
+  display:grid;grid-template-columns:4.8rem 1fr;align-items:baseline;gap:16px;
+  padding:12px 16px;border-top:1px solid var(--border);background:var(--bg-3);
+}
+.cal-cov-item:first-child{border-top:none}
+.cal-cov-n{
+  font-size:1.2rem;font-weight:800;letter-spacing:-.03em;color:var(--text);
+  text-align:right;font-variant-numeric:tabular-nums;line-height:1.2;
+}
+.cal-cov-l{font-size:.9rem;color:var(--muted)}
 .cal-cov-note{font-size:.8rem;color:var(--dim);line-height:1.6;margin-top:10px}
-.cal-step[hidden],.cal-cov[hidden]{display:none}
 .cal-nav{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:14px 16px;border-bottom:1px solid var(--border);
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-bottom:14px;
 }
+.cal-nav-mid{flex:1;min-width:160px}
 .cal-nav-title{font-size:.95rem;font-weight:700;color:var(--text)}
-.cal-nav-sub{font-size:.76rem;color:var(--dim);margin-top:3px}
+.cal-nav-sub{font-size:.76rem;color:var(--dim);margin-top:3px;line-height:1.45}
 .cal-arrow{
   width:40px;height:40px;border-radius:6px;flex-shrink:0;
   background:var(--bg-3);border:1px solid var(--border);
@@ -237,28 +249,25 @@ main{padding-top:64px}
 }
 .cal-arrow:hover{border-color:var(--border-s)}
 .cal-arrow:disabled{opacity:.35;cursor:not-allowed}
-.cal-bar{
-  display:flex;justify-content:flex-end;padding:10px 16px;
-  border-bottom:1px solid var(--border);background:var(--bg-2);
-}
 .cal-clear{
-  background:transparent;border:1px solid var(--border);border-radius:6px;
+  margin-left:auto;background:transparent;border:1px solid var(--border);border-radius:6px;
   color:var(--muted);font-family:inherit;font-size:.8rem;font-weight:600;
-  padding:8px 14px;cursor:pointer;
+  padding:8px 14px;cursor:pointer;height:40px;
 }
 .cal-clear:hover{color:var(--text);border-color:var(--border-s)}
 .cal-clear:disabled{opacity:.35;cursor:not-allowed}
-.cal-week{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.cal-week{
+  display:flex;flex-direction:column;gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:8px;overflow:hidden;
+}
 .cal-day{
   background:var(--bg-2);padding:14px 14px 16px;
-  display:grid;grid-template-columns:92px 1fr;gap:10px;align-items:start;
+  display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:start;
 }
 .cal-day.wknd{background:#1a1a20}
-.cal-day.past{opacity:.55}
 .cal-dow{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
 .cal-dom{font-size:1.05rem;font-weight:800;color:var(--text);margin-top:3px}
 .cal-day.today .cal-dom{color:var(--accent)}
-.cal-office{font-size:.72rem;color:var(--dim);line-height:1.35;margin-bottom:8px}
 .cal-slots{display:flex;flex-wrap:wrap;gap:6px}
 .cal-slot{
   background:var(--bg-3);border:1px solid var(--border);border-radius:6px;
@@ -268,13 +277,13 @@ main{padding-top:64px}
 .cal-slot:hover{border-color:var(--border-s);color:var(--text)}
 .cal-slot.on{background:var(--accent-d);border-color:var(--accent);color:var(--text)}
 .cal-slot.dead{opacity:.32;cursor:not-allowed}
-.cal-sum{padding:24px 20px 28px}
 .cal-total{
-  font-size:clamp(1.8rem,4.5vw,2.6rem);font-weight:900;
-  letter-spacing:-.035em;color:var(--text);line-height:1;margin:4px 0 10px;
+  font-size:clamp(2rem,5vw,2.8rem);font-weight:900;
+  letter-spacing:-.04em;color:var(--text);line-height:1;margin:0 0 10px;
+  font-variant-numeric:tabular-nums;
 }
-.cal-meta{font-size:.9rem;color:var(--muted);line-height:1.7;margin-bottom:6px}
-.cal-hint{font-size:.84rem;color:var(--dim);line-height:1.65;margin:8px 0 18px}
+.cal-meta{font-size:.92rem;color:var(--muted);line-height:1.65;margin:0 0 6px}
+.cal-hint{font-size:.8rem;color:var(--dim);line-height:1.65;margin:0 0 20px}
 .cal-toggles{display:grid;gap:8px;margin-bottom:20px}
 .cal-tog{
   display:flex;align-items:flex-start;gap:10px;
@@ -285,15 +294,13 @@ main{padding-top:64px}
 .cal-tog input{margin-top:3px;accent-color:var(--accent)}
 .cal-tog-title{font-size:.88rem;font-weight:700;color:var(--text)}
 .cal-tog-text{font-size:.82rem;color:var(--muted);line-height:1.5;margin-top:2px}
-.cal-list{font-size:.8rem;color:var(--dim);line-height:1.65;margin:0 0 16px}
-.pf-divider{border:none;border-top:1px solid var(--border);margin:0}
 .pf-includes{
   display:flex;flex-direction:column;gap:6px;
-  align-items:center;margin:auto;padding:8px 20px 36px;
+  align-items:center;margin:auto;padding:28px 20px 36px;
 }
 .pf-includes-title{
   font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--dim);margin-bottom:24px;margin-top:8px;
+  color:var(--dim);margin-bottom:24px;
 }
 .pf-includes-grid{
   display:grid;grid-template-columns:1fr;gap:10px;
@@ -301,6 +308,7 @@ main{padding-top:64px}
 }
 @media(min-width:640px){
   .pf-includes-grid{grid-template-columns:repeat(2,1fr);gap:10px 48px;max-width:760px}
+  .cal-svc{grid-template-columns:repeat(4,1fr)!important}
 }
 .pf-tick{
   display:flex;align-items:center;gap:10px;
@@ -308,9 +316,9 @@ main{padding-top:64px}
 }
 .pf-tick svg{color:var(--green);flex-shrink:0;width:14px;height:14px}
 @media(min-width:860px){
-  .cal-top,.cal-nav,.cal-sum,.cal-bar,.pf-includes{padding-left:32px;padding-right:32px}
+  .cal-block,.pf-includes{padding-left:32px;padding-right:32px}
   .cal-week{display:grid;grid-template-columns:repeat(7,1fr);gap:1px}
-  .cal-day{display:block;min-height:220px;padding:16px 12px 18px}
+  .cal-day{display:block;min-height:168px;padding:16px 12px 18px}
   .cal-slots{flex-direction:column}
   .cal-slot{width:100%;flex:none;text-align:left}
 }
@@ -589,55 +597,53 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
   <div class="wrap">
     <div class="pricing-intro">
       <p class="label reveal">Fees</p>
-      <h2 class="headline reveal">Mark the hours</h2>
-      <p class="reveal">A day is eight hours, out of hours. Set the number of days, then mark a start on the calendar. Coverage — pages, endpoints, hosts — steps up with each day. The figure is indicative. A written quotation follows scoping. Times are United Kingdom time.</p>
+      <h2 class="headline reveal">Estimate a fee</h2>
+      <p class="reveal">Three steps. Choose the work, set the days, mark a start. A day is eight hours, out of hours. The figure is indicative. A written quotation follows scoping.</p>
     </div>
 
     <div class="pricing-panel reveal">
-      <div class="cal-top">
-        <div class="form-section-title">The work</div>
-        <div class="opt-grid" id="cal-svc">
+      <div class="cal-block">
+        <div class="cal-kicker"><span>01</span>The work</div>
+        <div class="opt-grid cal-svc" id="cal-svc">
           <button type="button" class="opt-btn active" data-svc="web">Web application and API</button>
           <button type="button" class="opt-btn" data-svc="inf">Internal infrastructure</button>
           <button type="button" class="opt-btn" data-svc="aps">Attack path simulation</button>
           <button type="button" class="opt-btn" data-svc="ce">Cyber Essentials</button>
         </div>
-        <p class="cal-rate" id="cal-rate"></p>
-        <div class="cal-step" id="cal-step">
-          <div>
-            <div class="cal-step-lbl">Days of testing</div>
-            <div class="cal-step-sub" id="cal-step-sub"></div>
-          </div>
-          <div class="cal-step-ctrl">
-            <button type="button" class="cal-arrow" id="cal-minus" aria-label="Fewer days">&minus;</button>
-            <div class="cal-step-n" id="cal-days">2</div>
-            <button type="button" class="cal-arrow" id="cal-plus" aria-label="More days">+</button>
-          </div>
+        <p class="cal-copy" id="cal-copy"></p>
+      </div>
+
+      <div class="cal-block" id="cal-step">
+        <div class="cal-kicker"><span>02</span>Days</div>
+        <div class="cal-step-ctrl">
+          <button type="button" class="cal-arrow" id="cal-minus" aria-label="Fewer days">&minus;</button>
+          <div class="cal-step-n" id="cal-days">2</div>
+          <button type="button" class="cal-arrow" id="cal-plus" aria-label="More days">+</button>
         </div>
+        <p class="cal-step-line" id="cal-step-line"></p>
         <div class="cal-cov" id="cal-cov"></div>
-        <p class="cal-cov-copy" id="cal-cov-copy"></p>
         <p class="cal-cov-note" id="cal-cov-note"></p>
       </div>
 
-      <div class="cal-nav">
-        <button type="button" class="cal-arrow" id="cal-prev" aria-label="Previous week">&#8249;</button>
-        <div style="text-align:center">
-          <div class="cal-nav-title" id="cal-range"></div>
-          <div class="cal-nav-sub">Weekdays from 18:00 · weekend in full · until 04:00 Monday</div>
+      <div class="cal-block">
+        <div class="cal-kicker"><span>03</span>When</div>
+        <div class="cal-nav">
+          <button type="button" class="cal-arrow" id="cal-prev" aria-label="Previous week">&#8249;</button>
+          <div class="cal-nav-mid">
+            <div class="cal-nav-title" id="cal-range"></div>
+            <div class="cal-nav-sub">UK time. Weekdays 18:00–02:00. Saturday from 10:00. Sunday until 04:00 Monday.</div>
+          </div>
+          <button type="button" class="cal-arrow" id="cal-next" aria-label="Next week">&#8250;</button>
+          <button type="button" class="cal-clear" id="cal-clear" disabled>Clear hours</button>
         </div>
-        <button type="button" class="cal-arrow" id="cal-next" aria-label="Next week">&#8250;</button>
+        <div class="cal-week" id="cal-week"></div>
       </div>
 
-      <div class="cal-week" id="cal-week"></div>
-      <div class="cal-bar">
-        <button type="button" class="cal-clear" id="cal-clear" disabled>Clear hours</button>
-      </div>
-
-      <div class="cal-sum">
+      <div class="cal-block">
+        <div class="cal-kicker"><span>04</span>Indicative fee</div>
         <div class="cal-total" id="cal-total">£0</div>
-        <p class="cal-meta" id="cal-meta">No blocks marked yet.</p>
+        <p class="cal-meta" id="cal-meta"></p>
         <p class="cal-hint" id="cal-hint"></p>
-        <p class="cal-list" id="cal-list"></p>
         <div class="cal-toggles">
           <label class="cal-tog" id="tog-rpt">
             <input type="checkbox" id="cal-rpt">
@@ -660,7 +666,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
         </a>
       </div>
 
-      <hr class="pf-divider">
       <div class="pf-includes">
         <div class="pf-includes-title">Every engagement includes</div>
         <div class="pf-includes-grid">
@@ -846,10 +851,10 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
 <script>
 (function(){
   const SVCS={
-    web:{name:'Web application and API',rate:1100,min:2,typical:'two to five',scope:'Web application and API',blurb:'£1,100 for eight hours. Two days is the minimum.'},
-    inf:{name:'Internal infrastructure',rate:1200,min:4,typical:'four to seven',scope:'Internal infrastructure',blurb:'£1,200 for eight hours. Four days is the minimum.'},
-    aps:{name:'Attack path simulation',rate:1400,min:20,typical:'twenty to thirty',scope:'Attack path simulation',blurb:'£1,400 for eight hours. Twenty days is the minimum. The estate is in scope.'},
-    ce:{name:'Cyber Essentials',rate:null,band:[800,2500],min:1,typical:'',scope:'Cyber Essentials',blurb:'Quoted as an engagement, £800 to £2,500. Mark the windows you prefer.'}
+    web:{name:'Web application and API',rate:1100,min:2,typical:'two to five',scope:'Web application and API'},
+    inf:{name:'Internal infrastructure',rate:1200,min:4,typical:'four to seven',scope:'Internal infrastructure'},
+    aps:{name:'Attack path simulation',rate:1400,min:20,typical:'twenty to thirty',scope:'Attack path simulation'},
+    ce:{name:'Cyber Essentials',rate:null,band:[800,2500],min:1,typical:'',scope:'Cyber Essentials'}
   };
   const MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
   const DY=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
@@ -919,16 +924,14 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   const chosen=new Map();
   const weekEl=document.getElementById('cal-week');
   const rangeEl=document.getElementById('cal-range');
-  const rateEl=document.getElementById('cal-rate');
+  const copyEl=document.getElementById('cal-copy');
   const totEl=document.getElementById('cal-total');
   const metaEl=document.getElementById('cal-meta');
   const hintEl=document.getElementById('cal-hint');
-  const listEl=document.getElementById('cal-list');
   const daysEl=document.getElementById('cal-days');
   const stepEl=document.getElementById('cal-step');
-  const stepSub=document.getElementById('cal-step-sub');
+  const stepLine=document.getElementById('cal-step-line');
   const covEl=document.getElementById('cal-cov');
-  const covCopy=document.getElementById('cal-cov-copy');
   const covNote=document.getElementById('cal-cov-note');
   const clearBtn=document.getElementById('cal-clear');
   const minusBtn=document.getElementById('cal-minus');
@@ -968,26 +971,22 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   }
   function paintSum(){
     const q=quote(),s=SVCS[svc],c=cover(svc,days);
-    rateEl.textContent=s.blurb;
+    copyEl.textContent=c.copy;
     daysEl.textContent=String(days);
     stepEl.hidden=s.rate==null;
     minusBtn.disabled=days<=s.min;
-    stepSub.textContent=s.rate==null?'':'Minimum '+s.min+'. A typical run is '+s.typical+' days.';
+    stepLine.textContent=s.rate==null?'':days+' × eight hours  ·  '+gbp(s.rate)+' a day  ·  minimum '+s.min+(s.typical?'  ·  typical '+s.typical:'');
     covEl.hidden=!c.items.length;
     covEl.innerHTML=c.items.map(i=>'<div class="cal-cov-item"><div class="cal-cov-n">'+i.n.toLocaleString('en-GB')+'</div><div class="cal-cov-l">'+i.l+'</div></div>').join('');
-    covCopy.textContent=c.copy;
     covNote.textContent=c.extra;
     totEl.textContent=q.totalLabel;
     clearBtn.disabled=!start && !chosen.size;
     if(s.rate==null){
-      metaEl.textContent=chosen.size?chosen.size+' window'+(chosen.size===1?'':'s')+' marked.': 'No windows marked yet.';
-      listEl.textContent=q.blocks.join(' · ');
+      metaEl.textContent=chosen.size?chosen.size+' window'+(chosen.size===1?'':'s')+' marked.':'Mark the windows you prefer.';
     }else if(!start){
-      metaEl.textContent=days+' × eight-hour day'+(days===1?'':'s')+' · '+gbp(days*s.rate)+' before any reduction. Mark a start on the calendar.';
-      listEl.textContent='';
+      metaEl.textContent='Mark a start on the calendar. The days above fill from that point.';
     }else{
-      metaEl.textContent=days+' × eight-hour days. From '+q.start+(q.end?' through to '+q.end+'.':'.');
-      listEl.textContent=q.blocks.length===days?'':q.blocks.length+' of '+days+' blocks placed.';
+      metaEl.textContent='From '+q.start+(q.end?' through to '+q.end+'.':'.');
     }
     hintEl.textContent=q.note||'Indicative only. A written quotation follows the scoping discussion.';
     document.getElementById('tog-rpt').classList.toggle('on',rpt.checked);
@@ -1009,12 +1008,6 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       head.innerHTML='<div class="cal-dow">'+DY[dow].slice(0,3)+'</div><div class="cal-dom">'+day.getDate()+' '+MN[day.getMonth()].slice(0,3)+'</div>';
       col.appendChild(head);
       const body=document.createElement('div');
-      if(dow<=4){
-        const o=document.createElement('div');
-        o.className='cal-office';
-        o.textContent='Office hours not offered';
-        body.appendChild(o);
-      }
       const wrap=document.createElement('div');
       wrap.className='cal-slots';
       slotsFor(day).forEach(slot=>{
