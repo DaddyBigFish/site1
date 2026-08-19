@@ -424,6 +424,8 @@ main{padding-top:64px}
 }
 .day-btn:hover,.time-btn:hover{border-color:var(--border-s);color:var(--text)}
 .day-btn.active,.time-btn.active{background:var(--accent-d);border-color:var(--accent);color:var(--text);font-weight:600}
+.t-short{display:none}
+@media(max-width:640px){.t-full{display:none}.t-short{display:inline}}
 .form-row{display:grid;gap:12px;margin-bottom:12px}
 .form-field{display:flex;flex-direction:column;gap:6px}
 .form-field label{font-size:.76rem;font-weight:600;color:var(--muted);letter-spacing:.02em}
@@ -518,10 +520,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
       <a href="#about">About</a>
       <a href="#hours">Hours</a>
       <a href="#services">Services</a>
-      <a href="#pricing">Fees</a>
+      <a href="#estimate">Fees</a>
       <a href="#accreditation">Accreditation</a>
     </nav>
-    <a href="#contact" class="btn btn-primary nav-cta" style="padding:10px 20px;min-height:38px;font-size:.85rem;border-radius:4px">Enquire</a>
+    <a href="#estimate" class="btn btn-primary nav-cta" style="padding:10px 20px;min-height:38px;font-size:.85rem;border-radius:4px">Estimate</a>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -530,9 +532,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
     <a href="#about"><span class="mm-num">01</span>About</a>
     <a href="#hours"><span class="mm-num">02</span>Hours</a>
     <a href="#services"><span class="mm-num">03</span>Services</a>
-    <a href="#pricing"><span class="mm-num">04</span>Fees</a>
+    <a href="#estimate"><span class="mm-num">04</span>Fees</a>
     <a href="#accreditation"><span class="mm-num">05</span>Accreditation</a>
-    <div class="mm-cta"><a href="#contact" class="btn btn-primary">Enquire</a></div>
+    <div class="mm-cta"><a href="#estimate" class="btn btn-primary">Estimate</a></div>
   </nav>
 </header>
 
@@ -545,8 +547,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
       <h1 class="display reveal">Out of Hours<br><em>Penetration Testing</em></h1>
       <p class="lead hero-lead reveal">Testing from 18:00 UK time, through the weekend, until 02:00 Monday. Written authority before anything starts.</p>
       <div class="hero-btns reveal">
-        <a href="#contact" class="btn btn-primary">
-          Enquire
+        <a href="#estimate" class="btn btn-primary">
+          Estimate
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a href="#services" class="btn btn-ghost">Services</a>
@@ -576,8 +578,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
         <h2 class="headline reveal">Secured By Offense</h2>
         <p class="reveal">Secured By Offense is an independent penetration testing consultancy based in the United Kingdom. Testing is done out of hours, so it does not interrupt the working day.</p>
         <p class="reveal">Nothing begins without a written contract, signed Rules of Engagement and a non-disclosure agreement.</p>
-        <a href="#contact" class="btn btn-primary reveal">
-          Enquire
+        <a href="#estimate" class="btn btn-primary reveal">
+          Estimate
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -644,7 +646,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 </section>
 
 <!-- FEES -->
-<section id="pricing" class="s1">
+<section id="estimate" class="s1">
   <div class="wrap">
     <div class="pricing-intro">
       <p class="label reveal">Fees</p>
@@ -880,7 +882,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
         <a href="#about">About</a>
         <a href="#hours">Hours</a>
         <a href="#services">Services</a>
-        <a href="#pricing">Fees</a>
+        <a href="#estimate">Fees</a>
         <a href="#accreditation">Accreditation</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -1195,7 +1197,12 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
 
   const selDays  = [];
   const dayTimes = {};
-  const TIMES = ['09:00 – 12:00','12:00 – 15:00','15:00 – 18:00','18:00 – 21:00'];
+  const TIMES = [
+    ['09:00 – 12:00','9h – 12h'],
+    ['12:00 – 15:00','12h – 15h'],
+    ['15:00 – 18:00','15h – 18h'],
+    ['18:00 – 21:00','18h – 21h']
+  ];
   const DAYS_ORDER = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
   const container = document.getElementById('day-times-container');
 
@@ -1210,15 +1217,15 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       row.appendChild(lbl);
       const btns = document.createElement('div');
       btns.className = 'day-time-btns';
-      TIMES.forEach(t=>{
+      TIMES.forEach(([v,s])=>{
         const b = document.createElement('button');
         b.type = 'button';
-        b.className = 'time-btn' + (dayTimes[day]?.has(t) ? ' active' : '');
-        b.textContent = t;
+        b.className = 'time-btn' + (dayTimes[day]?.has(v) ? ' active' : '');
+        b.innerHTML = '<span class="t-full">'+v+'</span><span class="t-short">'+s+'</span>';
         b.addEventListener('click',()=>{
           if(!dayTimes[day]) dayTimes[day] = new Set();
-          if(dayTimes[day].has(t)) dayTimes[day].delete(t);
-          else dayTimes[day].add(t);
+          if(dayTimes[day].has(v)) dayTimes[day].delete(v);
+          else dayTimes[day].add(v);
           b.classList.toggle('active');
         });
         btns.appendChild(b);
