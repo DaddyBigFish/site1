@@ -236,6 +236,7 @@ main{padding-top:64px}
 }
 .cal-cov-l{font-size:.9rem;color:var(--muted)}
 .cal-cov-note{font-size:.8rem;color:var(--dim);line-height:1.6;margin-top:10px}
+#cal-break{margin:0 0 16px}
 .cal-nav{
   display:grid;grid-template-columns:40px minmax(0,1fr) 40px;gap:8px 10px;
   align-items:center;margin-bottom:14px;
@@ -644,6 +645,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 
       <div class="cal-block">
         <div class="cal-kicker"><span>04</span>Indicative fee</div>
+        <div class="cal-cov" id="cal-break" hidden></div>
         <div class="cal-total" id="cal-total">£0</div>
         <p class="cal-meta" id="cal-meta"></p>
         <p class="cal-hint" id="cal-hint"></p>
@@ -882,25 +884,23 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   function cover(key,n){
     if(key==='web') return {
       items:[
-        {n:n*10,l:'dynamic pages'},
-        {n:n*8,l:'API endpoints'},
-        {n:2+Math.floor(Math.max(0,n-2)/2),l:'user roles'},
-        {n:1,l:'application, one environment'}
+        {n:n*20,l:'unique functions or API methods'},
+        {n:n*2,l:'user roles'}
       ],
-      extra:'Each further day adds 10 pages and 8 endpoints.',
-      copy:'Manual testing against OWASP. Pages are distinct dynamic views or functions, not static marketing URLs.'
+      extra:'A day is twenty unique functions on a standard application, or twenty API methods (or 140 parameters), and two user roles. Banking-grade work is ten functions a day. Page counts are a last resort at ten to fifteen a day, and only if functions cannot be counted.',
+      copy:'A function is a distinct action — fill a form, submit, change a setting — not a static page. A day spent on the application is not also a day on the API; mix the days to match the work. If there are many user levels, the highest and the lowest usually suffice.'
     };
     if(key==='inf') return {
       items:[
-        {n:n*20,l:'live hosts'},
-        {n:Math.ceil(n/4),l:Math.ceil(n/4)===1?'site / network range':'sites / network ranges'}
+        {n:n*10,l:'live IP addresses'},
+        {n:n*3,l:'VLANs'}
       ],
-      extra:'Each further day adds 20 live hosts.',
-      copy:'Authenticated or not, on a defined range. Counts are live hosts, not empty addresses in a subnet.'
+      extra:'Ten live IPs a day across three VLANs. Allow one extra day per additional site. Remote scanning over VPN is slower than on the LAN.',
+      copy:'Internal work is from inside the estate. Count live addresses, not empty space in a subnet. Extra sites, extra VLANs, and organisational complexity add time.'
     };
     if(key==='aps') return {
       items:[],
-      extra:'',
+      extra:'Reporting is part of the figure, at no less than a fifth of the job.',
       copy:'The estate is in scope. From supplied credentials or a corporate device, paths are followed through on-premises and cloud — Azure, AWS and GCP — to a stated objective, usually administrative control. Extra days are more time on the paths, not a larger host list.'
     };
     return {
@@ -908,6 +908,12 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       extra:'',
       copy:'Quoted as an engagement against the five NCSC technical controls. Headcount, devices and locations are confirmed on the scoping call.'
     };
+  }
+  function reportDays(n){
+    if(n<=5) return 1;
+    if(n<=9) return 2;
+    if(n<=13) return 3;
+    return Math.ceil(n*0.2);
   }
   function takeSlots(from,count){
     const out=[];
@@ -936,6 +942,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   const stepLine=document.getElementById('cal-step-line');
   const covEl=document.getElementById('cal-cov');
   const covNote=document.getElementById('cal-cov-note');
+  const breakEl=document.getElementById('cal-break');
   const clearBtn=document.getElementById('cal-clear');
   const minusBtn=document.getElementById('cal-minus');
   const rpt=document.getElementById('cal-rpt');
@@ -949,23 +956,26 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   function selected(){return Array.from(chosen.values()).sort((a,b)=>a.s-b.s)}
   function quote(){
     const s=SVCS[svc],c=cover(svc,days),list=selected();
-    let note='',total=0,label='';
+    const rd=s.rate==null?0:reportDays(days);
+    let note='',total=0,label='',gross=0;
     if(s.rate==null){
       label=gbp(s.band[0])+' – '+gbp(s.band[1]);
       note='Cyber Essentials is quoted as an engagement. The windows marked are the hours you would prefer.';
     }else{
-      total=days*s.rate;
+      gross=(days+rd)*s.rate;
+      total=gross;
       if(ret.checked){total*=.5;note='Three-year retainer applied (half the rate).'}
       else if(rpt.checked){total*=.75;note='Repeat instruction applied (a quarter off).'}
       label=gbp(total);
-      if(s.typical) note=(note?note+' ':'')+'A typical run is '+s.typical+' days.';
+      note=(note?note+' ':'')+'Reporting is '+rd+' day'+(rd===1?'':'s')+' on a job of this length, included in the figure.';
     }
     const first=list[0],last=list[list.length-1];
     const startTxt=first?civil(new Date(first.s))+', '+hhmm(new Date(first.s)):'';
     const endTxt=last?civil(new Date(last.e))+', '+hhmm(new Date(last.e)):'';
     window.__quote={
-      service:s.name,scope:s.scope,days:s.rate==null?list.length:days,billDays:s.rate==null?0:days,
-      totalLabel:label,total:total,start:startTxt,end:endTxt,
+      service:s.name,scope:s.scope,days:s.rate==null?list.length:days,report:rd,
+      billDays:s.rate==null?0:days+rd,totalLabel:label,total:total,gross:gross,
+      start:startTxt,end:endTxt,
       blocks:list.map(x=>civil(x.date)+', '+x.label),
       coverage:c.items.map(i=>i.n+' '+i.l),
       copy:c.copy,extra:c.extra,rpt:rpt.checked,ret:ret.checked,note
@@ -978,16 +988,24 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     daysEl.textContent=String(days);
     stepEl.hidden=s.rate==null;
     minusBtn.disabled=days<=s.min;
-    stepLine.textContent=s.rate==null?'':days+' × eight hours  ·  '+gbp(s.rate)+' a day  ·  minimum '+s.min+(s.typical?'  ·  typical '+s.typical:'');
+    stepLine.textContent=s.rate==null?'':days+' × eight hours testing  ·  '+gbp(s.rate)+' a day  ·  minimum '+s.min;
     covEl.hidden=!c.items.length;
     covEl.innerHTML=c.items.map(i=>'<div class="cal-cov-item"><div class="cal-cov-n">'+i.n.toLocaleString('en-GB')+'</div><div class="cal-cov-l">'+i.l+'</div></div>').join('');
     covNote.textContent=c.extra;
+    if(s.rate==null){
+      breakEl.hidden=true;breakEl.innerHTML='';
+    }else{
+      breakEl.hidden=false;
+      breakEl.innerHTML=
+        '<div class="cal-cov-item"><div class="cal-cov-n">'+days+'</div><div class="cal-cov-l">days testing · '+gbp(days*s.rate)+'</div></div>'+
+        '<div class="cal-cov-item"><div class="cal-cov-n">'+q.report+'</div><div class="cal-cov-l">day'+(q.report===1?'':'s')+' reporting · '+gbp(q.report*s.rate)+'</div></div>';
+    }
     totEl.textContent=q.totalLabel;
     clearBtn.disabled=!start && !chosen.size;
     if(s.rate==null){
       metaEl.textContent=chosen.size?chosen.size+' window'+(chosen.size===1?'':'s')+' marked.':'Mark the windows you prefer.';
     }else if(!start){
-      metaEl.textContent='Mark a start on the calendar. The days above fill from that point.';
+      metaEl.textContent='Mark a start on the calendar. The testing days fill from that point.';
     }else{
       metaEl.textContent='From '+q.start+(q.end?' through to '+q.end+'.':'.');
     }
@@ -1066,7 +1084,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const q=window.__quote;
     const box=document.getElementById('cf-quote');
     box.hidden=false;
-    box.innerHTML='<b>Proposed work</b><br>'+q.service+' · '+q.days+' × eight hours · '+q.totalLabel
+    box.innerHTML='<b>Proposed work</b><br>'+q.service+' · '+q.days+' days testing'+(q.report?' + '+q.report+' reporting':'')+' · '+q.totalLabel
       +(q.start?'<br>Proposed start: '+q.start:'')
       +(q.end?'<br>Through to: '+q.end:'')
       +(q.coverage.length?'<br>'+q.coverage.join('<br>'):'')
@@ -1169,7 +1187,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       cal =
         '\nProposed work:\n' +
         q.service + '\n' +
-        q.days + ' × eight-hour days\n' +
+        q.days + ' days testing' + (q.report ? ' + ' + q.report + ' reporting' : '') + '\n' +
         'Indicative fee: ' + q.totalLabel + '\n' +
         (q.start ? 'Proposed start: ' + q.start + '\n' : '') +
         (q.end ? 'Through to: ' + q.end + '\n' : '') +
