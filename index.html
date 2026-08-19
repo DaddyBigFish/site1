@@ -1040,7 +1040,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
         h+=tr('One assessment','',gbp(q.gross))+
           tr((q.tests===2?'Two':'Six')+' assessments','full rate',q.fullLabel)+
           '<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>'+
-          tr('You pay',q.months+' months',q.contractLabel);
+          tr('Total estimate',q.months+' months',q.contractLabel);
       }
       breakEl.innerHTML=h+'</table>';
     }
