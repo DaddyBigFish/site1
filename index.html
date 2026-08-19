@@ -868,8 +868,8 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       return {id:ymd(s)+'T'+hhmm(s),s:s.getTime(),e:e.getTime(),label:hhmm(s)+' – '+hhmm(e),date:new Date(y,m,d)};
     };
     if(dow<=4) return [mk(18,0,2,0,1)];
-    if(dow===5) return [mk(2,0,10,0,0),mk(10,0,18,0,0),mk(18,0,2,0,1)];
-    return [mk(2,0,10,0,0),mk(10,0,18,0,0),mk(20,0,4,0,1)];
+    if(dow===5) return [mk(10,0,18,0,0),mk(18,0,2,0,1)];
+    return [mk(10,0,18,0,0),mk(20,0,4,0,1)];
   }
   function cover(key,n){
     if(key==='web') return {
