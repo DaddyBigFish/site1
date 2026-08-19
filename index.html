@@ -299,6 +299,19 @@ main{padding-top:64px}
 }
 .cal-period{font-size:1rem;font-weight:700;color:var(--muted);margin:0 0 6px}
 .cal-period[hidden]{display:none}
+.dd-row{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:4px 0 14px;
+}
+.dd-row[hidden]{display:none}
+.dd-row span{font-size:.9rem;font-weight:600;color:var(--text)}
+.dd-badge{
+  background:#fff;border-radius:4px;padding:5px 9px;display:flex;align-items:center;
+  height:32px;flex-shrink:0;
+}
+.dd-badge img{height:18px;width:auto;display:block}
+.dd-badge-sm{height:26px;padding:4px 7px;margin-left:auto}
+.dd-badge-sm img{height:14px}
+.cal-tog{align-items:center}
 .cal-save-line{font-size:.95rem;font-weight:700;color:var(--green);margin:0 0 14px}
 .cal-save-line[hidden]{display:none}
 .cal-sheet tr.save th,.cal-sheet tr.save td{color:var(--green)}
@@ -662,6 +675,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
         <div id="cal-break" hidden></div>
         <div class="cal-total" id="cal-total">£0</div>
         <p class="cal-period" id="cal-period">Including VAT</p>
+        <div class="dd-row" id="cal-dd" hidden>
+          <span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>
+          <span>Payable by Direct Debit</span>
+        </div>
         <p class="cal-save-line" id="cal-save" hidden></p>
         <p class="cal-meta" id="cal-meta"></p>
         <p class="cal-hint" id="cal-hint"></p>
@@ -670,15 +687,17 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
             <input type="checkbox" id="cal-rpt">
             <span>
               <span class="cal-tog-title">One-year contract</span>
-              <span class="cal-tog-text">Two assessments</span>
+              <span class="cal-tog-text">Two assessments, payable by Direct Debit</span>
             </span>
+            <span class="dd-badge dd-badge-sm"><img src="logos/directdebit.svg" alt="Direct Debit"></span>
           </label>
           <label class="cal-tog" id="tog-ret">
             <input type="checkbox" id="cal-ret">
             <span>
               <span class="cal-tog-title">Three-year contract</span>
-              <span class="cal-tog-text">Six assessments</span>
+              <span class="cal-tog-text">Six assessments, payable by Direct Debit</span>
             </span>
+            <span class="dd-badge dd-badge-sm"><img src="logos/directdebit.svg" alt="Direct Debit"></span>
           </label>
         </div>
         <a href="#contact" class="btn btn-primary" id="cal-go">
@@ -1026,7 +1045,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
         h+=tr('One assessment','',gbp(q.gross))+
           tr((q.tests===2?'Two':'Six')+' assessments','full rate',q.fullLabel)+
           '<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>'+
-          tr('You pay',q.months+' months',q.contractLabel);
+          tr('Payable by Direct Debit',q.months+' months',q.contractLabel);
       }
       breakEl.innerHTML=h+'</table>';
     }
@@ -1034,6 +1053,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     if(q.monthly) periodEl.textContent='a month, including VAT';
     else periodEl.textContent='Including VAT';
     periodEl.hidden=false;
+    document.getElementById('cal-dd').hidden=!q.monthly;
     saveEl.hidden=true;saveEl.textContent='';
     clearBtn.disabled=!start && !chosen.size;
     if(s.rate==null){
@@ -1226,7 +1246,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
         q.service + '\n' +
         q.days + ' days testing' + (q.report ? ' + ' + q.report + ' reporting' : '') + '\n' +
         'Indicative fee: ' + q.totalLabel + (q.monthly ? ' a month by direct debit' : '') + '\n' +
-        (q.tests ? q.tests + ' assessments · ' + q.months + ' months · ' + q.contractLabel + ' in all\n' : '') +
+        (q.tests ? q.tests + ' assessments · ' + q.months + ' months · payable by Direct Debit · ' + q.contractLabel + ' in all\n' : '') +
         (q.saving ? 'Saving: ' + q.savingLabel + ' (' + q.off + ' off the full rate)\n' : '') +
         (q.start ? 'Proposed start: ' + q.start + '\n' : '') +
         (q.end ? 'Through to: ' + q.end + '\n' : '') +
