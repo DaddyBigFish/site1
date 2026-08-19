@@ -141,6 +141,8 @@ main{padding-top:64px}
 .stat:nth-child(2n){border-right:none}
 .stat:nth-child(3),.stat:nth-child(4){border-bottom:none}
 .stat-val{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:900;letter-spacing:-.03em;color:var(--text);line-height:1}
+.stat-flag{display:flex;align-items:center;justify-content:center;gap:10px}
+.union-jack{height:1.05em;width:auto;border-radius:2px;display:block;flex-shrink:0;box-shadow:0 0 0 1px rgba(255,255,255,.12)}
 .stat-lbl{font-size:.78rem;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:6px}
 
 /* ABOUT */
@@ -537,7 +539,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
       <div class="stat reveal-up"><div class="stat-val">18:00</div><div class="stat-lbl">Weekday start</div></div>
       <div class="stat reveal-up"><div class="stat-val">10:00</div><div class="stat-lbl">Weekend start</div></div>
       <div class="stat reveal-up"><div class="stat-val">02:00</div><div class="stat-lbl">Monday end</div></div>
-      <div class="stat reveal-up"><div class="stat-val">UK</div><div class="stat-lbl">Based</div></div>
+      <div class="stat reveal-up"><div class="stat-val stat-flag"><svg class="union-jack" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><path d="M0 0l60 30M60 0L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30M60 0L0 30" stroke="#C8102E" stroke-width="2"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></svg>UK</div><div class="stat-lbl">Based</div></div>
     </div>
   </div>
 </div>
