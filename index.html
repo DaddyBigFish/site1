@@ -221,7 +221,6 @@ main{padding-top:64px}
   font-size:clamp(1.6rem,4vw,2rem);font-weight:900;letter-spacing:-.04em;
   min-width:2ch;text-align:center;color:var(--text);line-height:1;font-variant-numeric:tabular-nums;
 }
-.cal-step-line{font-size:.85rem;color:var(--muted);line-height:1.45;width:100%}
 .cal-step[hidden]{display:none}
 .cal-cov{display:flex;flex-wrap:wrap;gap:6px;margin:0}
 .cal-cov[hidden]{display:none}
@@ -660,7 +659,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
           </div>
           <div class="cal-cov" id="cal-cov"></div>
         </div>
-        <p class="cal-step-line" id="cal-step-line"></p>
         <p class="cal-cov-note" id="cal-cov-note"></p>
       </div>
 
@@ -976,7 +974,6 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   const hintEl=document.getElementById('cal-hint');
   const daysEl=document.getElementById('cal-days');
   const stepEl=document.getElementById('cal-step');
-  const stepLine=document.getElementById('cal-step-line');
   const covEl=document.getElementById('cal-cov');
   const covNote=document.getElementById('cal-cov-note');
   const breakEl=document.getElementById('cal-break');
@@ -1035,7 +1032,6 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     daysEl.textContent=String(days);
     stepEl.hidden=s.rate==null;
     minusBtn.disabled=days<=s.min;
-    stepLine.textContent=s.rate==null?'':days+' days  ·  '+gbp(s.rate)+' a day  ·  minimum '+s.min;
     covEl.hidden=!c.items.length;
     covEl.innerHTML=c.items.map(i=>'<div class="cal-cov-item"><div class="cal-cov-n">'+i.n.toLocaleString('en-GB')+'</div><div class="cal-cov-l">'+i.l+'</div></div>').join('');
     covNote.textContent=c.extra;covNote.hidden=!c.extra;
