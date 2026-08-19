@@ -917,7 +917,8 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   const ymd=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
   const hhmm=d=>pad(d.getHours())+':'+pad(d.getMinutes());
   const gbp=n=>'£'+Math.round(n).toLocaleString('en-GB');
-  const civil=d=>DY[(d.getDay()+6)%7]+' '+d.getDate()+' '+MN[d.getMonth()]+' '+d.getFullYear();
+  function ord(n){const j=n%10,k=n%100;if(k>10&&k<14) return n+'th';if(j===1) return n+'st';if(j===2) return n+'nd';if(j===3) return n+'rd';return n+'th'}
+  const civil=d=>DY[(d.getDay()+6)%7]+' '+ord(d.getDate())+' '+MN[d.getMonth()]+' '+d.getFullYear();
   function monday(d){const x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-((x.getDay()+6)%7));return x}
   function slotsFor(day){
     const y=day.getFullYear(),m=day.getMonth(),d=day.getDate(),dow=(day.getDay()+6)%7;
@@ -1028,8 +1029,9 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       }
     }
     const first=list[0],last=list[list.length-1];
-    const startTxt=first?civil(new Date(first.s))+', '+hhmm(new Date(first.s)):'';
-    const endTxt=last?civil(new Date(last.e))+', '+hhmm(new Date(last.e)):'';
+    const sd=first?new Date(first.s):null,ed=last?new Date(last.e):null;
+    const startTxt=sd?civil(sd)+' at '+hhmm(sd):'';
+    const endTxt=ed?civil(ed)+' at '+hhmm(ed):'';
     window.__quote={
       service:s.name,scope:s.scope,days:s.rate==null?list.length:days,report:rd,
       billDays:s.rate==null?0:days+rd,totalLabel:label,total:total,gross:gross,
@@ -1080,7 +1082,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     }else if(!start){
       metaEl.textContent='Mark a start on the calendar. The testing days fill from that point.';
     }else{
-      metaEl.textContent='From '+q.start+(q.end?' through to '+q.end+'.':'.');
+      metaEl.textContent='Assessment starts '+q.start+' and finishes '+q.end+'.';
     }
     hintEl.textContent=q.note;hintEl.hidden=!q.note;
     document.getElementById('tog-rpt').classList.toggle('on',rpt.checked);
