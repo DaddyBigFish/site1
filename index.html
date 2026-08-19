@@ -888,29 +888,29 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   function cover(key,n){
     if(key==='web') return {
       items:[
-        {n:n*20,l:'unique functions or API methods'},
+        {n:n*20,l:'functions'},
         {n:n*2,l:'user roles'}
       ],
-      extra:'A day is twenty unique functions on a standard application, or twenty API methods (or 140 parameters), and two user roles. Banking-grade work is ten functions a day. Page counts are a last resort at ten to fifteen a day, and only if functions cannot be counted.',
-      copy:'A function is a distinct action — fill a form, submit, change a setting — not a static page. A day spent on the application is not also a day on the API; mix the days to match the work. If there are many user levels, the highest and the lowest usually suffice.'
+      extra:'',
+      copy:'Web applications and APIs, tested by hand.'
     };
     if(key==='inf') return {
       items:[
         {n:n*10,l:'live IP addresses'},
         {n:n*3,l:'VLANs'}
       ],
-      extra:'Ten live IPs a day across three VLANs. Allow one extra day per additional site. Remote scanning over VPN is slower than on the LAN.',
-      copy:'Internal work is from inside the estate. Count live addresses, not empty space in a subnet. Extra sites, extra VLANs, and organisational complexity add time.'
+      extra:'',
+      copy:'Internal systems, from inside the estate.'
     };
     if(key==='aps') return {
       items:[],
-      extra:'Reporting is part of the figure, at no less than a fifth of the job.',
-      copy:'The estate is in scope. From supplied credentials or a corporate device, paths are followed through on-premises and cloud — Azure, AWS and GCP — to a stated objective, usually administrative control. Extra days are more time on the paths, not a larger host list.'
+      extra:'',
+      copy:'The estate in scope. Paths through to administrative control.'
     };
     return {
       items:[],
       extra:'',
-      copy:'Quoted as an engagement against the five NCSC technical controls. Headcount, devices and locations are confirmed on the scoping call.'
+      copy:'Cyber Essentials and Cyber Essentials Plus, against the five NCSC controls.'
     };
   }
   function reportDays(n){
@@ -1005,7 +1005,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     stepLine.textContent=s.rate==null?'':days+' × eight hours testing  ·  '+gbp(s.rate)+' a day  ·  minimum '+s.min;
     covEl.hidden=!c.items.length;
     covEl.innerHTML=c.items.map(i=>'<div class="cal-cov-item"><div class="cal-cov-n">'+i.n.toLocaleString('en-GB')+'</div><div class="cal-cov-l">'+i.l+'</div></div>').join('');
-    covNote.textContent=c.extra;
+    covNote.textContent=c.extra;covNote.hidden=!c.extra;
     if(s.rate==null){
       breakEl.hidden=true;breakEl.innerHTML='';
     }else{
