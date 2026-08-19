@@ -265,20 +265,22 @@ main{padding-top:64px}
   width:100%;min-width:0;
 }
 .cal-day{
-  background:var(--bg-2);padding:12px 12px 14px;
-  display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;align-items:start;
-  min-width:0;
+  background:var(--bg-2);padding:12px 10px 14px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  min-width:0;gap:10px;
 }
 .cal-day.wknd{background:#1a1a20}
 .cal-dow{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
 .cal-dom{font-size:1.05rem;font-weight:800;color:var(--text);margin-top:3px}
 .cal-day.today .cal-dom{color:var(--accent)}
-.cal-slots{display:flex;flex-direction:column;gap:6px;min-width:0}
+.cal-slots{display:flex;flex-direction:column;gap:6px;min-width:0;width:100%}
 .cal-slot{
   background:var(--bg-3);border:1px solid var(--border);border-radius:6px;
-  padding:9px 10px;font-size:.78rem;font-weight:600;color:var(--muted);
-  cursor:pointer;text-align:left;width:100%;min-width:0;box-sizing:border-box;
+  padding:9px 8px;font-size:.78rem;font-weight:600;color:var(--muted);
+  cursor:pointer;text-align:center;width:100%;min-width:0;box-sizing:border-box;
+  min-height:2.6em;display:flex;align-items:center;justify-content:center;
 }
+.cal-slot.gap{visibility:hidden;pointer-events:none}
 .cal-slot:hover{border-color:var(--border-s);color:var(--text)}
 .cal-slot.on{background:var(--accent-d);border-color:var(--accent);color:var(--text)}
 .cal-slot.dead{opacity:.32;cursor:not-allowed}
@@ -325,8 +327,8 @@ main{padding-top:64px}
 @media(min-width:960px){
   .cal-block,.pf-includes{padding-left:32px;padding-right:32px}
   .cal-week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:1px}
-  .cal-day{display:block;min-height:0;padding:12px 8px 14px}
-  .cal-slot{font-size:.72rem;padding:8px 8px}
+  .cal-day{padding:12px 8px 14px}
+  .cal-slot{font-size:.72rem;padding:8px 6px}
 }
 .cf-quote{
   border:1px solid var(--border);border-radius:8px;background:var(--bg-3);
@@ -1053,6 +1055,12 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       const body=document.createElement('div');
       const wrap=document.createElement('div');
       wrap.className='cal-slots';
+      if(dow<=4){
+        const gap=document.createElement('div');
+        gap.className='cal-slot gap';
+        gap.setAttribute('aria-hidden','true');
+        wrap.appendChild(gap);
+      }
       slotsFor(day).forEach(slot=>{
         const b=document.createElement('button');
         b.type='button';
