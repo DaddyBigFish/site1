@@ -297,8 +297,11 @@ main{padding-top:64px}
   letter-spacing:-.04em;color:var(--text);line-height:1;margin:0 0 6px;
   font-variant-numeric:tabular-nums;
 }
-.cal-period{font-size:1rem;font-weight:700;color:var(--muted);margin:0 0 14px}
+.cal-period{font-size:1rem;font-weight:700;color:var(--muted);margin:0 0 6px}
 .cal-period[hidden]{display:none}
+.cal-save-line{font-size:.95rem;font-weight:700;color:var(--green);margin:0 0 14px}
+.cal-save-line[hidden]{display:none}
+.cal-sheet tr.save th,.cal-sheet tr.save td{color:var(--green)}
 .cal-meta{font-size:.92rem;color:var(--muted);line-height:1.65;margin:0 0 6px}
 .cal-hint{font-size:.8rem;color:var(--dim);line-height:1.65;margin:0 0 20px}
 .cal-toggles{display:grid;gap:8px;margin-bottom:20px}
@@ -659,6 +662,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
         <div id="cal-break" hidden></div>
         <div class="cal-total" id="cal-total">£0</div>
         <p class="cal-period" id="cal-period" hidden></p>
+        <p class="cal-save-line" id="cal-save" hidden></p>
         <p class="cal-meta" id="cal-meta"></p>
         <p class="cal-hint" id="cal-hint"></p>
         <div class="cal-toggles">
@@ -942,6 +946,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   const copyEl=document.getElementById('cal-copy');
   const totEl=document.getElementById('cal-total');
   const periodEl=document.getElementById('cal-period');
+  const saveEl=document.getElementById('cal-save');
   const metaEl=document.getElementById('cal-meta');
   const hintEl=document.getElementById('cal-hint');
   const daysEl=document.getElementById('cal-days');
@@ -964,20 +969,20 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   function quote(){
     const s=SVCS[svc],c=cover(svc,days),list=selected();
     const rd=s.rate==null?0:reportDays(days);
-    let note='',total=0,label='',gross=0,monthly=0,tests=0,months=0,contract=0;
+    let note='',total=0,label='',gross=0,monthly=0,tests=0,months=0,contract=0,full=0,saving=0,off='';
     if(s.rate==null){
       label=gbp(s.band[0])+' – '+gbp(s.band[1]);
       note='Cyber Essentials is quoted as an engagement. The windows marked are the hours you would prefer.';
     }else{
       gross=(days+rd)*s.rate;
       if(rpt.checked){
-        tests=2;months=12;contract=Math.round(gross*tests*0.75);monthly=Math.round(contract/months);total=contract;
+        tests=2;months=12;full=gross*tests;saving=Math.round(full*0.25);contract=full-saving;monthly=Math.round(contract/months);total=contract;off='25%';
         label=gbp(monthly);
-        note='One-year contract: two assessments. A quarter off. '+gbp(monthly)+' a month by direct debit, '+gbp(contract)+' in all.';
+        note='One-year contract: two assessments. '+gbp(monthly)+' a month by direct debit.';
       }else if(ret.checked){
-        tests=6;months=36;contract=Math.round(gross*tests*0.5);monthly=Math.round(contract/months);total=contract;
+        tests=6;months=36;full=gross*tests;saving=Math.round(full*0.5);contract=full-saving;monthly=Math.round(contract/months);total=contract;off='50%';
         label=gbp(monthly);
-        note='Three-year contract: six assessments. Half the rate. '+gbp(monthly)+' a month by direct debit, '+gbp(contract)+' in all.';
+        note='Three-year contract: six assessments. '+gbp(monthly)+' a month by direct debit.';
       }else{
         total=gross;label=gbp(total);
         note='Reporting is '+rd+' day'+(rd===1?'':'s')+' on a job of this length, included in the figure.';
@@ -991,6 +996,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       billDays:s.rate==null?0:days+rd,totalLabel:label,total:total,gross:gross,
       monthly:monthly,tests:tests,months:months,contract:contract,
       monthlyLabel:monthly?gbp(monthly):'',contractLabel:contract?gbp(contract):'',
+      full:full,saving:saving,off:off,savingLabel:saving?gbp(saving):'',fullLabel:full?gbp(full):'',
       start:startTxt,end:endTxt,
       blocks:list.map(x=>civil(x.date)+', '+x.label),
       coverage:c.items.map(i=>i.n+' '+i.l),
@@ -1017,14 +1023,17 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
         tr('Testing',days+' days',gbp(days*s.rate))+
         tr('Reporting',q.report+' day'+(q.report===1?'':'s'),gbp(q.report*s.rate));
       if(q.tests){
-        h+=tr('Assessments',String(q.tests),gbp(q.gross)+' each')+
-          tr('Direct debit',q.months+' months',gbp(q.contract));
+        h+=tr(q.tests+' at full rate','',q.fullLabel)+
+          '<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>'+
+          tr('You pay',q.months+' months',q.contractLabel);
       }
       breakEl.innerHTML=h+'</table>';
     }
     totEl.textContent=q.totalLabel;
     if(q.monthly){periodEl.hidden=false;periodEl.textContent='a month, by direct debit'}
     else{periodEl.hidden=true;periodEl.textContent=''}
+    if(q.saving){saveEl.hidden=false;saveEl.textContent='You save '+q.savingLabel+' ('+q.off+' off the full rate)'}
+    else{saveEl.hidden=true;saveEl.textContent=''}
     clearBtn.disabled=!start && !chosen.size;
     if(s.rate==null){
       metaEl.textContent=chosen.size?chosen.size+' window'+(chosen.size===1?'':'s')+' marked.':'Mark the windows you prefer.';
@@ -1108,7 +1117,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const q=window.__quote;
     const box=document.getElementById('cf-quote');
     box.hidden=false;
-    box.innerHTML='<b>Proposed work</b><br>'+q.service+' · '+q.days+' days testing'+(q.report?' + '+q.report+' reporting':'')+' · '+q.totalLabel+(q.monthly?' a month by direct debit':'')+(q.tests?' · '+q.tests+' assessments · '+q.contractLabel+' in all':'')
+    box.innerHTML='<b>Proposed work</b><br>'+q.service+' · '+q.days+' days testing'+(q.report?' + '+q.report+' reporting':'')+' · '+q.totalLabel+(q.monthly?' a month by direct debit':'')+(q.tests?' · '+q.tests+' assessments · '+q.contractLabel+' in all':'')+(q.saving?' · save '+q.savingLabel+' ('+q.off+' off)':'')
       +(q.start?'<br>Proposed start: '+q.start:'')
       +(q.end?'<br>Through to: '+q.end:'')
       +(q.coverage.length?'<br>'+q.coverage.join('<br>'):'')
@@ -1217,6 +1226,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
         q.days + ' days testing' + (q.report ? ' + ' + q.report + ' reporting' : '') + '\n' +
         'Indicative fee: ' + q.totalLabel + (q.monthly ? ' a month by direct debit' : '') + '\n' +
         (q.tests ? q.tests + ' assessments · ' + q.months + ' months · ' + q.contractLabel + ' in all\n' : '') +
+        (q.saving ? 'Saving: ' + q.savingLabel + ' (' + q.off + ' off the full rate)\n' : '') +
         (q.start ? 'Proposed start: ' + q.start + '\n' : '') +
         (q.end ? 'Through to: ' + q.end + '\n' : '') +
         (q.coverage && q.coverage.length ? 'Coverage:\n' + q.coverage.map(x => '  - ' + x).join('\n') + '\n' : '') +
