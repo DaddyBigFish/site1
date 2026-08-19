@@ -260,7 +260,7 @@ main{padding-top:64px}
 }
 .cal-nav-mid{
   position:absolute;left:50%;transform:translateX(-50%);text-align:center;
-  pointer-events:none;max-width:calc(100% - 220px);
+  pointer-events:none;max-width:calc(100% - 104px);
 }
 .cal-nav-title{font-size:clamp(1.1rem,2.6vw,1.45rem);font-weight:800;letter-spacing:-.025em;color:var(--text);line-height:1.2}
 .cal-arrow{
@@ -272,16 +272,17 @@ main{padding-top:64px}
 .cal-arrow:disabled{opacity:.35;cursor:not-allowed}
 #cal-next{margin-left:auto}
 .cal-clear{
-  margin:0;flex-shrink:0;
-  background:transparent;border:1px solid var(--border);border-radius:6px;
+  display:block;width:100%;margin:0;flex-shrink:0;
+  background:var(--bg-2);border:1px solid var(--border);border-top:none;
+  border-radius:0 0 8px 8px;
   color:var(--muted);font-family:inherit;font-size:.8rem;font-weight:600;
-  padding:0 12px;cursor:pointer;height:40px;
+  padding:0;cursor:pointer;height:40px;text-align:center;
 }
 .cal-clear:hover{color:var(--text);border-color:var(--border-s)}
 .cal-clear:disabled{opacity:.35;cursor:not-allowed}
 .cal-week{
   display:flex;flex-direction:column;gap:1px;background:var(--border);
-  border:1px solid var(--border);border-radius:8px;overflow:hidden;
+  border:1px solid var(--border);border-radius:8px 8px 0 0;overflow:hidden;
   width:100%;min-width:0;
 }
 .cal-day{
@@ -666,7 +667,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
       <div class="cal-block">
         <div class="cal-kicker"><span>03</span>When</div>
         <div class="cal-nav">
-          <button type="button" class="cal-clear" id="cal-clear" disabled>Clear hours</button>
           <button type="button" class="cal-arrow" id="cal-prev" aria-label="Previous week">&#8249;</button>
           <div class="cal-nav-mid">
             <div class="cal-nav-title" id="cal-range"></div>
@@ -674,6 +674,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
           <button type="button" class="cal-arrow" id="cal-next" aria-label="Next week">&#8250;</button>
         </div>
         <div class="cal-week" id="cal-week"></div>
+        <button type="button" class="cal-clear" id="cal-clear" disabled>Clear hours</button>
         <p class="cal-meta" id="cal-meta"></p>
       </div>
 
