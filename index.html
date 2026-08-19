@@ -1023,7 +1023,8 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
         tr('Testing',days+' days',gbp(days*s.rate))+
         tr('Reporting',q.report+' day'+(q.report===1?'':'s'),gbp(q.report*s.rate));
       if(q.tests){
-        h+=tr(q.tests+' at full rate','',q.fullLabel)+
+        h+=tr('One assessment','',gbp(q.gross))+
+          tr((q.tests===2?'Two':'Six')+' assessments','full rate',q.fullLabel)+
           '<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>'+
           tr('You pay',q.months+' months',q.contractLabel);
       }
