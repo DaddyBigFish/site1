@@ -209,6 +209,21 @@ main{padding-top:64px}
 .cal-top{padding:24px 20px 18px;border-bottom:1px solid var(--border)}
 .cal-top .form-section-title{margin-bottom:12px}
 .cal-rate{font-size:.88rem;color:var(--muted);margin-top:12px;line-height:1.55}
+.cal-step{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  margin-top:18px;padding-top:16px;border-top:1px solid var(--border);
+}
+.cal-step-lbl{font-size:.88rem;font-weight:700;color:var(--text)}
+.cal-step-sub{font-size:.78rem;color:var(--dim);margin-top:3px}
+.cal-step-ctrl{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.cal-step-n{font-size:1.45rem;font-weight:800;letter-spacing:-.03em;min-width:2.2ch;text-align:center;color:var(--text)}
+.cal-cov{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:16px}
+.cal-cov-item{background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:14px 14px 12px}
+.cal-cov-n{font-size:clamp(1.35rem,3vw,1.7rem);font-weight:900;letter-spacing:-.03em;color:var(--text);line-height:1}
+.cal-cov-l{font-size:.78rem;color:var(--muted);margin-top:6px;line-height:1.4}
+.cal-cov-copy{font-size:.88rem;color:var(--muted);line-height:1.7;margin-top:14px}
+.cal-cov-note{font-size:.8rem;color:var(--dim);line-height:1.6;margin-top:10px}
+.cal-step[hidden],.cal-cov[hidden]{display:none}
 .cal-nav{
   display:flex;align-items:center;justify-content:space-between;gap:12px;
   padding:14px 16px;border-bottom:1px solid var(--border);
@@ -221,6 +236,18 @@ main{padding-top:64px}
   color:var(--text);cursor:pointer;font-size:1.1rem;line-height:1;
 }
 .cal-arrow:hover{border-color:var(--border-s)}
+.cal-arrow:disabled{opacity:.35;cursor:not-allowed}
+.cal-bar{
+  display:flex;justify-content:flex-end;padding:10px 16px;
+  border-bottom:1px solid var(--border);background:var(--bg-2);
+}
+.cal-clear{
+  background:transparent;border:1px solid var(--border);border-radius:6px;
+  color:var(--muted);font-family:inherit;font-size:.8rem;font-weight:600;
+  padding:8px 14px;cursor:pointer;
+}
+.cal-clear:hover{color:var(--text);border-color:var(--border-s)}
+.cal-clear:disabled{opacity:.35;cursor:not-allowed}
 .cal-week{display:flex;flex-direction:column;gap:1px;background:var(--border)}
 .cal-day{
   background:var(--bg-2);padding:14px 14px 16px;
@@ -258,7 +285,7 @@ main{padding-top:64px}
 .cal-tog input{margin-top:3px;accent-color:var(--accent)}
 .cal-tog-title{font-size:.88rem;font-weight:700;color:var(--text)}
 .cal-tog-text{font-size:.82rem;color:var(--muted);line-height:1.5;margin-top:2px}
-.cal-list{font-size:.8rem;color:var(--dim);line-height:1.65;margin:0 0 16px;max-height:7.5em;overflow:auto}
+.cal-list{font-size:.8rem;color:var(--dim);line-height:1.65;margin:0 0 16px}
 .pf-divider{border:none;border-top:1px solid var(--border);margin:0}
 .pf-includes{
   display:flex;flex-direction:column;gap:6px;
@@ -281,7 +308,7 @@ main{padding-top:64px}
 }
 .pf-tick svg{color:var(--green);flex-shrink:0;width:14px;height:14px}
 @media(min-width:860px){
-  .cal-top,.cal-nav,.cal-sum,.pf-includes{padding-left:32px;padding-right:32px}
+  .cal-top,.cal-nav,.cal-sum,.cal-bar,.pf-includes{padding-left:32px;padding-right:32px}
   .cal-week{display:grid;grid-template-columns:repeat(7,1fr);gap:1px}
   .cal-day{display:block;min-height:220px;padding:16px 12px 18px}
   .cal-slots{flex-direction:column}
@@ -563,7 +590,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
     <div class="pricing-intro">
       <p class="label reveal">Fees</p>
       <h2 class="headline reveal">Mark the hours</h2>
-      <p class="reveal">A day is eight hours, delivered in the out-of-hours window. Choose the work, then mark the blocks you want used. The first block is the proposed start. The figure is indicative. A written quotation follows scoping. Times are United Kingdom time.</p>
+      <p class="reveal">A day is eight hours, out of hours. Set the number of days, then mark a start on the calendar. Coverage — pages, endpoints, hosts — steps up with each day. The figure is indicative. A written quotation follows scoping. Times are United Kingdom time.</p>
     </div>
 
     <div class="pricing-panel reveal">
@@ -576,6 +603,20 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
           <button type="button" class="opt-btn" data-svc="ce">Cyber Essentials</button>
         </div>
         <p class="cal-rate" id="cal-rate"></p>
+        <div class="cal-step" id="cal-step">
+          <div>
+            <div class="cal-step-lbl">Days of testing</div>
+            <div class="cal-step-sub" id="cal-step-sub"></div>
+          </div>
+          <div class="cal-step-ctrl">
+            <button type="button" class="cal-arrow" id="cal-minus" aria-label="Fewer days">&minus;</button>
+            <div class="cal-step-n" id="cal-days">2</div>
+            <button type="button" class="cal-arrow" id="cal-plus" aria-label="More days">+</button>
+          </div>
+        </div>
+        <div class="cal-cov" id="cal-cov"></div>
+        <p class="cal-cov-copy" id="cal-cov-copy"></p>
+        <p class="cal-cov-note" id="cal-cov-note"></p>
       </div>
 
       <div class="cal-nav">
@@ -588,6 +629,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
       </div>
 
       <div class="cal-week" id="cal-week"></div>
+      <div class="cal-bar">
+        <button type="button" class="cal-clear" id="cal-clear" disabled>Clear hours</button>
+      </div>
 
       <div class="cal-sum">
         <div class="cal-total" id="cal-total">£0</div>
@@ -802,10 +846,10 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
 <script>
 (function(){
   const SVCS={
-    web:{name:'Web application and API',rate:1100,min:3,max:5,scope:'Web application and API',blurb:'£1,100 for eight hours. Typical run: three to five days.'},
-    inf:{name:'Internal infrastructure',rate:1200,min:5,max:7,scope:'Internal infrastructure',blurb:'£1,200 for eight hours. Typical run: five to seven days.'},
-    aps:{name:'Attack path simulation',rate:1400,min:15,max:30,scope:'Attack path simulation',blurb:'£1,400 for eight hours. Typical run: fifteen to thirty days.'},
-    ce:{name:'Cyber Essentials',rate:null,band:[800,2500],min:1,max:null,scope:'Cyber Essentials',blurb:'Quoted as an engagement, £800 to £2,500. Mark the windows you prefer.'}
+    web:{name:'Web application and API',rate:1100,min:2,typical:'two to five',scope:'Web application and API',blurb:'£1,100 for eight hours. Two days is the minimum.'},
+    inf:{name:'Internal infrastructure',rate:1200,min:4,typical:'four to seven',scope:'Internal infrastructure',blurb:'£1,200 for eight hours. Four days is the minimum.'},
+    aps:{name:'Attack path simulation',rate:1400,min:20,typical:'twenty to thirty',scope:'Attack path simulation',blurb:'£1,400 for eight hours. Twenty days is the minimum. The estate is in scope.'},
+    ce:{name:'Cyber Essentials',rate:null,band:[800,2500],min:1,typical:'',scope:'Cyber Essentials',blurb:'Quoted as an engagement, £800 to £2,500. Mark the windows you prefer.'}
   };
   const MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
   const DY=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
@@ -824,10 +868,54 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       return {id:ymd(s)+'T'+hhmm(s),s:s.getTime(),e:e.getTime(),label:hhmm(s)+' – '+hhmm(e),date:new Date(y,m,d)};
     };
     if(dow<=4) return [mk(18,0,2,0,1)];
-    if(dow===5) return [mk(0,0,8,0,0),mk(8,0,16,0,0),mk(16,0,0,0,1)];
-    return [mk(0,0,8,0,0),mk(8,0,16,0,0),mk(20,0,4,0,1)];
+    if(dow===5) return [mk(2,0,10,0,0),mk(10,0,18,0,0),mk(18,0,2,0,1)];
+    return [mk(2,0,10,0,0),mk(10,0,18,0,0),mk(20,0,4,0,1)];
   }
-  let week=monday(new Date()),svc='web';
+  function cover(key,n){
+    if(key==='web') return {
+      items:[
+        {n:n*10,l:'dynamic pages'},
+        {n:n*8,l:'API endpoints'},
+        {n:2+Math.floor(Math.max(0,n-2)/2),l:'user roles'},
+        {n:1,l:'application, one environment'}
+      ],
+      extra:'Each further day adds 10 pages and 8 endpoints.',
+      copy:'Manual testing against OWASP. Pages are distinct dynamic views or functions, not static marketing URLs.'
+    };
+    if(key==='inf') return {
+      items:[
+        {n:n*20,l:'live hosts'},
+        {n:Math.ceil(n/4),l:Math.ceil(n/4)===1?'site / network range':'sites / network ranges'}
+      ],
+      extra:'Each further day adds 20 live hosts.',
+      copy:'Authenticated or not, on a defined range. Counts are live hosts, not empty addresses in a subnet.'
+    };
+    if(key==='aps') return {
+      items:[],
+      extra:'',
+      copy:'The estate is in scope. From supplied credentials or a corporate device, paths are followed through on-premises and cloud — Azure, AWS and GCP — to a stated objective, usually administrative control. Extra days are more time on the paths, not a larger host list.'
+    };
+    return {
+      items:[],
+      extra:'',
+      copy:'Quoted as an engagement against the five NCSC technical controls. Headcount, devices and locations are confirmed on the scoping call.'
+    };
+  }
+  function takeSlots(from,count){
+    const out=[];
+    const d=new Date(from);
+    d.setHours(0,0,0,0);
+    let g=0;
+    while(out.length<count && g++<500){
+      slotsFor(d).forEach(slot=>{
+        if(out.length<count && slot.s>=from && slot.e>Date.now()) out.push(slot);
+      });
+      d.setDate(d.getDate()+1);
+    }
+    return out;
+  }
+
+  let week=monday(new Date()),svc='web',days=2,start=null;
   const chosen=new Map();
   const weekEl=document.getElementById('cal-week');
   const rangeEl=document.getElementById('cal-range');
@@ -836,34 +924,71 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   const metaEl=document.getElementById('cal-meta');
   const hintEl=document.getElementById('cal-hint');
   const listEl=document.getElementById('cal-list');
+  const daysEl=document.getElementById('cal-days');
+  const stepEl=document.getElementById('cal-step');
+  const stepSub=document.getElementById('cal-step-sub');
+  const covEl=document.getElementById('cal-cov');
+  const covCopy=document.getElementById('cal-cov-copy');
+  const covNote=document.getElementById('cal-cov-note');
+  const clearBtn=document.getElementById('cal-clear');
+  const minusBtn=document.getElementById('cal-minus');
   const rpt=document.getElementById('cal-rpt');
   const ret=document.getElementById('cal-ret');
+
+  function refill(){
+    chosen.clear();
+    if(!start || SVCS[svc].rate==null) return;
+    takeSlots(start.s,days).forEach(x=>chosen.set(x.id,x));
+  }
   function selected(){return Array.from(chosen.values()).sort((a,b)=>a.s-b.s)}
   function quote(){
-    const s=SVCS[svc],n=chosen.size,list=selected();
+    const s=SVCS[svc],c=cover(svc,days),list=selected();
     let note='',total=0,label='';
     if(s.rate==null){
       label=gbp(s.band[0])+' – '+gbp(s.band[1]);
       note='Cyber Essentials is quoted as an engagement. The windows marked are the hours you would prefer.';
     }else{
-      total=n*s.rate;
+      total=days*s.rate;
       if(ret.checked){total*=.5;note='Three-year retainer applied (half the rate).'}
       else if(rpt.checked){total*=.75;note='Repeat instruction applied (a quarter off).'}
-      label=n?gbp(total):gbp(0);
-      if(n&&n<s.min) note=(note?note+' ':'')+'This work typically runs to '+s.min+(s.max?'–'+s.max:'')+' days. The figure is for the blocks you have marked.';
-      else if(n&&s.max&&n>s.max) note=(note?note+' ':'')+'Typical run is up to '+s.max+' days. A written quotation will confirm whether the extra days are required.';
+      label=gbp(total);
+      if(s.typical) note=(note?note+' ':'')+'A typical run is '+s.typical+' days.';
     }
-    const first=list[0];
+    const first=list[0],last=list[list.length-1];
     const startTxt=first?civil(new Date(first.s))+', '+hhmm(new Date(first.s)):'';
-    window.__quote={service:s.name,scope:s.scope,days:n,totalLabel:label,total:total,start:startTxt,blocks:list.map(x=>civil(x.date)+', '+x.label),rpt:rpt.checked,ret:ret.checked,note};
+    const endTxt=last?civil(new Date(last.e))+', '+hhmm(new Date(last.e)):'';
+    window.__quote={
+      service:s.name,scope:s.scope,days:s.rate==null?list.length:days,billDays:s.rate==null?0:days,
+      totalLabel:label,total:total,start:startTxt,end:endTxt,
+      blocks:list.map(x=>civil(x.date)+', '+x.label),
+      coverage:c.items.map(i=>i.n+' '+i.l),
+      copy:c.copy,extra:c.extra,rpt:rpt.checked,ret:ret.checked,note
+    };
     return window.__quote;
   }
   function paintSum(){
-    const q=quote(),s=SVCS[svc];
+    const q=quote(),s=SVCS[svc],c=cover(svc,days);
     rateEl.textContent=s.blurb;
+    daysEl.textContent=String(days);
+    stepEl.hidden=s.rate==null;
+    minusBtn.disabled=days<=s.min;
+    stepSub.textContent=s.rate==null?'':'Minimum '+s.min+'. A typical run is '+s.typical+' days.';
+    covEl.hidden=!c.items.length;
+    covEl.innerHTML=c.items.map(i=>'<div class="cal-cov-item"><div class="cal-cov-n">'+i.n.toLocaleString('en-GB')+'</div><div class="cal-cov-l">'+i.l+'</div></div>').join('');
+    covCopy.textContent=c.copy;
+    covNote.textContent=c.extra;
     totEl.textContent=q.totalLabel;
-    if(!q.days){metaEl.textContent='No blocks marked yet.';listEl.textContent=''}
-    else{metaEl.textContent=q.days+' × eight-hour day'+(q.days===1?'':'s')+(q.start?'. Proposed start: '+q.start+'.':'.');listEl.textContent=q.blocks.join(' · ')}
+    clearBtn.disabled=!start && !chosen.size;
+    if(s.rate==null){
+      metaEl.textContent=chosen.size?chosen.size+' window'+(chosen.size===1?'':'s')+' marked.': 'No windows marked yet.';
+      listEl.textContent=q.blocks.join(' · ');
+    }else if(!start){
+      metaEl.textContent=days+' × eight-hour day'+(days===1?'':'s')+' · '+gbp(days*s.rate)+' before any reduction. Mark a start on the calendar.';
+      listEl.textContent='';
+    }else{
+      metaEl.textContent=days+' × eight-hour days. From '+q.start+(q.end?' through to '+q.end+'.':'.');
+      listEl.textContent=q.blocks.length===days?'':q.blocks.length+' of '+days+' blocks placed.';
+    }
     hintEl.textContent=q.note||'Indicative only. A written quotation follows the scoping discussion.';
     document.getElementById('tog-rpt').classList.toggle('on',rpt.checked);
     document.getElementById('tog-ret').classList.toggle('on',ret.checked);
@@ -901,10 +1026,12 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
         if(dead){b.classList.add('dead');b.disabled=true}
         if(chosen.has(slot.id)) b.classList.add('on');
         if(!dead) b.addEventListener('click',()=>{
-          if(chosen.has(slot.id)) chosen.delete(slot.id);
-          else{
-            for(const [id,x] of chosen){ if(slot.s<x.e&&x.s<slot.e) chosen.delete(id) }
-            chosen.set(slot.id,slot);
+          if(SVCS[svc].rate==null){
+            if(chosen.has(slot.id)) chosen.delete(slot.id);
+            else chosen.set(slot.id,slot);
+          }else{
+            start=slot;
+            refill();
           }
           paintWeek();paintSum();
         });
@@ -915,16 +1042,26 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       weekEl.appendChild(col);
     }
   }
+  function setDays(n){
+    days=Math.max(SVCS[svc].min||1,n);
+    refill();paintWeek();paintSum();
+  }
   document.querySelectorAll('#cal-svc .opt-btn').forEach(btn=>{
     btn.addEventListener('click',()=>{
       document.querySelectorAll('#cal-svc .opt-btn').forEach(x=>x.classList.remove('active'));
       btn.classList.add('active');
       svc=btn.dataset.svc;
-      paintSum();
+      days=SVCS[svc].min;
+      if(SVCS[svc].rate==null){start=null;chosen.clear()}
+      else refill();
+      paintWeek();paintSum();
     });
   });
   document.getElementById('cal-prev').addEventListener('click',()=>{week.setDate(week.getDate()-7);paintWeek()});
   document.getElementById('cal-next').addEventListener('click',()=>{week.setDate(week.getDate()+7);paintWeek()});
+  document.getElementById('cal-minus').addEventListener('click',()=>setDays(days-1));
+  document.getElementById('cal-plus').addEventListener('click',()=>setDays(days+1));
+  clearBtn.addEventListener('click',()=>{start=null;chosen.clear();paintWeek();paintSum()});
   rpt.addEventListener('change',()=>{if(rpt.checked) ret.checked=false;paintSum()});
   ret.addEventListener('change',()=>{if(ret.checked) rpt.checked=false;paintSum()});
   document.getElementById('cal-go').addEventListener('click',e=>{
@@ -933,7 +1070,13 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const q=window.__quote;
     const box=document.getElementById('cf-quote');
     box.hidden=false;
-    box.innerHTML='<b>Proposed work</b><br>'+q.service+' · '+q.days+' × eight hours · '+q.totalLabel+(q.start?'<br>Proposed start: '+q.start:'')+(q.rpt?'<br>Repeat instruction.':'')+(q.ret?'<br>Three-year retainer.':'')+(q.blocks.length?'<br>'+q.blocks.join('<br>'):'');
+    box.innerHTML='<b>Proposed work</b><br>'+q.service+' · '+q.days+' × eight hours · '+q.totalLabel
+      +(q.start?'<br>Proposed start: '+q.start:'')
+      +(q.end?'<br>Through to: '+q.end:'')
+      +(q.coverage.length?'<br>'+q.coverage.join('<br>'):'')
+      +(q.copy?'<br>'+q.copy:'')
+      +(q.rpt?'<br>Repeat instruction.':'')
+      +(q.ret?'<br>Three-year retainer.':'');
     document.querySelectorAll('#enquiry-grid .opt-btn').forEach(b=>b.classList.toggle('active',b.dataset.val==='Request a quotation'));
     document.querySelectorAll('#scope-grid .opt-btn').forEach(b=>b.classList.toggle('active',b.dataset.val===q.scope||(q.ret&&b.dataset.val==='Three-year retainer')));
     const startSel=document.getElementById('cf-start');
@@ -1026,16 +1169,19 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     }).join(' | ') : 'No preference';
     const q = window.__quote;
     let cal = '';
-    if(q && q.days){
+    if(q && (q.days || q.blocks.length)){
       cal =
-        '\nProposed testing hours:\n' +
+        '\nProposed work:\n' +
         q.service + '\n' +
         q.days + ' × eight-hour days\n' +
         'Indicative fee: ' + q.totalLabel + '\n' +
         (q.start ? 'Proposed start: ' + q.start + '\n' : '') +
+        (q.end ? 'Through to: ' + q.end + '\n' : '') +
+        (q.coverage && q.coverage.length ? 'Coverage:\n' + q.coverage.map(x => '  - ' + x).join('\n') + '\n' : '') +
+        (q.copy ? q.copy + '\n' : '') +
         (q.rpt ? 'Repeat instruction.\n' : '') +
         (q.ret ? 'Three-year retainer.\n' : '') +
-        q.blocks.map(b => '  - ' + b).join('\n') + '\n';
+        (q.blocks.length ? 'Hours:\n' + q.blocks.map(b => '  - ' + b).join('\n') + '\n' : '');
     }
 
     const subject = encodeURIComponent('Enquiry: ' + enquiry + (org ? ' — ' + org : ''));
