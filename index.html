@@ -205,37 +205,47 @@ main{padding-top:64px}
   border:1px solid var(--border);border-radius:12px;
   overflow:hidden;background:var(--bg-2);min-width:0;
 }
-.cal-block{padding:28px 20px;border-bottom:1px solid var(--border);min-width:0}
+.cal-block{padding:22px 20px;border-bottom:1px solid var(--border);min-width:0}
 .cal-block:last-child{border-bottom:none}
 .cal-kicker{
-  display:flex;align-items:baseline;gap:12px;margin-bottom:16px;
+  display:flex;align-items:baseline;gap:12px;margin-bottom:12px;
   font-size:.88rem;font-weight:700;color:var(--text);
 }
 .cal-kicker span{font-size:.7rem;font-weight:700;letter-spacing:.1em;color:var(--dim)}
-.cal-copy{font-size:.92rem;color:var(--muted);line-height:1.7;margin-top:14px;max-width:42em}
-.cal-step-ctrl{display:flex;align-items:center;gap:18px;margin:4px 0 10px}
+.cal-copy{font-size:.88rem;color:var(--muted);line-height:1.6;margin-top:10px;max-width:42em}
+.cal-days-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px}
+.cal-step-ctrl{display:flex;align-items:center;gap:12px}
 .cal-step-n{
-  font-size:clamp(2.2rem,6vw,3rem);font-weight:900;letter-spacing:-.045em;
-  min-width:2.4ch;text-align:center;color:var(--text);line-height:1;font-variant-numeric:tabular-nums;
+  font-size:clamp(1.6rem,4vw,2rem);font-weight:900;letter-spacing:-.04em;
+  min-width:2ch;text-align:center;color:var(--text);line-height:1;font-variant-numeric:tabular-nums;
 }
-.cal-step-line{font-size:.9rem;color:var(--muted);line-height:1.55}
+.cal-step-line{font-size:.85rem;color:var(--muted);line-height:1.45;width:100%}
 .cal-step[hidden]{display:none}
-.cal-cov{
-  margin-top:18px;border:1px solid var(--border);border-radius:8px;overflow:hidden;
-}
+.cal-cov{display:flex;flex-wrap:wrap;gap:6px;margin:0}
 .cal-cov[hidden]{display:none}
 .cal-cov-item{
-  display:grid;grid-template-columns:4.8rem 1fr;align-items:baseline;gap:16px;
-  padding:12px 16px;border-top:1px solid var(--border);background:var(--bg-3);
+  display:inline-flex;align-items:baseline;gap:8px;
+  padding:6px 12px;border:1px solid var(--border);border-radius:6px;background:var(--bg-3);
 }
-.cal-cov-item:first-child{border-top:none}
 .cal-cov-n{
-  font-size:1.2rem;font-weight:800;letter-spacing:-.03em;color:var(--text);
-  text-align:right;font-variant-numeric:tabular-nums;line-height:1.2;
+  font-size:1rem;font-weight:800;letter-spacing:-.03em;color:var(--text);
+  font-variant-numeric:tabular-nums;
 }
-.cal-cov-l{font-size:.9rem;color:var(--muted)}
+.cal-cov-l{font-size:.82rem;color:var(--muted)}
 .cal-cov-note{font-size:.8rem;color:var(--dim);line-height:1.6;margin-top:10px}
-#cal-break{margin:0 0 16px}
+.cal-sheet{
+  width:100%;border-collapse:collapse;margin:0 0 16px;font-size:.88rem;
+}
+.cal-sheet th{
+  text-align:left;font-weight:500;color:var(--muted);padding:8px 12px 8px 0;
+  border-bottom:1px solid var(--border);
+}
+.cal-sheet td{
+  padding:8px 0;border-bottom:1px solid var(--border);color:var(--text);
+  font-variant-numeric:tabular-nums;text-align:right;
+}
+.cal-sheet td:last-child{font-weight:700;width:7.5rem}
+#cal-break[hidden]{display:none}
 .cal-nav{
   display:grid;grid-template-columns:40px minmax(0,1fr) 40px;gap:8px 10px;
   align-items:center;margin-bottom:14px;
@@ -294,7 +304,7 @@ main{padding-top:64px}
 .cal-toggles{display:grid;gap:8px;margin-bottom:20px}
 .cal-tog{
   display:flex;align-items:flex-start;gap:10px;
-  border:1px solid var(--border);border-radius:8px;padding:14px 16px;
+  border:1px solid var(--border);border-radius:8px;padding:10px 14px;
   cursor:pointer;background:var(--bg-3);
 }
 .cal-tog.on{border-color:var(--accent);background:var(--accent-d)}
@@ -511,9 +521,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 <div class="stats" id="hours">
   <div class="wrap" style="padding:0">
     <div class="stats-grid">
-      <div class="stat reveal-up"><div class="stat-val">18:00</div><div class="stat-lbl">Weekdays</div></div>
-      <div class="stat reveal-up"><div class="stat-val">10:00</div><div class="stat-lbl">Saturday</div></div>
-      <div class="stat reveal-up"><div class="stat-val">02:00</div><div class="stat-lbl">Monday</div></div>
+      <div class="stat reveal-up"><div class="stat-val">18:00</div><div class="stat-lbl">Weekday start</div></div>
+      <div class="stat reveal-up"><div class="stat-val">10:00</div><div class="stat-lbl">Weekend start</div></div>
+      <div class="stat reveal-up"><div class="stat-val">02:00</div><div class="stat-lbl">Monday end</div></div>
       <div class="stat reveal-up"><div class="stat-val">UK</div><div class="stat-lbl">Based</div></div>
     </div>
   </div>
@@ -618,13 +628,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 
       <div class="cal-block" id="cal-step">
         <div class="cal-kicker"><span>02</span>Days</div>
-        <div class="cal-step-ctrl">
-          <button type="button" class="cal-arrow" id="cal-minus" aria-label="Fewer days">&minus;</button>
-          <div class="cal-step-n" id="cal-days">2</div>
-          <button type="button" class="cal-arrow" id="cal-plus" aria-label="More days">+</button>
+        <div class="cal-days-row">
+          <div class="cal-step-ctrl">
+            <button type="button" class="cal-arrow" id="cal-minus" aria-label="Fewer days">&minus;</button>
+            <div class="cal-step-n" id="cal-days">2</div>
+            <button type="button" class="cal-arrow" id="cal-plus" aria-label="More days">+</button>
+          </div>
+          <div class="cal-cov" id="cal-cov"></div>
         </div>
         <p class="cal-step-line" id="cal-step-line"></p>
-        <div class="cal-cov" id="cal-cov"></div>
         <p class="cal-cov-note" id="cal-cov-note"></p>
       </div>
 
@@ -644,7 +656,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 
       <div class="cal-block">
         <div class="cal-kicker"><span>04</span>Indicative fee</div>
-        <div class="cal-cov" id="cal-break" hidden></div>
+        <div id="cal-break" hidden></div>
         <div class="cal-total" id="cal-total">£0</div>
         <p class="cal-period" id="cal-period" hidden></p>
         <p class="cal-meta" id="cal-meta"></p>
@@ -1000,15 +1012,15 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       breakEl.hidden=true;breakEl.innerHTML='';
     }else{
       breakEl.hidden=false;
-      let h=
-        '<div class="cal-cov-item"><div class="cal-cov-n">'+days+'</div><div class="cal-cov-l">days testing · '+gbp(days*s.rate)+'</div></div>'+
-        '<div class="cal-cov-item"><div class="cal-cov-n">'+q.report+'</div><div class="cal-cov-l">day'+(q.report===1?'':'s')+' reporting · '+gbp(q.report*s.rate)+'</div></div>';
+      const tr=(a,b,c)=>'<tr><th>'+a+'</th><td>'+b+'</td><td>'+c+'</td></tr>';
+      let h='<table class="cal-sheet">'+
+        tr('Testing',days+' days',gbp(days*s.rate))+
+        tr('Reporting',q.report+' day'+(q.report===1?'':'s'),gbp(q.report*s.rate));
       if(q.tests){
-        h+=
-          '<div class="cal-cov-item"><div class="cal-cov-n">'+q.tests+'</div><div class="cal-cov-l">assessments in the contract · '+gbp(q.gross)+' each before reduction</div></div>'+
-          '<div class="cal-cov-item"><div class="cal-cov-n">'+q.months+'</div><div class="cal-cov-l">months by direct debit · '+gbp(q.contract)+' in all</div></div>';
+        h+=tr('Assessments',String(q.tests),gbp(q.gross)+' each')+
+          tr('Direct debit',q.months+' months',gbp(q.contract));
       }
-      breakEl.innerHTML=h;
+      breakEl.innerHTML=h+'</table>';
     }
     totEl.textContent=q.totalLabel;
     if(q.monthly){periodEl.hidden=false;periodEl.textContent='a month, by direct debit'}
