@@ -320,7 +320,7 @@ main{padding-top:64px}
 .cal-save-line{font-size:.95rem;font-weight:700;color:var(--green);margin:0 0 14px}
 .cal-save-line[hidden]{display:none}
 .cal-sheet tr.save th,.cal-sheet tr.save td{color:var(--green)}
-.cal-meta{font-size:.92rem;color:var(--muted);line-height:1.65;margin:0 0 6px}
+.cal-meta{font-size:.88rem;color:var(--muted);line-height:1.55;margin:12px 0 0}
 .cal-hint{font-size:.8rem;color:var(--dim);line-height:1.65;margin:0 0 20px}
 .cal-toggles{display:grid;gap:8px;margin-bottom:20px}
 .cal-tog{
@@ -673,6 +673,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
           <button type="button" class="cal-clear" id="cal-clear" disabled>Clear hours</button>
         </div>
         <div class="cal-week" id="cal-week"></div>
+        <p class="cal-meta" id="cal-meta"></p>
       </div>
 
       <div class="cal-block">
@@ -686,7 +687,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
           </div>
         </div>
         <p class="cal-save-line" id="cal-save" hidden></p>
-        <p class="cal-meta" id="cal-meta"></p>
         <p class="cal-hint" id="cal-hint"></p>
         <div class="cal-toggles">
           <label class="cal-tog" id="tog-rpt">
