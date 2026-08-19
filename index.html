@@ -284,9 +284,11 @@ main{padding-top:64px}
 .cal-slot.dead{opacity:.32;cursor:not-allowed}
 .cal-total{
   font-size:clamp(2rem,5vw,2.8rem);font-weight:900;
-  letter-spacing:-.04em;color:var(--text);line-height:1;margin:0 0 10px;
+  letter-spacing:-.04em;color:var(--text);line-height:1;margin:0 0 6px;
   font-variant-numeric:tabular-nums;
 }
+.cal-period{font-size:1rem;font-weight:700;color:var(--muted);margin:0 0 14px}
+.cal-period[hidden]{display:none}
 .cal-meta{font-size:.92rem;color:var(--muted);line-height:1.65;margin:0 0 6px}
 .cal-hint{font-size:.8rem;color:var(--dim);line-height:1.65;margin:0 0 20px}
 .cal-toggles{display:grid;gap:8px;margin-bottom:20px}
@@ -647,21 +649,22 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
         <div class="cal-kicker"><span>04</span>Indicative fee</div>
         <div class="cal-cov" id="cal-break" hidden></div>
         <div class="cal-total" id="cal-total">£0</div>
+        <p class="cal-period" id="cal-period" hidden></p>
         <p class="cal-meta" id="cal-meta"></p>
         <p class="cal-hint" id="cal-hint"></p>
         <div class="cal-toggles">
           <label class="cal-tog" id="tog-rpt">
             <input type="checkbox" id="cal-rpt">
             <span>
-              <span class="cal-tog-title">Repeat instruction</span>
-              <span class="cal-tog-text">Two or more assessments in twelve months. A quarter off the combined fee.</span>
+              <span class="cal-tog-title">One-year contract</span>
+              <span class="cal-tog-text">Two assessments in twelve months. A quarter off. Monthly direct debit.</span>
             </span>
           </label>
           <label class="cal-tog" id="tog-ret">
             <input type="checkbox" id="cal-ret">
             <span>
-              <span class="cal-tog-title">Three-year retainer</span>
-              <span class="cal-tog-text">A yearly assessment at half the rate, collected monthly by direct debit.</span>
+              <span class="cal-tog-title">Three-year contract</span>
+              <span class="cal-tog-text">Six assessments in three years. Half the rate. Monthly direct debit.</span>
             </span>
           </label>
         </div>
@@ -746,7 +749,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
           <button type="button" class="opt-btn" data-val="Internal infrastructure">Internal infrastructure</button>
           <button type="button" class="opt-btn" data-val="Attack path simulation">Attack path simulation</button>
           <button type="button" class="opt-btn" data-val="Cyber Essentials">Cyber Essentials</button>
-          <button type="button" class="opt-btn" data-val="Three-year retainer">Three-year retainer</button>
+          <button type="button" class="opt-btn" data-val="One-year contract">One-year contract</button>
+          <button type="button" class="opt-btn" data-val="Three-year contract">Three-year contract</button>
           <button type="button" class="opt-btn" data-val="Not yet decided">Not yet decided</button>
         </div>
       </div>
@@ -935,6 +939,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   const rangeEl=document.getElementById('cal-range');
   const copyEl=document.getElementById('cal-copy');
   const totEl=document.getElementById('cal-total');
+  const periodEl=document.getElementById('cal-period');
   const metaEl=document.getElementById('cal-meta');
   const hintEl=document.getElementById('cal-hint');
   const daysEl=document.getElementById('cal-days');
@@ -957,17 +962,24 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   function quote(){
     const s=SVCS[svc],c=cover(svc,days),list=selected();
     const rd=s.rate==null?0:reportDays(days);
-    let note='',total=0,label='',gross=0;
+    let note='',total=0,label='',gross=0,monthly=0,tests=0,months=0,contract=0;
     if(s.rate==null){
       label=gbp(s.band[0])+' – '+gbp(s.band[1]);
       note='Cyber Essentials is quoted as an engagement. The windows marked are the hours you would prefer.';
     }else{
       gross=(days+rd)*s.rate;
-      total=gross;
-      if(ret.checked){total*=.5;note='Three-year retainer applied (half the rate).'}
-      else if(rpt.checked){total*=.75;note='Repeat instruction applied (a quarter off).'}
-      label=gbp(total);
-      note=(note?note+' ':'')+'Reporting is '+rd+' day'+(rd===1?'':'s')+' on a job of this length, included in the figure.';
+      if(rpt.checked){
+        tests=2;months=12;contract=Math.round(gross*tests*0.75);monthly=Math.round(contract/months);total=contract;
+        label=gbp(monthly);
+        note='One-year contract: two assessments. A quarter off. '+gbp(monthly)+' a month by direct debit, '+gbp(contract)+' in all.';
+      }else if(ret.checked){
+        tests=6;months=36;contract=Math.round(gross*tests*0.5);monthly=Math.round(contract/months);total=contract;
+        label=gbp(monthly);
+        note='Three-year contract: six assessments. Half the rate. '+gbp(monthly)+' a month by direct debit, '+gbp(contract)+' in all.';
+      }else{
+        total=gross;label=gbp(total);
+        note='Reporting is '+rd+' day'+(rd===1?'':'s')+' on a job of this length, included in the figure.';
+      }
     }
     const first=list[0],last=list[list.length-1];
     const startTxt=first?civil(new Date(first.s))+', '+hhmm(new Date(first.s)):'';
@@ -975,6 +987,8 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     window.__quote={
       service:s.name,scope:s.scope,days:s.rate==null?list.length:days,report:rd,
       billDays:s.rate==null?0:days+rd,totalLabel:label,total:total,gross:gross,
+      monthly:monthly,tests:tests,months:months,contract:contract,
+      monthlyLabel:monthly?gbp(monthly):'',contractLabel:contract?gbp(contract):'',
       start:startTxt,end:endTxt,
       blocks:list.map(x=>civil(x.date)+', '+x.label),
       coverage:c.items.map(i=>i.n+' '+i.l),
@@ -996,11 +1010,19 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       breakEl.hidden=true;breakEl.innerHTML='';
     }else{
       breakEl.hidden=false;
-      breakEl.innerHTML=
+      let h=
         '<div class="cal-cov-item"><div class="cal-cov-n">'+days+'</div><div class="cal-cov-l">days testing · '+gbp(days*s.rate)+'</div></div>'+
         '<div class="cal-cov-item"><div class="cal-cov-n">'+q.report+'</div><div class="cal-cov-l">day'+(q.report===1?'':'s')+' reporting · '+gbp(q.report*s.rate)+'</div></div>';
+      if(q.tests){
+        h+=
+          '<div class="cal-cov-item"><div class="cal-cov-n">'+q.tests+'</div><div class="cal-cov-l">assessments in the contract · '+gbp(q.gross)+' each before reduction</div></div>'+
+          '<div class="cal-cov-item"><div class="cal-cov-n">'+q.months+'</div><div class="cal-cov-l">months by direct debit · '+gbp(q.contract)+' in all</div></div>';
+      }
+      breakEl.innerHTML=h;
     }
     totEl.textContent=q.totalLabel;
+    if(q.monthly){periodEl.hidden=false;periodEl.textContent='a month, by direct debit'}
+    else{periodEl.hidden=true;periodEl.textContent=''}
     clearBtn.disabled=!start && !chosen.size;
     if(s.rate==null){
       metaEl.textContent=chosen.size?chosen.size+' window'+(chosen.size===1?'':'s')+' marked.':'Mark the windows you prefer.';
@@ -1084,7 +1106,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const q=window.__quote;
     const box=document.getElementById('cf-quote');
     box.hidden=false;
-    box.innerHTML='<b>Proposed work</b><br>'+q.service+' · '+q.days+' days testing'+(q.report?' + '+q.report+' reporting':'')+' · '+q.totalLabel
+    box.innerHTML='<b>Proposed work</b><br>'+q.service+' · '+q.days+' days testing'+(q.report?' + '+q.report+' reporting':'')+' · '+q.totalLabel+(q.monthly?' a month by direct debit':'')+(q.tests?' · '+q.tests+' assessments · '+q.contractLabel+' in all':'')
       +(q.start?'<br>Proposed start: '+q.start:'')
       +(q.end?'<br>Through to: '+q.end:'')
       +(q.coverage.length?'<br>'+q.coverage.join('<br>'):'')
@@ -1092,7 +1114,10 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       +(q.rpt?'<br>Repeat instruction.':'')
       +(q.ret?'<br>Three-year retainer.':'');
     document.querySelectorAll('#enquiry-grid .opt-btn').forEach(b=>b.classList.toggle('active',b.dataset.val==='Request a quotation'));
-    document.querySelectorAll('#scope-grid .opt-btn').forEach(b=>b.classList.toggle('active',b.dataset.val===q.scope||(q.ret&&b.dataset.val==='Three-year retainer')));
+    document.querySelectorAll('#scope-grid .opt-btn').forEach(b=>{
+      const on=b.dataset.val===q.scope||(q.rpt&&b.dataset.val==='One-year contract')||(q.ret&&b.dataset.val==='Three-year contract');
+      b.classList.toggle('active',on);
+    });
     const startSel=document.getElementById('cf-start');
     if(q.start){
       let opt=Array.from(startSel.options).find(o=>o.dataset.cal==='1');
@@ -1188,7 +1213,8 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
         '\nProposed work:\n' +
         q.service + '\n' +
         q.days + ' days testing' + (q.report ? ' + ' + q.report + ' reporting' : '') + '\n' +
-        'Indicative fee: ' + q.totalLabel + '\n' +
+        'Indicative fee: ' + q.totalLabel + (q.monthly ? ' a month by direct debit' : '') + '\n' +
+        (q.tests ? q.tests + ' assessments · ' + q.months + ' months · ' + q.contractLabel + ' in all\n' : '') +
         (q.start ? 'Proposed start: ' + q.start + '\n' : '') +
         (q.end ? 'Through to: ' + q.end + '\n' : '') +
         (q.coverage && q.coverage.length ? 'Coverage:\n' + q.coverage.map(x => '  - ' + x).join('\n') + '\n' : '') +
