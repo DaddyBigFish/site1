@@ -306,13 +306,14 @@ main{padding-top:64px}
   letter-spacing:-.04em;color:var(--text);line-height:1;margin:0 0 6px;
   font-variant-numeric:tabular-nums;
 }
-.cal-period{font-size:1rem;font-weight:700;color:var(--muted);margin:0 0 6px}
-.cal-period[hidden]{display:none}
-.dd-row{
-  display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:4px 0 14px;
+.cal-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:12px 20px;
+  flex-wrap:wrap;margin:2px 0 18px;
 }
+.cal-period{font-size:.88rem;font-weight:600;color:var(--muted);margin:0}
+.cal-period[hidden]{display:none}
+.dd-row{display:flex;align-items:center;margin:0 0 0 auto}
 .dd-row[hidden]{display:none}
-.dd-row span{font-size:.9rem;font-weight:600;color:var(--text)}
 .dd-badge{
   background:#fff;border-radius:6px;padding:0;display:flex;align-items:center;
   height:60px;width:160px;flex-shrink:0;overflow:hidden;
@@ -680,10 +681,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
         <div class="cal-kicker"><span>04</span>Indicative fee</div>
         <div id="cal-break" hidden></div>
         <div class="cal-total" id="cal-total">£0</div>
-        <p class="cal-period" id="cal-period">Including VAT</p>
-        <div class="dd-row" id="cal-dd" hidden>
-          <span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>
-          <span>Payable by Direct Debit</span>
+        <div class="cal-foot">
+          <p class="cal-period" id="cal-period">Including VAT</p>
+          <div class="dd-row" id="cal-dd" hidden>
+            <span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>
+          </div>
         </div>
         <p class="cal-save-line" id="cal-save" hidden></p>
         <p class="cal-meta" id="cal-meta"></p>
