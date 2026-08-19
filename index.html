@@ -1039,13 +1039,12 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       if(q.tests){
         h+=tr('One assessment','',gbp(q.gross))+
           tr((q.tests===2?'Two':'Six')+' assessments','full rate',q.fullLabel)+
-          '<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>'+
-          tr('You pay',q.months+' months',q.contractLabel);
+          '<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>';
       }
       breakEl.innerHTML=h+'</table>';
     }
     totEl.textContent=q.totalLabel;
-    if(q.monthly) periodEl.textContent='a month, including VAT';
+    if(q.monthly) periodEl.textContent='a month × '+q.months+' months. Total repayable '+q.contractLabel+', including VAT';
     else periodEl.textContent='Including VAT';
     periodEl.hidden=false;
     document.getElementById('cal-dd').hidden=!q.monthly;
