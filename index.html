@@ -450,7 +450,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://securedbyoffense.uk","name":"Secured By Offense","description":"Independent out-of-hours penetration testing in the United Kingdom.","url":"https://securedbyoffense.uk","email":"sales@securedbyoffense.uk","areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"18:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"02:00"}],"knowsAbout":["Penetration Testing","Cyber Essentials","Attack Path Simulation","Internal Infrastructure Assessment","Web Application Security Testing"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When is testing carried out?","acceptedAnswer":{"@type":"Answer","text":"Out of hours only. Weekdays from 18:00 United Kingdom time, weekend from 10:00 Saturday through to 02:00 Monday. A day is eight hours."}},{"@type":"Question","name":"How are fees calculated?","acceptedAnswer":{"@type":"Answer","text":"A day is eight hours of testing. Reporting is included. A written quotation follows scoping."}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://securedbyoffense.uk","name":"Secured By Offense","description":"Independent out-of-hours penetration testing in the United Kingdom.","url":"https://securedbyoffense.uk","email":"sales@securedbyoffense.uk","areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"18:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"02:00"}],"knowsAbout":["Penetration Testing","Cyber Essentials","Attack Path Simulation","Internal Infrastructure Assessment","Web Application Security Testing"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When is testing carried out?","acceptedAnswer":{"@type":"Answer","text":"Out of hours only. Weekdays from 18:00 United Kingdom time, weekend from 10:00 Saturday through to 02:00 Monday."}},{"@type":"Question","name":"How are fees calculated?","acceptedAnswer":{"@type":"Answer","text":"Fees are set by the days required. Reporting is included. A written quotation follows scoping."}}]}]}
 </script>
 </head>
 <body>
@@ -496,7 +496,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
     <div>
       <p class="label reveal">United Kingdom</p>
       <h1 class="display reveal">Out-of-hours <em>penetration testing</em></h1>
-      <p class="lead hero-lead reveal">Testing from 18:00 UK time, through the weekend, until 02:00 Monday. Eight-hour days. Written authority before anything starts.</p>
+      <p class="lead hero-lead reveal">Testing from 18:00 UK time, through the weekend, until 02:00 Monday. Written authority before anything starts.</p>
       <div class="hero-btns reveal">
         <a href="#contact" class="btn btn-primary">
           Enquire
@@ -515,7 +515,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
       <div class="stat reveal-up"><div class="stat-val">18:00</div><div class="stat-lbl">Weekdays</div></div>
       <div class="stat reveal-up"><div class="stat-val">10:00</div><div class="stat-lbl">Saturday</div></div>
       <div class="stat reveal-up"><div class="stat-val">02:00</div><div class="stat-lbl">Monday</div></div>
-      <div class="stat reveal-up"><div class="stat-val">8 hrs</div><div class="stat-lbl">A day</div></div>
+      <div class="stat reveal-up"><div class="stat-val">UK</div><div class="stat-lbl">Based</div></div>
     </div>
   </div>
 </div>
@@ -993,7 +993,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     daysEl.textContent=String(days);
     stepEl.hidden=s.rate==null;
     minusBtn.disabled=days<=s.min;
-    stepLine.textContent=s.rate==null?'':days+' × eight hours testing  ·  '+gbp(s.rate)+' a day  ·  minimum '+s.min;
+    stepLine.textContent=s.rate==null?'':days+' days  ·  '+gbp(s.rate)+' a day  ·  minimum '+s.min;
     covEl.hidden=!c.items.length;
     covEl.innerHTML=c.items.map(i=>'<div class="cal-cov-item"><div class="cal-cov-n">'+i.n.toLocaleString('en-GB')+'</div><div class="cal-cov-l">'+i.l+'</div></div>').join('');
     covNote.textContent=c.extra;covNote.hidden=!c.extra;
