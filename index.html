@@ -307,12 +307,10 @@ main{padding-top:64px}
   font-variant-numeric:tabular-nums;
 }
 .cal-foot{
-  display:flex;align-items:center;justify-content:space-between;gap:12px 20px;
-  flex-wrap:wrap;margin:2px 0 18px;
+  display:flex;align-items:center;justify-content:flex-end;margin:0 0 18px;
 }
-.cal-period{font-size:.88rem;font-weight:600;color:var(--muted);margin:0}
-.cal-period[hidden]{display:none}
-.dd-row{display:flex;align-items:center;margin:0 0 0 auto}
+.cal-period{display:none}
+.dd-row{display:flex;align-items:center;margin:0}
 .dd-row[hidden]{display:none}
 .dd-badge{
   background:#fff;border-radius:6px;padding:0;display:flex;align-items:center;
@@ -1051,16 +1049,14 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
         h+=tr('One assessment','',gbp(q.gross))+
           tr((q.tests===2?'Two':'Six')+' assessments','full rate',q.fullLabel)+
           '<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>'+
-          '<tr class="total"><th>Total</th><td>'+q.monthlyLabel+' × '+q.months+' months</td><td>'+q.contractLabel+'</td></tr>';
+          '<tr class="total"><th>Total</th><td>'+q.monthlyLabel+' × '+q.months+' months, inc. VAT</td><td>'+q.contractLabel+'</td></tr>';
       }else{
-        h+='<tr class="total"><th>Total</th><td></td><td>'+q.totalLabel+'</td></tr>';
+        h+='<tr class="total"><th>Total</th><td>inc. VAT</td><td>'+q.totalLabel+'</td></tr>';
       }
       breakEl.innerHTML=h+'</table>';
     }
     totEl.textContent=q.totalLabel;
-    if(q.monthly) periodEl.textContent='Total repayable, including VAT';
-    else periodEl.textContent='Including VAT';
-    periodEl.hidden=false;
+    periodEl.hidden=true;
     document.getElementById('cal-dd').hidden=!q.monthly;
     saveEl.hidden=true;saveEl.textContent='';
     clearBtn.disabled=!start && !chosen.size;
