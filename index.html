@@ -670,14 +670,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
             <input type="checkbox" id="cal-rpt">
             <span>
               <span class="cal-tog-title">One-year contract</span>
-              <span class="cal-tog-text">Two assessments in twelve months. A quarter off. Monthly direct debit.</span>
+              <span class="cal-tog-text">Two assessments</span>
             </span>
           </label>
           <label class="cal-tog" id="tog-ret">
             <input type="checkbox" id="cal-ret">
             <span>
               <span class="cal-tog-title">Three-year contract</span>
-              <span class="cal-tog-text">Six assessments in three years. Half the rate. Monthly direct debit.</span>
+              <span class="cal-tog-text">Six assessments</span>
             </span>
           </label>
         </div>
@@ -978,14 +978,14 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       if(rpt.checked){
         tests=2;months=12;full=gross*tests;saving=Math.round(full*0.25);contract=full-saving;monthly=Math.round(contract/months);total=contract;off='25%';
         label=gbp(monthly);
-        note='One-year contract: two assessments. '+gbp(monthly)+' a month by direct debit.';
+        note='';
       }else if(ret.checked){
         tests=6;months=36;full=gross*tests;saving=Math.round(full*0.5);contract=full-saving;monthly=Math.round(contract/months);total=contract;off='50%';
         label=gbp(monthly);
-        note='Three-year contract: six assessments. '+gbp(monthly)+' a month by direct debit.';
+        note='';
       }else{
         total=gross;label=gbp(total);
-        note='Reporting is '+rd+' day'+(rd===1?'':'s')+' on a job of this length, included in the figure.';
+        note='';
       }
     }
     const first=list[0],last=list[list.length-1];
@@ -1010,7 +1010,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     daysEl.textContent=String(days);
     stepEl.hidden=s.rate==null;
     minusBtn.disabled=days<=s.min;
-    stepLine.textContent=s.rate==null?'':days+' days  ·  '+gbp(s.rate)+' a day inc. VAT  ·  minimum '+s.min;
+    stepLine.textContent=s.rate==null?'':days+' days  ·  '+gbp(s.rate)+' a day  ·  minimum '+s.min;
     covEl.hidden=!c.items.length;
     covEl.innerHTML=c.items.map(i=>'<div class="cal-cov-item"><div class="cal-cov-n">'+i.n.toLocaleString('en-GB')+'</div><div class="cal-cov-l">'+i.l+'</div></div>').join('');
     covNote.textContent=c.extra;covNote.hidden=!c.extra;
@@ -1030,11 +1030,10 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       breakEl.innerHTML=h+'</table>';
     }
     totEl.textContent=q.totalLabel;
-    if(q.monthly) periodEl.textContent='a month, by direct debit, including VAT';
+    if(q.monthly) periodEl.textContent='a month, including VAT';
     else periodEl.textContent='Including VAT';
     periodEl.hidden=false;
-    if(q.saving){saveEl.hidden=false;saveEl.textContent='You save '+q.savingLabel+' ('+q.off+' off the full rate)'}
-    else{saveEl.hidden=true;saveEl.textContent=''}
+    saveEl.hidden=true;saveEl.textContent='';
     clearBtn.disabled=!start && !chosen.size;
     if(s.rate==null){
       metaEl.textContent=chosen.size?chosen.size+' window'+(chosen.size===1?'':'s')+' marked.':'Mark the windows you prefer.';
@@ -1043,7 +1042,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     }else{
       metaEl.textContent='From '+q.start+(q.end?' through to '+q.end+'.':'.');
     }
-    hintEl.textContent=q.note||'Indicative only. A written quotation follows the scoping discussion.';
+    hintEl.textContent=q.note;hintEl.hidden=!q.note;
     document.getElementById('tog-rpt').classList.toggle('on',rpt.checked);
     document.getElementById('tog-ret').classList.toggle('on',ret.checked);
   }
