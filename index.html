@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Penetration Testing &amp; Cyber Security Audit UK | Cyber Essentials | Secured By Offense</title>
-<meta name="description" content="Secured By Offense — independent UK cyber security consultancy. Penetration testing, cyber security audits, attack path simulation and Cyber Essentials certification. Fixed-price engagements. Contact for a scoped quotation.">
-<meta name="keywords" content="penetration testing UK, cyber security audit, cyber essentials, penetration test, attack path simulation, active directory security, cloud security assessment, Azure penetration testing, AWS security testing, web application penetration testing, network security audit, cyber essentials plus, NCSC cyber security, UK security consultancy">
+<title>Out-of-hours penetration testing | United Kingdom | Secured By Offense</title>
+<meta name="description" content="Out-of-hours penetration testing in the United Kingdom. From 18:00 UK time, through the weekend, until 04:00 Monday. A day is eight hours. Fixed fees. Written quotation after scoping.">
+<meta name="keywords" content="out of hours penetration testing UK, evening penetration testing, weekend penetration testing, penetration testing UK, cyber essentials, attack path simulation, web application penetration testing, internal infrastructure assessment, NCSC, Computer Misuse Act, UK security consultancy">
 <link rel="canonical" href="https://securedbyoffense.uk/">
 <link rel="icon" href="https://securedbyoffense.uk/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -136,7 +136,7 @@ main{padding-top:64px}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}60%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
 
 /* STATS */
-.stats{padding:0;background:var(--bg-1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats{padding:0;background:var(--bg-1);border-top:1px solid var(--border);border-bottom:1px solid var(--border);scroll-margin-top:64px}
 .stats-grid{display:grid;grid-template-columns:repeat(2,1fr)}
 .stat{padding:30px 20px;text-align:center;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
 .stat:nth-child(2n){border-right:none}
@@ -199,63 +199,77 @@ main{padding-top:64px}
 .cert-badge:hover{border-color:var(--border-s)}
 .cert-badge img{width:100%;object-fit:contain;padding:24px}
 
-/* PRICING */
-.pricing-intro{max-width:500px;margin-bottom:52px}
+/* FEES / CALENDAR */
+.pricing-intro{max-width:560px;margin-bottom:40px}
 .pricing-intro h2{margin-bottom:16px}
 .pricing-panel{
   border:1px solid var(--border);border-radius:12px;
-  overflow:hidden;background:var(--border);
+  overflow:hidden;background:var(--bg-2);
 }
-.pricing-grid{display:grid;gap:1px}
-.pc{
-  background:var(--bg-2);padding:36px 32px;
-  transition:background .18s var(--ease);
+.cal-top{padding:24px 20px 18px;border-bottom:1px solid var(--border)}
+.cal-top .form-section-title{margin-bottom:12px}
+.cal-rate{font-size:.88rem;color:var(--muted);margin-top:12px;line-height:1.55}
+.cal-nav{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:14px 16px;border-bottom:1px solid var(--border);
 }
-.pc:hover{background:var(--bg-3)}
-.pc-label{display:none}
-.pc-name{font-size:1.05rem;font-weight:800;color:var(--text);line-height:1.25;margin-bottom:18px}
-.pc-price{
+.cal-nav-title{font-size:.95rem;font-weight:700;color:var(--text)}
+.cal-nav-sub{font-size:.76rem;color:var(--dim);margin-top:3px}
+.cal-arrow{
+  width:40px;height:40px;border-radius:6px;flex-shrink:0;
+  background:var(--bg-3);border:1px solid var(--border);
+  color:var(--text);cursor:pointer;font-size:1.1rem;line-height:1;
+}
+.cal-arrow:hover{border-color:var(--border-s)}
+.cal-week{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.cal-day{
+  background:var(--bg-2);padding:14px 14px 16px;
+  display:grid;grid-template-columns:92px 1fr;gap:10px;align-items:start;
+}
+.cal-day.wknd{background:#1a1a20}
+.cal-day.past{opacity:.55}
+.cal-dow{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.cal-dom{font-size:1.05rem;font-weight:800;color:var(--text);margin-top:3px}
+.cal-day.today .cal-dom{color:var(--accent)}
+.cal-office{font-size:.72rem;color:var(--dim);line-height:1.35;margin-bottom:8px}
+.cal-slots{display:flex;flex-wrap:wrap;gap:6px}
+.cal-slot{
+  background:var(--bg-3);border:1px solid var(--border);border-radius:6px;
+  padding:9px 10px;font-size:.78rem;font-weight:600;color:var(--muted);
+  cursor:pointer;text-align:center;flex:1;min-width:118px;
+}
+.cal-slot:hover{border-color:var(--border-s);color:var(--text)}
+.cal-slot.on{background:var(--accent-d);border-color:var(--accent);color:var(--text)}
+.cal-slot.dead{opacity:.32;cursor:not-allowed}
+.cal-sum{padding:24px 20px 28px}
+.cal-total{
   font-size:clamp(1.8rem,4.5vw,2.6rem);font-weight:900;
-  letter-spacing:-.035em;color:var(--text);line-height:1;
+  letter-spacing:-.035em;color:var(--text);line-height:1;margin:4px 0 10px;
 }
-.pc-duration{font-size:.78rem;color:var(--dim);margin-top:8px;margin-bottom:20px}
-.pc-desc{font-size:.9rem;color:var(--muted);line-height:1.75}
-.pricing-footer{
-  background:var(--bg-2);border-top:1px solid var(--border);
-  padding:32px 32px 36px;display:flex;flex-direction:column;gap:24px;
+.cal-meta{font-size:.9rem;color:var(--muted);line-height:1.7;margin-bottom:6px}
+.cal-hint{font-size:.84rem;color:var(--dim);line-height:1.65;margin:8px 0 18px}
+.cal-toggles{display:grid;gap:8px;margin-bottom:20px}
+.cal-tog{
+  display:flex;align-items:flex-start;gap:10px;
+  border:1px solid var(--border);border-radius:8px;padding:14px 16px;
+  cursor:pointer;background:var(--bg-3);
 }
-.pf-offers{display:grid;gap:12px}
-.pf-offer-block{
-  position:relative;overflow:hidden;
-  border:1px solid var(--border);border-radius:8px;
-  padding:20px 20px 20px 20px;
-}
-.pf-offer-ribbon{
-  position:absolute;align-content:end;
-  top:-43px;right:-144px;
-  width:314px;height:110px;margin:auto;
-  background:var(--accent);color:#fff;
-  text-align:center;font-size:1.182rem;font-weight:800;
-  text-transform:uppercase;
-  padding:13px 0;transform:rotate(45deg);
-  pointer-events:none;
-}
-.pf-offer-title{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:5px;padding-right:88px}
-.pf-offer-text{font-size:.9rem;color:var(--muted);line-height:1.7;margin:0;padding-right:88px}
+.cal-tog.on{border-color:var(--accent);background:var(--accent-d)}
+.cal-tog input{margin-top:3px;accent-color:var(--accent)}
+.cal-tog-title{font-size:.88rem;font-weight:700;color:var(--text)}
+.cal-tog-text{font-size:.82rem;color:var(--muted);line-height:1.5;margin-top:2px}
+.cal-list{font-size:.8rem;color:var(--dim);line-height:1.65;margin:0 0 16px;max-height:7.5em;overflow:auto}
 .pf-divider{border:none;border-top:1px solid var(--border);margin:0}
 .pf-includes{
   display:flex;flex-direction:column;gap:6px;
-  align-items:center;
-  margin:auto;margin-bottom:40px;
+  align-items:center;margin:auto;padding:8px 20px 36px;
 }
 .pf-includes-title{
   font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--dim);margin-bottom:32px;margin-top:30px;
+  color:var(--dim);margin-bottom:24px;margin-top:8px;
 }
 .pf-includes-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:10px;
+  display:grid;grid-template-columns:1fr;gap:10px;
   width:100%;max-width:420px;
 }
 @media(min-width:640px){
@@ -266,14 +280,19 @@ main{padding-top:64px}
   font-size:clamp(.82rem,1.5vw,.95rem);font-weight:500;color:var(--text);
 }
 .pf-tick svg{color:var(--green);flex-shrink:0;width:14px;height:14px}
-.pf-bottom{
-  display:flex;flex-direction:column;gap:14px;align-items:flex-start;
-}
-.pf-note{font-size:.8rem;color:var(--dim)}
-@media(min-width:560px){.pricing-grid{grid-template-columns:repeat(2,1fr)};.pf-offers{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:860px){
-  .pf-bottom{flex-direction:row;align-items:center;justify-content:space-between;gap:24px}
+  .cal-top,.cal-nav,.cal-sum,.pf-includes{padding-left:32px;padding-right:32px}
+  .cal-week{display:grid;grid-template-columns:repeat(7,1fr);gap:1px}
+  .cal-day{display:block;min-height:220px;padding:16px 12px 18px}
+  .cal-slots{flex-direction:column}
+  .cal-slot{width:100%;flex:none;text-align:left}
 }
+.cf-quote{
+  border:1px solid var(--border);border-radius:8px;background:var(--bg-3);
+  padding:14px 16px;margin-bottom:18px;font-size:.85rem;color:var(--muted);line-height:1.65;
+}
+.cf-quote b{color:var(--text)}
+.cf-quote[hidden]{display:none}
 
 /* ACCREDITATION */
 .accred-head{text-align:center;margin-bottom:52px}
@@ -390,12 +409,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://securedbyoffense.uk","name":"Secured By Offense","description":"Independent UK cyber security consultancy providing penetration testing, cyber security audits, attack path simulation, and Cyber Essentials certification support.","url":"https://securedbyoffense.uk","email":"sales@securedbyoffense.uk","areaServed":{"@type":"Country","name":"United Kingdom"},"knowsAbout":["Penetration Testing","Cyber Security Audit","Cyber Essentials","Attack Path Simulation","Attack Path Simulation","Cloud Security Assessment","Azure Security","AWS Security","Internal Infrastructure Assessment","Web Application Security Testing","Network Security Assessment"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a penetration test?","acceptedAnswer":{"@type":"Answer","text":"A penetration test is an authorised, simulated attack conducted by a qualified consultant to identify exploitable vulnerabilities in your systems, applications, or network. The objective is to find weaknesses before adversaries do, and to deliver prioritised remediation guidance."}},{"@type":"Question","name":"What is a cyber security audit?","acceptedAnswer":{"@type":"Answer","text":"A cyber security audit is a structured assessment of an organisation's IT infrastructure and security controls, evaluated against recognised frameworks. It identifies technical weaknesses, misconfigurations, and compliance gaps."}},{"@type":"Question","name":"What is Cyber Essentials?","acceptedAnswer":{"@type":"Answer","text":"Cyber Essentials is a UK government-backed certification scheme developed by the NCSC. It covers five technical controls and is mandatory for many public sector and government supply chain contracts. Two levels exist: Cyber Essentials (self-assessed) and Cyber Essentials Plus (independently verified)."}},{"@type":"Question","name":"How much does a penetration test cost in the UK?","acceptedAnswer":{"@type":"Answer","text":"UK penetration test fees vary by scope. All engagements are priced at a fixed day rate from £1,350. Web application tests typically range from £4,000 to £9,500. External network assessments from £4,000 to £7,000. Attack path simulation engagements from £10,500 to £19,000. Fixed-price quotations are provided following a scoping call."}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://securedbyoffense.uk","name":"Secured By Offense","description":"Out-of-hours penetration testing in the United Kingdom. Testing from 18:00 UK time, through the weekend, until 04:00 Monday. A day is eight hours.","url":"https://securedbyoffense.uk","email":"sales@securedbyoffense.uk","areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"18:00","closes":"23:59"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"00:00","closes":"23:59"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"00:00","closes":"04:00"}],"knowsAbout":["Out of Hours Penetration Testing","Penetration Testing","Cyber Essentials","Attack Path Simulation","Internal Infrastructure Assessment","Web Application Security Testing"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When is testing carried out?","acceptedAnswer":{"@type":"Answer","text":"Testing is out of hours only. From 18:00 United Kingdom time on weekdays, throughout the weekend, until 04:00 on Monday. A day is eight hours of testing."}},{"@type":"Question","name":"What is a penetration test?","acceptedAnswer":{"@type":"Answer","text":"Authorised testing of systems, applications or a network, under contract and signed Rules of Engagement. Weaknesses that can actually be used are found, rated, and written up so they can be fixed."}},{"@type":"Question","name":"What is Cyber Essentials?","acceptedAnswer":{"@type":"Answer","text":"An NCSC-backed UK scheme covering five technical controls. Often required for public sector and supply-chain work. Cyber Essentials is a self-assessment; Cyber Essentials Plus is independently verified."}},{"@type":"Question","name":"How are fees calculated?","acceptedAnswer":{"@type":"Answer","text":"A day is eight hours of testing, delivered in the out-of-hours window. Indicative figures: Cyber Essentials preparation £800 to £2,500; web application and API testing £3,300 to £5,500; internal infrastructure £6,000 to £8,400; attack path simulation £21,000 to £42,000. A written quotation follows the scoping discussion."}}]}]}
 </script>
 </head>
 <body>
 
-<header>
+<header id="top">
   <div class="wrap nav">
     <a href="#top">
       <svg class="brand-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="12 -4 254 92" aria-label="Secured By Offense">
@@ -408,23 +427,23 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
     </a>
     <nav class="nav-links">
       <a href="#about">About</a>
+      <a href="#hours">Hours</a>
       <a href="#services">Services</a>
-      <a href="#certifications">Certifications</a>
       <a href="#pricing">Fees</a>
       <a href="#accreditation">Accreditation</a>
     </nav>
-    <a href="#contact" class="btn btn-primary nav-cta" style="padding:10px 20px;min-height:38px;font-size:.85rem;border-radius:4px">Contact Us</a>
+    <a href="#contact" class="btn btn-primary nav-cta" style="padding:10px 20px;min-height:38px;font-size:.85rem;border-radius:4px">Enquire</a>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
   <nav class="mobile-menu" id="mobileMenu">
     <a href="#about"><span class="mm-num">01</span>About</a>
-    <a href="#services"><span class="mm-num">02</span>Services</a>
-    <a href="#certifications"><span class="mm-num">03</span>Certifications</a>
+    <a href="#hours"><span class="mm-num">02</span>Hours</a>
+    <a href="#services"><span class="mm-num">03</span>Services</a>
     <a href="#pricing"><span class="mm-num">04</span>Fees</a>
     <a href="#accreditation"><span class="mm-num">05</span>Accreditation</a>
-    <div class="mm-cta"><a href="#contact" class="btn btn-primary">Contact Us</a></div>
+    <div class="mm-cta"><a href="#contact" class="btn btn-primary">Enquire</a></div>
   </nav>
 </header>
 
@@ -434,28 +453,28 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <p class="label reveal">Independent UK Cyber Security Consultancy</p>
-      <h1 class="display reveal">Penetration Testing &amp; <em>Attack Path</em> Simulation</h1>
-      <p class="lead hero-lead reveal">We test your defences the way an attacker would, identifying exploitable weaknesses before they are found by others. Every engagement is formally scoped, contracted, and delivered with clear findings that technical and executive audiences can act on.</p>
+      <p class="label reveal">Out of hours · United Kingdom</p>
+      <h1 class="display reveal">Penetration testing, <em>after six</em></h1>
+      <p class="lead hero-lead reveal">The work is done once the working day is over. From 18:00 United Kingdom time, through the weekend, until 04:00 on Monday. A day is eight hours. Nothing starts without a contract, signed Rules of Engagement, and written authority.</p>
       <div class="hero-btns reveal">
         <a href="#contact" class="btn btn-primary">
-          Contact Us
+          Enquire
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a href="#services" class="btn btn-ghost">Our Services</a>
+        <a href="#services" class="btn btn-ghost">The work</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- STATS -->
-<div class="stats">
+<div class="stats" id="hours">
   <div class="wrap" style="padding:0">
     <div class="stats-grid">
-      <div class="stat reveal-up"><div class="stat-val">6+</div><div class="stat-lbl">Certifications</div></div>
-      <div class="stat reveal-up"><div class="stat-val">100%</div><div class="stat-lbl">Authorised</div></div>
-      <div class="stat reveal-up"><div class="stat-val">UK</div><div class="stat-lbl">Based</div></div>
-      <div class="stat reveal-up"><div class="stat-val">CMA</div><div class="stat-lbl">Compliant</div></div>
+      <div class="stat reveal-up"><div class="stat-val">18:00</div><div class="stat-lbl">Weekdays from</div></div>
+      <div class="stat reveal-up"><div class="stat-val">Weekend</div><div class="stat-lbl">In full</div></div>
+      <div class="stat reveal-up"><div class="stat-val">04:00</div><div class="stat-lbl">Monday</div></div>
+      <div class="stat reveal-up"><div class="stat-val">8 hrs</div><div class="stat-lbl">A day's work</div></div>
     </div>
   </div>
 </div>
@@ -467,11 +486,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
       <div class="about-body" style="max-width:720px">
         <p class="label reveal">About</p>
         <h2 class="headline reveal">Secured By Offense</h2>
-        <p class="reveal">Secured By Offense is an independent cyber security consultancy based in the United Kingdom. We provide penetration testing, cyber security audits, attack path simulation, and Cyber Essentials certification support to organisations across the private and public sectors.</p>
-        <p class="reveal">Our work is grounded in current offensive security techniques and aligned to NCSC guidance and recognised industry frameworks. All findings are documented with risk ratings and practical recommendations, structured to be understood at board level and acted upon by technical teams.</p>
-        <p class="reveal">Every engagement is governed by a formal written contract, signed Rules of Engagement, and a Non-Disclosure Agreement, providing legal certainty for both parties from the outset.</p>
+        <p class="reveal">An independent consultancy based in the United Kingdom. We are instructed for out-of-hours penetration testing, internal assessments, attack path simulation, and Cyber Essentials preparation, for private firms and public bodies.</p>
+        <p class="reveal">Testing is not done in office hours. The window is from 18:00 UK time on weekdays, through the whole weekend, until 04:00 on Monday. A day is eight hours. Your staff keep the working day; we take the evening and the weekend.</p>
+        <p class="reveal">The work is manual. Reports carry risk ratings and practical remediation. Where it applies we follow NCSC guidance. Nothing starts without written authority under the Computer Misuse Act 1990, a contract, signed Rules of Engagement, and a non-disclosure agreement.</p>
         <a href="#contact" class="btn btn-primary reveal">
-          Get in Touch
+          Enquire
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -484,29 +503,29 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
   <div class="wrap">
     <div style="max-width:560px;margin-bottom:48px">
       <p class="label reveal">Services</p>
-      <h2 class="headline reveal">What We Do</h2>
-      <p class="reveal">We work across the full spectrum of offensive security, from government-backed certification through to complex adversary simulation.</p>
+      <h2 class="headline reveal">The work</h2>
+      <p class="reveal">Four lines of work, all delivered out of hours: web and API testing, internal infrastructure, attack path simulation, and Cyber Essentials.</p>
     </div>
     <div class="services-grid">
       <div class="svc reveal">
         <div class="svc-num">01</div>
-        <h3>Web Application &amp; API</h3>
-        <p>Manual penetration testing of web applications and APIs conducted in accordance with OWASP methodology. The assessment identifies authentication weaknesses, injection vulnerabilities, business logic flaws, and access control failures beyond the reach of automated scanning. Findings are delivered with full technical detail, risk ratings, and prioritised remediation steps.</p>
+        <h3>Web application and API</h3>
+        <p>Hands-on testing of web applications and APIs, against OWASP. Broken authentication, injection, business logic and access control — the things scanners miss. You get a technical report, risk ratings, and an order of work to remediate.</p>
       </div>
       <div class="svc reveal">
         <div class="svc-num">02</div>
-        <h3>Internal Infrastructure Assessment</h3>
-        <p>Assessment of services and software running within a specified network range. Domain credentials are not required but can be provided to assess from both an authenticated and unauthenticated perspective. Covers vulnerability identification, service misconfiguration, and exposure across the internal network, delivering a risk-rated findings report.</p>
+        <h3>Internal infrastructure</h3>
+        <p>A review of services and software on a defined network range. Domain credentials are optional; the work can be authenticated or not. Misconfiguration, exposed services and known weaknesses, written up with a risk rating.</p>
       </div>
       <div class="svc reveal">
         <div class="svc-num">03</div>
-        <h3>Attack Path Simulation</h3>
-        <p>A fully comprehensive infrastructure assessment with all systems within scope. Conducted from a position of provided credentials or a provisioned corporate device, the engagement tests every viable attack path across on-premise and cloud environments, including Azure, AWS, and GCP. Each path leading to a defined objective, typically administrative access to a system, is documented in full, producing a structured record of exploitable routes through your environment.</p>
+        <h3>Attack path simulation</h3>
+        <p>A wider piece of work, with the estate in scope. From supplied credentials or a corporate device we follow viable paths through on-premises and cloud — Azure, AWS and GCP — to a stated objective, usually administrative control. Each path is documented.</p>
       </div>
       <div class="svc reveal">
         <div class="svc-num">04</div>
-        <h3>Cyber Essentials Certification</h3>
-        <p>Structured preparation for Cyber Essentials and Cyber Essentials Plus certification. The NCSC-backed scheme is a requirement across many public sector and supply chain contracts. We conduct a gap assessment against the five technical control areas, provide remediation guidance for identified weaknesses, and carry out a pre-submission review to support first-time certification.</p>
+        <h3>Cyber Essentials</h3>
+        <p>Preparation for Cyber Essentials and Cyber Essentials Plus. The scheme is NCSC-backed and often required for public sector and supply-chain work. A gap assessment against the five technical controls, advice on remediation, and a review of the submission before it goes in.</p>
       </div>
     </div>
   </div>
@@ -516,8 +535,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 <section id="certifications" class="s2">
   <div class="wrap">
     <div class="cert-head reveal">
-      <p class="label" style="display:block;text-align:center">Certified</p>
-      <h2 class="headline" style="text-align:center">Our Credentials</h2>
+      <p class="label" style="display:block;text-align:center">Credentials</p>
+      <h2 class="headline" style="text-align:center">Qualifications held</h2>
     </div>
     <div class="cert-ticker-outer">
       <div class="cert-ticker">
@@ -538,80 +557,78 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
   </div>
 </section>
 
-<!-- PRICING -->
+<!-- FEES -->
 <section id="pricing" class="s1">
   <div class="wrap">
     <div class="pricing-intro">
       <p class="label reveal">Fees</p>
-      <h2 class="headline reveal">Engagement Fees</h2>
-      <p class="reveal">All engagements are priced at a fixed day rate. Indicative fees based on typical engagement duration. A fixed-price quotation follows every scoping discussion.</p>
+      <h2 class="headline reveal">Mark the hours</h2>
+      <p class="reveal">A day is eight hours, delivered in the out-of-hours window. Choose the work, then mark the blocks you want used. The first block is the proposed start. The figure is indicative. A written quotation follows scoping. Times are United Kingdom time.</p>
     </div>
 
     <div class="pricing-panel reveal">
-      <div class="pricing-grid">
-
-        <div class="pc">
-          <div class="pc-label">NCSC Scheme</div>
-          <div class="pc-name">Cyber Essentials</div>
-          <div class="pc-price">£800 – £2,500</div>
-          <div class="pc-duration">Per engagement · 1 – 2 weeks</div>
-          <p class="pc-desc">Gap assessment against the five NCSC technical controls, remediation guidance for identified weaknesses, and a pre-submission review for both CE and CE Plus pathways.</p>
+      <div class="cal-top">
+        <div class="form-section-title">The work</div>
+        <div class="opt-grid" id="cal-svc">
+          <button type="button" class="opt-btn active" data-svc="web">Web application and API</button>
+          <button type="button" class="opt-btn" data-svc="inf">Internal infrastructure</button>
+          <button type="button" class="opt-btn" data-svc="aps">Attack path simulation</button>
+          <button type="button" class="opt-btn" data-svc="ce">Cyber Essentials</button>
         </div>
-
-        <div class="pc">
-          <div class="pc-label">Web &amp; API</div>
-          <div class="pc-name">Web Application &amp; API</div>
-          <div class="pc-price">£3,300 – £5,500</div>
-          <div class="pc-duration">3 – 5 days · from £1,100 per day</div>
-          <p class="pc-desc">Manual OWASP-aligned testing of web applications and APIs, with a full technical report, executive summary, and risk-rated remediation guidance.</p>
-        </div>
-
-        <div class="pc">
-          <div class="pc-label">Internal Network</div>
-          <div class="pc-name">Internal Infrastructure Assessment</div>
-          <div class="pc-price">£6,000 – £8,400</div>
-          <div class="pc-duration">5 – 7 days · from £1,200 per day</div>
-          <p class="pc-desc">Assessment of services and software within a specified network range, conducted from an unauthenticated or authenticated perspective, with a risk-rated technical report.</p>
-        </div>
-
-        <div class="pc">
-          <div class="pc-label">Attack Simulation</div>
-          <div class="pc-name">Attack Path Simulation</div>
-          <div class="pc-price">£21,000 – £42,000</div>
-          <div class="pc-duration">15 – 30 days · from £1,400 per day</div>
-          <p class="pc-desc">Fully comprehensive assessment of on-premise and cloud infrastructure with all systems in scope. Every attack path leading to administrator-level access is enumerated and documented, covering Azure, AWS, and GCP. Includes post-engagement debrief.</p>
-        </div>
-
+        <p class="cal-rate" id="cal-rate"></p>
       </div>
 
-      <div class="pricing-footer">
-        <div class="pf-offers">
-          <div class="pf-offer-block">
-            <div class="pf-offer-ribbon">-25%</div>
-            <div class="pf-offer-title">Multi-Assessment</div>
-            <p class="pf-offer-text">Book two or more assessments within a 12-month period and receive 25% off the combined fee. Mention it when you get in touch.</p>
-          </div>
-          <div class="pf-offer-block">
-            <div class="pf-offer-ribbon">-50%</div>
-            <div class="pf-offer-title">3-Year Partnership</div>
-            <p class="pf-offer-text">Sign a 3-year agreement for your chosen annual assessment and pay 50% of the standard rate, spread across monthly direct debit payments. Contact us to get started.</p>
-          </div>
+      <div class="cal-nav">
+        <button type="button" class="cal-arrow" id="cal-prev" aria-label="Previous week">&#8249;</button>
+        <div style="text-align:center">
+          <div class="cal-nav-title" id="cal-range"></div>
+          <div class="cal-nav-sub">Weekdays from 18:00 · weekend in full · until 04:00 Monday</div>
         </div>
-        <hr class="pf-divider">
-        <div class="pf-includes">
-          <div class="pf-includes-title">Every Engagement Includes</div>
-          <div class="pf-includes-grid">
-            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Technical &amp; Executive Report</div>
-            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Risk Rated Findings and Remediation</div>
-            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Formal Contract &amp; NDA</div>
-            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Fixed Price, No Hidden Costs</div>
-            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>24/7 Working Hours</div>
-            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Direct Consultant Access</div>
-            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post Engagement Support</div>
-            <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Free Scoping Call</div>
-          </div>
-        </div>
+        <button type="button" class="cal-arrow" id="cal-next" aria-label="Next week">&#8250;</button>
+      </div>
 
+      <div class="cal-week" id="cal-week"></div>
+
+      <div class="cal-sum">
+        <div class="cal-total" id="cal-total">£0</div>
+        <p class="cal-meta" id="cal-meta">No blocks marked yet.</p>
+        <p class="cal-hint" id="cal-hint"></p>
+        <p class="cal-list" id="cal-list"></p>
+        <div class="cal-toggles">
+          <label class="cal-tog" id="tog-rpt">
+            <input type="checkbox" id="cal-rpt">
+            <span>
+              <span class="cal-tog-title">Repeat instruction</span>
+              <span class="cal-tog-text">Two or more assessments in twelve months. A quarter off the combined fee.</span>
+            </span>
+          </label>
+          <label class="cal-tog" id="tog-ret">
+            <input type="checkbox" id="cal-ret">
+            <span>
+              <span class="cal-tog-title">Three-year retainer</span>
+              <span class="cal-tog-text">A yearly assessment at half the rate, collected monthly by direct debit.</span>
+            </span>
+          </label>
+        </div>
+        <a href="#contact" class="btn btn-primary" id="cal-go">
+          Request this quotation
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <hr class="pf-divider">
+      <div class="pf-includes">
+        <div class="pf-includes-title">Every engagement includes</div>
+        <div class="pf-includes-grid">
+          <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Technical report and executive summary</div>
+          <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Risk-rated findings and remediation</div>
+          <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Contract, Rules of Engagement and NDA</div>
+          <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Fixed fee, agreed in writing</div>
+          <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Out-of-hours testing only</div>
+          <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Direct access to the consultant</div>
+          <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Support after the engagement</div>
+          <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Scoping discussion included</div>
+        </div>
       </div>
     </div>
 
@@ -622,8 +639,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 <section id="accreditation" class="s2">
   <div class="wrap">
     <div class="accred-head reveal">
-      <p class="label">Client Accreditation</p>
-      <h2 class="headline">Recognised on Completion</h2>
+      <p class="label">On completion</p>
+      <h2 class="headline">The mark</h2>
     </div>
     <div class="accred-inner">
       <svg class="accred-img reveal" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="12 -4 254 92" aria-label="Secured By Offense accreditation badge">
@@ -634,7 +651,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
         <text fill="#eeeef0" font-weight="800" font-size="27" font-family="Geist,system-ui,sans-serif" y="67" x="105">OFFENSE</text>
       </svg>
       <div class="accred-body">
-        <p class="reveal">Clients who complete an engagement receive the official Secured By Offense accreditation badge, confirming that their organisation has undergone independent security assessment. The badge can be displayed publicly and unlocks ongoing client benefits.</p>
+        <p class="reveal">On completion, clients may display the Secured By Offense mark. It confirms an independent assessment has been carried out. It is not a substitute for CREST, CHECK or Cyber Essentials.</p>
       </div>
     </div>
   </div>
@@ -644,78 +661,79 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 <section id="contact" class="contact-section">
   <div class="wrap">
     <p class="label reveal" style="display:block;text-align:center">Contact</p>
-    <h2 class="headline reveal" style="text-align:center">Get in Touch</h2>
-    <p class="reveal" style="text-align:center">We offer a no-obligation scoping call for all enquiries. Fill in the details below and we will be in touch shortly.</p>
+    <h2 class="headline reveal" style="text-align:center">Enquire</h2>
+    <p class="reveal" style="text-align:center">A scoping discussion is included. Set out what you need and we will come back to you. If you have marked hours on the calendar, they come through with the enquiry.</p>
 
     <div class="contact-form reveal">
+      <div class="cf-quote" id="cf-quote" hidden></div>
 
       <div class="form-section">
         <div class="form-section-head">
           <span class="form-section-num">01</span>
-          <span class="form-section-title">Enquiry Type</span>
+          <span class="form-section-title">Enquiry type</span>
         </div>
         <div class="opt-grid" id="enquiry-grid">
-          <button type="button" class="opt-btn" data-val="General Enquiry">General Enquiry</button>
-          <button type="button" class="opt-btn" data-val="Request a Quote">Request a Quote</button>
-          <button type="button" class="opt-btn" data-val="Scoping Discussion">Scoping Discussion</button>
-          <button type="button" class="opt-btn" data-val="Partnership Discussion">Partnership Discussion</button>
-          <button type="button" class="opt-btn" data-val="Technical Question">Technical Question</button>
-          <button type="button" class="opt-btn" data-val="Existing Client">Existing Client</button>
+          <button type="button" class="opt-btn" data-val="General enquiry">General enquiry</button>
+          <button type="button" class="opt-btn" data-val="Request a quotation">Request a quotation</button>
+          <button type="button" class="opt-btn" data-val="Scoping discussion">Scoping discussion</button>
+          <button type="button" class="opt-btn" data-val="Retained work">Retained work</button>
+          <button type="button" class="opt-btn" data-val="Technical question">Technical question</button>
+          <button type="button" class="opt-btn" data-val="Existing client">Existing client</button>
         </div>
       </div>
 
       <div class="form-section">
         <div class="form-section-head">
           <span class="form-section-num">02</span>
-          <span class="form-section-title">Scoping Request</span>
+          <span class="form-section-title">The work</span>
         </div>
         <div class="opt-grid" id="scope-grid">
-          <button type="button" class="opt-btn" data-val="Web Application &amp; API">Web Application &amp; API</button>
-          <button type="button" class="opt-btn" data-val="Internal Infrastructure Assessment">Internal Infrastructure</button>
-          <button type="button" class="opt-btn" data-val="Attack Path Simulation">Attack Path Simulation</button>
+          <button type="button" class="opt-btn" data-val="Web application and API">Web application and API</button>
+          <button type="button" class="opt-btn" data-val="Internal infrastructure">Internal infrastructure</button>
+          <button type="button" class="opt-btn" data-val="Attack path simulation">Attack path simulation</button>
           <button type="button" class="opt-btn" data-val="Cyber Essentials">Cyber Essentials</button>
-          <button type="button" class="opt-btn" data-val="3-Year Partnership">3-Year Partnership</button>
-          <button type="button" class="opt-btn" data-val="Not Sure Yet">Not Sure Yet</button>
+          <button type="button" class="opt-btn" data-val="Three-year retainer">Three-year retainer</button>
+          <button type="button" class="opt-btn" data-val="Not yet decided">Not yet decided</button>
         </div>
       </div>
 
       <div class="form-section">
         <div class="form-section-head">
           <span class="form-section-num">03</span>
-          <span class="form-section-title">Engagement Request</span>
+          <span class="form-section-title">Your details</span>
         </div>
 
         <div class="form-row">
           <div class="form-field">
             <label for="cf-name">Name</label>
-            <input id="cf-name" class="form-input" type="text" placeholder="Jane Smith">
+            <input id="cf-name" class="form-input" type="text" placeholder="James Hartley">
           </div>
           <div class="form-field">
             <label for="cf-org">Organisation</label>
-            <input id="cf-org" class="form-input" type="text" placeholder="Acme Ltd">
+            <input id="cf-org" class="form-input" type="text" placeholder="Hartley &amp; Co Ltd">
           </div>
         </div>
 
         <div class="form-row" style="margin-bottom:18px">
           <div class="form-field">
-            <label for="cf-email">Email Address</label>
-            <input id="cf-email" class="form-input" type="email" placeholder="jane@acmeltd.co.uk">
+            <label for="cf-email">Email address</label>
+            <input id="cf-email" class="form-input" type="email" placeholder="j.hartley@hartleyandco.co.uk">
           </div>
           <div class="form-field">
-            <label for="cf-start">Estimated Start Date</label>
+            <label for="cf-start">When to begin</label>
             <select id="cf-start" class="form-select">
               <option value="">Select a timeframe</option>
-              <option>As soon as possible</option>
-              <option>Within 1 month</option>
-              <option>1 to 3 months</option>
-              <option>3 to 6 months</option>
-              <option>6 months or more</option>
+              <option>At the earliest</option>
+              <option>Within a month</option>
+              <option>One to three months</option>
+              <option>Three to six months</option>
+              <option>Six months or more</option>
             </select>
           </div>
         </div>
 
         <div class="form-field" style="margin-bottom:12px">
-          <label>Preferred Days for Scoping Call</label>
+          <label>Preferred days for a scoping call</label>
           <div class="day-grid">
             <button type="button" class="day-btn" data-val="Mon">Mon</button>
             <button type="button" class="day-btn" data-val="Tue">Tue</button>
@@ -729,14 +747,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
         </div>
 
         <div class="form-field">
-          <label for="cf-message">Additional Information</label>
-          <textarea id="cf-message" class="form-textarea" placeholder="Any further details about your environment, requirements, or questions."></textarea>
+          <label for="cf-message">Anything else</label>
+          <textarea id="cf-message" class="form-textarea" placeholder="Environment, constraints, or questions."></textarea>
         </div>
       </div>
 
       <button type="button" class="btn btn-primary form-submit" id="cf-submit">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-        Send Enquiry
+        Send enquiry
       </button>
     </div>
   </div>
@@ -758,15 +776,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
       </a>
       <nav class="footer-nav">
         <a href="#about">About</a>
+        <a href="#hours">Hours</a>
         <a href="#services">Services</a>
-        <a href="#certifications">Certifications</a>
         <a href="#pricing">Fees</a>
         <a href="#accreditation">Accreditation</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
     <hr class="footer-rule">
-    <p class="footer-legal">Secured By Offense is an independent UK cyber security consultancy. All penetration testing, attack path simulation engagements, cyber security audits, and offensive security assessments are conducted under formal written contracts, signed Rules of Engagement, and Non-Disclosure Agreements. Services are delivered in accordance with the Computer Misuse Act 1990, the Data Protection Act 2018, and the UK GDPR. No assessment activity is initiated without explicit written authorisation from the client.</p>
+    <p class="footer-legal">Secured By Offense is an independent consultancy in the United Kingdom. Testing is carried out out of hours: from 18:00 UK time on weekdays, through the weekend, until 04:00 on Monday. A day is eight hours. All work is under a written contract, signed Rules of Engagement, and a non-disclosure agreement, in accordance with the Computer Misuse Act 1990, the Data Protection Act 2018, and the UK GDPR. Nothing starts without written authority.</p>
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 Secured By Offense UK. All rights reserved.</span>
       <div class="footer-meta"><a href="#">Privacy</a><a href="#">Terms</a></div>
@@ -782,22 +800,171 @@ const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecti
 document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transitionDelay=(i%4*60)+'ms';io.observe(el)});
 </script>
 <script>
-// Contact form
 (function(){
-  const selEnquiry = new Set();
-  const selScope   = new Set();
-  document.querySelectorAll('.opt-btn').forEach(btn=>{
+  const SVCS={
+    web:{name:'Web application and API',rate:1100,min:3,max:5,scope:'Web application and API',blurb:'£1,100 for eight hours. Typical run: three to five days.'},
+    inf:{name:'Internal infrastructure',rate:1200,min:5,max:7,scope:'Internal infrastructure',blurb:'£1,200 for eight hours. Typical run: five to seven days.'},
+    aps:{name:'Attack path simulation',rate:1400,min:15,max:30,scope:'Attack path simulation',blurb:'£1,400 for eight hours. Typical run: fifteen to thirty days.'},
+    ce:{name:'Cyber Essentials',rate:null,band:[800,2500],min:1,max:null,scope:'Cyber Essentials',blurb:'Quoted as an engagement, £800 to £2,500. Mark the windows you prefer.'}
+  };
+  const MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const DY=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+  const pad=n=>String(n).padStart(2,'0');
+  const ymd=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+  const hhmm=d=>pad(d.getHours())+':'+pad(d.getMinutes());
+  const gbp=n=>'£'+Math.round(n).toLocaleString('en-GB');
+  const civil=d=>DY[(d.getDay()+6)%7]+' '+d.getDate()+' '+MN[d.getMonth()]+' '+d.getFullYear();
+  function monday(d){const x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-((x.getDay()+6)%7));return x}
+  function slotsFor(day){
+    const y=day.getFullYear(),m=day.getMonth(),d=day.getDate(),dow=(day.getDay()+6)%7;
+    const mk=(sh,sm,eh,em,plus)=>{
+      const s=new Date(y,m,d,sh,sm,0,0);
+      const e=new Date(y,m,d,eh,em,0,0);
+      if(plus) e.setDate(e.getDate()+plus);
+      return {id:ymd(s)+'T'+hhmm(s),s:s.getTime(),e:e.getTime(),label:hhmm(s)+' – '+hhmm(e),date:new Date(y,m,d)};
+    };
+    if(dow<=4) return [mk(18,0,2,0,1)];
+    if(dow===5) return [mk(0,0,8,0,0),mk(8,0,16,0,0),mk(16,0,0,0,1)];
+    return [mk(0,0,8,0,0),mk(8,0,16,0,0),mk(20,0,4,0,1)];
+  }
+  let week=monday(new Date()),svc='web';
+  const chosen=new Map();
+  const weekEl=document.getElementById('cal-week');
+  const rangeEl=document.getElementById('cal-range');
+  const rateEl=document.getElementById('cal-rate');
+  const totEl=document.getElementById('cal-total');
+  const metaEl=document.getElementById('cal-meta');
+  const hintEl=document.getElementById('cal-hint');
+  const listEl=document.getElementById('cal-list');
+  const rpt=document.getElementById('cal-rpt');
+  const ret=document.getElementById('cal-ret');
+  function selected(){return Array.from(chosen.values()).sort((a,b)=>a.s-b.s)}
+  function quote(){
+    const s=SVCS[svc],n=chosen.size,list=selected();
+    let note='',total=0,label='';
+    if(s.rate==null){
+      label=gbp(s.band[0])+' – '+gbp(s.band[1]);
+      note='Cyber Essentials is quoted as an engagement. The windows marked are the hours you would prefer.';
+    }else{
+      total=n*s.rate;
+      if(ret.checked){total*=.5;note='Three-year retainer applied (half the rate).'}
+      else if(rpt.checked){total*=.75;note='Repeat instruction applied (a quarter off).'}
+      label=n?gbp(total):gbp(0);
+      if(n&&n<s.min) note=(note?note+' ':'')+'This work typically runs to '+s.min+(s.max?'–'+s.max:'')+' days. The figure is for the blocks you have marked.';
+      else if(n&&s.max&&n>s.max) note=(note?note+' ':'')+'Typical run is up to '+s.max+' days. A written quotation will confirm whether the extra days are required.';
+    }
+    const first=list[0];
+    const startTxt=first?civil(new Date(first.s))+', '+hhmm(new Date(first.s)):'';
+    window.__quote={service:s.name,scope:s.scope,days:n,totalLabel:label,total:total,start:startTxt,blocks:list.map(x=>civil(x.date)+', '+x.label),rpt:rpt.checked,ret:ret.checked,note};
+    return window.__quote;
+  }
+  function paintSum(){
+    const q=quote(),s=SVCS[svc];
+    rateEl.textContent=s.blurb;
+    totEl.textContent=q.totalLabel;
+    if(!q.days){metaEl.textContent='No blocks marked yet.';listEl.textContent=''}
+    else{metaEl.textContent=q.days+' × eight-hour day'+(q.days===1?'':'s')+(q.start?'. Proposed start: '+q.start+'.':'.');listEl.textContent=q.blocks.join(' · ')}
+    hintEl.textContent=q.note||'Indicative only. A written quotation follows the scoping discussion.';
+    document.getElementById('tog-rpt').classList.toggle('on',rpt.checked);
+    document.getElementById('tog-ret').classList.toggle('on',ret.checked);
+  }
+  function paintWeek(){
+    weekEl.innerHTML='';
+    const end=new Date(week);end.setDate(end.getDate()+6);
+    rangeEl.textContent=week.getMonth()===end.getMonth()
+      ? week.getDate()+' – '+end.getDate()+' '+MN[week.getMonth()]+' '+week.getFullYear()
+      : week.getDate()+' '+MN[week.getMonth()]+' – '+end.getDate()+' '+MN[end.getMonth()]+' '+end.getFullYear();
+    const now=Date.now(),today=ymd(new Date());
+    for(let i=0;i<7;i++){
+      const day=new Date(week.getFullYear(),week.getMonth(),week.getDate()+i);
+      const dow=(day.getDay()+6)%7;
+      const col=document.createElement('div');
+      col.className='cal-day'+(dow>=5?' wknd':'')+(ymd(day)===today?' today':'');
+      const head=document.createElement('div');
+      head.innerHTML='<div class="cal-dow">'+DY[dow].slice(0,3)+'</div><div class="cal-dom">'+day.getDate()+' '+MN[day.getMonth()].slice(0,3)+'</div>';
+      col.appendChild(head);
+      const body=document.createElement('div');
+      if(dow<=4){
+        const o=document.createElement('div');
+        o.className='cal-office';
+        o.textContent='Office hours not offered';
+        body.appendChild(o);
+      }
+      const wrap=document.createElement('div');
+      wrap.className='cal-slots';
+      slotsFor(day).forEach(slot=>{
+        const b=document.createElement('button');
+        b.type='button';
+        b.className='cal-slot';
+        b.textContent=slot.label;
+        const dead=slot.e<=now;
+        if(dead){b.classList.add('dead');b.disabled=true}
+        if(chosen.has(slot.id)) b.classList.add('on');
+        if(!dead) b.addEventListener('click',()=>{
+          if(chosen.has(slot.id)) chosen.delete(slot.id);
+          else{
+            for(const [id,x] of chosen){ if(slot.s<x.e&&x.s<slot.e) chosen.delete(id) }
+            chosen.set(slot.id,slot);
+          }
+          paintWeek();paintSum();
+        });
+        wrap.appendChild(b);
+      });
+      body.appendChild(wrap);
+      col.appendChild(body);
+      weekEl.appendChild(col);
+    }
+  }
+  document.querySelectorAll('#cal-svc .opt-btn').forEach(btn=>{
     btn.addEventListener('click',()=>{
-      btn.classList.toggle('active');
-      const set = btn.closest('#enquiry-grid') ? selEnquiry : selScope;
-      if(btn.classList.contains('active')) set.add(btn.dataset.val);
-      else set.delete(btn.dataset.val);
+      document.querySelectorAll('#cal-svc .opt-btn').forEach(x=>x.classList.remove('active'));
+      btn.classList.add('active');
+      svc=btn.dataset.svc;
+      paintSum();
     });
   });
+  document.getElementById('cal-prev').addEventListener('click',()=>{week.setDate(week.getDate()-7);paintWeek()});
+  document.getElementById('cal-next').addEventListener('click',()=>{week.setDate(week.getDate()+7);paintWeek()});
+  rpt.addEventListener('change',()=>{if(rpt.checked) ret.checked=false;paintSum()});
+  ret.addEventListener('change',()=>{if(ret.checked) rpt.checked=false;paintSum()});
+  document.getElementById('cal-go').addEventListener('click',e=>{
+    e.preventDefault();
+    paintSum();
+    const q=window.__quote;
+    const box=document.getElementById('cf-quote');
+    box.hidden=false;
+    box.innerHTML='<b>Proposed work</b><br>'+q.service+' · '+q.days+' × eight hours · '+q.totalLabel+(q.start?'<br>Proposed start: '+q.start:'')+(q.rpt?'<br>Repeat instruction.':'')+(q.ret?'<br>Three-year retainer.':'')+(q.blocks.length?'<br>'+q.blocks.join('<br>'):'');
+    document.querySelectorAll('#enquiry-grid .opt-btn').forEach(b=>b.classList.toggle('active',b.dataset.val==='Request a quotation'));
+    document.querySelectorAll('#scope-grid .opt-btn').forEach(b=>b.classList.toggle('active',b.dataset.val===q.scope||(q.ret&&b.dataset.val==='Three-year retainer')));
+    const startSel=document.getElementById('cf-start');
+    if(q.start){
+      let opt=Array.from(startSel.options).find(o=>o.dataset.cal==='1');
+      if(!opt){opt=document.createElement('option');opt.dataset.cal='1';startSel.appendChild(opt)}
+      opt.value=q.start;
+      opt.textContent=q.start;
+      startSel.value=q.start;
+    }
+    document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+  });
+  paintWeek();paintSum();
+})();
+</script>
+<script>
+(function(){
+  function bindGrid(id){
+    document.querySelectorAll('#'+id+' .opt-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>btn.classList.toggle('active'));
+    });
+  }
+  bindGrid('enquiry-grid');
+  bindGrid('scope-grid');
+  function activeVals(id){
+    return Array.from(document.querySelectorAll('#'+id+' .opt-btn.active')).map(b=>b.dataset.val);
+  }
 
   const selDays  = [];
   const dayTimes = {};
-  const TIMES = ['09:00 – 12:00','12:00 – 15:00','15:00 – 18:00'];
+  const TIMES = ['09:00 – 12:00','12:00 – 15:00','15:00 – 18:00','18:00 – 21:00'];
   const DAYS_ORDER = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
   const container = document.getElementById('day-times-container');
 
@@ -851,24 +1018,38 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const email   = document.getElementById('cf-email').value.trim();
     const start   = document.getElementById('cf-start').value;
     const message = document.getElementById('cf-message').value.trim();
-    const enquiry = selEnquiry.size ? Array.from(selEnquiry).join(', ') : 'Not specified';
-    const scope   = selScope.size   ? Array.from(selScope).join(', ')   : 'Not specified';
+    const enquiry = activeVals('enquiry-grid').join(', ') || 'Not specified';
+    const scope   = activeVals('scope-grid').join(', ') || 'Not specified';
     const days = selDays.length ? selDays.map(d=>{
       const t = dayTimes[d] && dayTimes[d].size ? Array.from(dayTimes[d]).join(', ') : 'Any time';
       return d + ': ' + t;
     }).join(' | ') : 'No preference';
+    const q = window.__quote;
+    let cal = '';
+    if(q && q.days){
+      cal =
+        '\nProposed testing hours:\n' +
+        q.service + '\n' +
+        q.days + ' × eight-hour days\n' +
+        'Indicative fee: ' + q.totalLabel + '\n' +
+        (q.start ? 'Proposed start: ' + q.start + '\n' : '') +
+        (q.rpt ? 'Repeat instruction.\n' : '') +
+        (q.ret ? 'Three-year retainer.\n' : '') +
+        q.blocks.map(b => '  - ' + b).join('\n') + '\n';
+    }
 
-    const subject = encodeURIComponent('Enquiry: ' + enquiry + (org ? ' - ' + org : ''));
+    const subject = encodeURIComponent('Enquiry: ' + enquiry + (org ? ' — ' + org : ''));
     const body = encodeURIComponent(
-      'Enquiry Type: '   + enquiry + '\n' +
-      'Scoping Request: '+ scope   + '\n' +
+      'Enquiry type: '   + enquiry + '\n' +
+      'The work: '       + scope   + '\n' +
       (org   ? 'Organisation: '  + org   + '\n' : '') +
       (name  ? 'Name: '          + name  + '\n' : '') +
-      (email ? 'Contact Email: ' + email + '\n' : '') +
-      (start ? 'Estimated Start: '+ start + '\n' : '') +
-      'Preferred Call Days & Times: ' + days + '\n' +
-      '\nAdditional Information:\n' + (message || 'None provided') +
-      '\n\n---\nSent via securedbyoffense.uk'
+      (email ? 'Email: '         + email + '\n' : '') +
+      (start ? 'When to begin: ' + start + '\n' : '') +
+      'Scoping call: ' + days + '\n' +
+      cal +
+      '\nAnything else:\n' + (message || 'None given') +
+      '\n\n—\nSent via securedbyoffense.uk'
     );
     window.location.href = 'mailto:sales@securedbyoffense.uk?subject=' + subject + '&body=' + body;
   });
