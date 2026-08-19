@@ -463,7 +463,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://securedbyoffense.uk","name":"Secured By Offense","description":"Independent out-of-hours penetration testing in the United Kingdom.","url":"https://securedbyoffense.uk","email":"sales@securedbyoffense.uk","areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"18:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"02:00"}],"knowsAbout":["Penetration Testing","Cyber Essentials","Attack Path Simulation","Internal Infrastructure Assessment","Web Application Security Testing"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When is testing carried out?","acceptedAnswer":{"@type":"Answer","text":"Out of hours only. Weekdays from 18:00 United Kingdom time, weekend from 10:00 Saturday through to 02:00 Monday."}},{"@type":"Question","name":"How are fees calculated?","acceptedAnswer":{"@type":"Answer","text":"Fees are set by the days required. Reporting is included. A written quotation follows scoping."}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://securedbyoffense.uk","name":"Secured By Offense","description":"Independent out-of-hours penetration testing in the United Kingdom.","url":"https://securedbyoffense.uk","email":"sales@securedbyoffense.uk","areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"18:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"02:00"}],"knowsAbout":["Penetration Testing","Cyber Essentials","Attack Path Simulation","Internal Infrastructure Assessment","Web Application Security Testing"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When is testing carried out?","acceptedAnswer":{"@type":"Answer","text":"Out of hours only. Weekdays from 18:00 United Kingdom time, weekend from 10:00 Saturday through to 02:00 Monday."}},{"@type":"Question","name":"How are fees calculated?","acceptedAnswer":{"@type":"Answer","text":"Fees are set by the days required. Figures include VAT. Reporting is included. A written quotation follows scoping."}}]}]}
 </script>
 </head>
 <body>
@@ -614,7 +614,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
     <div class="pricing-intro">
       <p class="label reveal">Fees</p>
       <h2 class="headline reveal">Estimate a fee</h2>
-      <p class="reveal">Choose the work, set the days, mark a start. The figure is indicative. A written quotation follows scoping.</p>
+      <p class="reveal">Choose the work, set the days, mark a start. Figures include VAT. A written quotation follows scoping.</p>
     </div>
 
     <div class="pricing-panel reveal">
@@ -661,7 +661,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
         <div class="cal-kicker"><span>04</span>Indicative fee</div>
         <div id="cal-break" hidden></div>
         <div class="cal-total" id="cal-total">£0</div>
-        <p class="cal-period" id="cal-period" hidden></p>
+        <p class="cal-period" id="cal-period">Including VAT</p>
         <p class="cal-save-line" id="cal-save" hidden></p>
         <p class="cal-meta" id="cal-meta"></p>
         <p class="cal-hint" id="cal-hint"></p>
@@ -866,10 +866,10 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
 <script>
 (function(){
   const SVCS={
-    web:{name:'Web application and API',rate:1100,min:2,typical:'two to five',scope:'Web application and API'},
-    inf:{name:'Internal infrastructure',rate:1200,min:4,typical:'four to seven',scope:'Internal infrastructure'},
+    web:{name:'Web application and API',rate:900,min:2,typical:'two to five',scope:'Web application and API'},
+    inf:{name:'Internal infrastructure',rate:1100,min:4,typical:'four to seven',scope:'Internal infrastructure'},
     aps:{name:'Attack path simulation',rate:1400,min:20,typical:'twenty to thirty',scope:'Attack path simulation'},
-    ce:{name:'Cyber Essentials',rate:null,band:[800,2500],min:1,typical:'',scope:'Cyber Essentials'}
+    ce:{name:'Cyber Essentials',rate:900,min:2,typical:'two to three',scope:'Cyber Essentials'}
   };
   const MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
   const DY=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
@@ -916,7 +916,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     return {
       items:[],
       extra:'',
-      copy:'Cyber Essentials and Cyber Essentials Plus, against the five NCSC controls.'
+      copy:'Gap assessment and submission review. Cyber Essentials Plus usually needs a further day.'
     };
   }
   function reportDays(n){
@@ -1010,7 +1010,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     daysEl.textContent=String(days);
     stepEl.hidden=s.rate==null;
     minusBtn.disabled=days<=s.min;
-    stepLine.textContent=s.rate==null?'':days+' days  ·  '+gbp(s.rate)+' a day  ·  minimum '+s.min;
+    stepLine.textContent=s.rate==null?'':days+' days  ·  '+gbp(s.rate)+' a day inc. VAT  ·  minimum '+s.min;
     covEl.hidden=!c.items.length;
     covEl.innerHTML=c.items.map(i=>'<div class="cal-cov-item"><div class="cal-cov-n">'+i.n.toLocaleString('en-GB')+'</div><div class="cal-cov-l">'+i.l+'</div></div>').join('');
     covNote.textContent=c.extra;covNote.hidden=!c.extra;
@@ -1030,8 +1030,9 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       breakEl.innerHTML=h+'</table>';
     }
     totEl.textContent=q.totalLabel;
-    if(q.monthly){periodEl.hidden=false;periodEl.textContent='a month, by direct debit'}
-    else{periodEl.hidden=true;periodEl.textContent=''}
+    if(q.monthly) periodEl.textContent='a month, by direct debit, including VAT';
+    else periodEl.textContent='Including VAT';
+    periodEl.hidden=false;
     if(q.saving){saveEl.hidden=false;saveEl.textContent='You save '+q.savingLabel+' ('+q.off+' off the full rate)'}
     else{saveEl.hidden=true;saveEl.textContent=''}
     clearBtn.disabled=!start && !chosen.size;
