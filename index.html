@@ -256,10 +256,13 @@ main{padding-top:64px}
 }
 .cal-sheet td:last-child{font-weight:700;width:7.5rem}
 .cal-sheet tr.total th,.cal-sheet tr.total td{
-  border-bottom:none;padding-top:14px;color:var(--text);font-weight:800;
+  border-bottom:none;padding-top:16px;color:var(--text);font-weight:800;vertical-align:middle;
 }
 .cal-sheet tr.total td:last-child{
   font-size:clamp(1.35rem,3vw,1.8rem);letter-spacing:-.03em;line-height:1.1;
+}
+.cal-sheet tr.total th.dd-total{
+  display:flex;align-items:center;gap:12px;
 }
 #cal-break[hidden]{display:none}
 .cal-total{display:none}
@@ -317,17 +320,15 @@ main{padding-top:64px}
   letter-spacing:-.04em;color:var(--text);line-height:1;margin:0 0 6px;
   font-variant-numeric:tabular-nums;
 }
-.cal-foot{
-  display:flex;align-items:center;justify-content:flex-end;margin:0 0 18px;
-}
+.cal-foot{display:none}
 .cal-period{display:none}
 .dd-row{display:flex;align-items:center;margin:0}
 .dd-row[hidden]{display:none}
 .dd-badge{
   background:#fff;border-radius:6px;padding:0;display:flex;align-items:center;
-  height:60px;width:160px;flex-shrink:0;overflow:hidden;
+  height:50px;width:140px;flex-shrink:0;overflow:hidden;
 }
-.dd-badge img{height:72px;width:72px;display:block;text-align:center;margin:0 auto;zoom:1.44}
+.dd-badge img{height:72px;width:72px;display:block;text-align:center;margin:0 auto;zoom:1.34}
 .cal-save-line{font-size:.95rem;font-weight:700;color:var(--green);margin:0 0 14px}
 .cal-save-line[hidden]{display:none}
 .cal-sheet tr.save th,.cal-sheet tr.save td{color:var(--green)}
@@ -1069,7 +1070,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
         h+=tr('One assessment','',gbp(q.gross))+
           tr((q.tests===2?'Two':'Six')+' assessments','full rate',q.fullLabel)+
           '<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>'+
-          '<tr class="total"><th>Total</th><td>'+q.monthlyLabel+' × '+q.months+' months, inc. VAT</td><td>'+q.contractLabel+'</td></tr>';
+          '<tr class="total"><th class="dd-total"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>Total</th><td>'+q.monthlyLabel+' × '+q.months+' months, inc. VAT</td><td>'+q.contractLabel+'</td></tr>';
       }else{
         h+='<tr class="total"><th>Total</th><td>inc. VAT</td><td>'+q.totalLabel+'</td></tr>';
       }
@@ -1077,7 +1078,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     }
     totEl.textContent=q.totalLabel;
     periodEl.hidden=true;
-    document.getElementById('cal-dd').hidden=!q.monthly;
+    document.getElementById('cal-dd').hidden=true;
     saveEl.hidden=true;saveEl.textContent='';
     clearBtn.disabled=!start && !chosen.size;
     if(s.rate==null){
