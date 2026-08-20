@@ -601,23 +601,23 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
     <div class="services-grid">
       <div class="svc reveal">
         <div class="svc-num">01</div>
+        <h3>Cyber Essentials</h3>
+        <p>Gap assessment against the five NCSC controls, advice on remediation, and a review of the submission for Cyber Essentials and Cyber Essentials Plus.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-num">02</div>
         <h3>Web application and API</h3>
         <p>Manual testing of web applications and APIs, against OWASP. Authentication, injection, business logic and access control.</p>
       </div>
       <div class="svc reveal">
-        <div class="svc-num">02</div>
+        <div class="svc-num">03</div>
         <h3>Internal infrastructure</h3>
         <p>Services and software on a defined network range, authenticated or not. Misconfiguration, exposure and known weaknesses.</p>
       </div>
       <div class="svc reveal">
-        <div class="svc-num">03</div>
+        <div class="svc-num">04</div>
         <h3>Attack path simulation</h3>
         <p>The estate in scope. From supplied credentials or a corporate device, paths through on-premises and cloud to a stated objective, usually administrative control.</p>
-      </div>
-      <div class="svc reveal">
-        <div class="svc-num">04</div>
-        <h3>Cyber Essentials</h3>
-        <p>Gap assessment against the five NCSC controls, advice on remediation, and a review of the submission for Cyber Essentials and Cyber Essentials Plus.</p>
       </div>
     </div>
   </div>
@@ -662,10 +662,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
       <div class="cal-block">
         <div class="cal-kicker"><span>01</span>The work</div>
         <div class="opt-grid cal-svc" id="cal-svc">
-          <button type="button" class="opt-btn active" data-svc="web">Web application and API</button>
+          <button type="button" class="opt-btn active" data-svc="ce">Cyber Essentials</button>
+          <button type="button" class="opt-btn" data-svc="web">Web application and API</button>
           <button type="button" class="opt-btn" data-svc="inf">Internal infrastructure</button>
           <button type="button" class="opt-btn" data-svc="aps">Attack path simulation</button>
-          <button type="button" class="opt-btn" data-svc="ce">Cyber Essentials</button>
         </div>
         <p class="cal-copy" id="cal-copy"></p>
       </div>
@@ -795,10 +795,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
           <span class="form-section-title">The work</span>
         </div>
         <div class="opt-grid" id="scope-grid">
+          <button type="button" class="opt-btn" data-val="Cyber Essentials">Cyber Essentials</button>
           <button type="button" class="opt-btn" data-val="Web application and API">Web application and API</button>
           <button type="button" class="opt-btn" data-val="Internal infrastructure">Internal infrastructure</button>
           <button type="button" class="opt-btn" data-val="Attack path simulation">Attack path simulation</button>
-          <button type="button" class="opt-btn" data-val="Cyber Essentials">Cyber Essentials</button>
           <button type="button" class="opt-btn" data-val="One-year contract">One-year contract</button>
           <button type="button" class="opt-btn" data-val="Three-year contract">Three-year contract</button>
           <button type="button" class="opt-btn" data-val="Not yet decided">Not yet decided</button>
@@ -913,7 +913,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     web:{name:'Web application and API',rate:900,min:2,typical:'two to five',scope:'Web application and API'},
     inf:{name:'Internal infrastructure',rate:1100,min:4,typical:'four to seven',scope:'Internal infrastructure'},
     aps:{name:'Attack path simulation',rate:1400,min:20,typical:'twenty to thirty',scope:'Attack path simulation'},
-    ce:{name:'Cyber Essentials',rate:900,min:2,typical:'two to three',scope:'Cyber Essentials'}
+    ce:{name:'Cyber Essentials',rate:1125,min:5,typical:'five to seven',scope:'Cyber Essentials'}
   };
   const MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
   const DY=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
@@ -961,7 +961,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     return {
       items:[],
       extra:'',
-      copy:'Gap assessment and submission review. Cyber Essentials Plus usually needs a further day.'
+      copy:'Gap assessment and submission review for Cyber Essentials and Cyber Essentials Plus.'
     };
   }
   function reportDays(n){
@@ -984,7 +984,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     return out;
   }
 
-  let week=monday(new Date()),svc='web',days=2,start=null;
+  let week=monday(new Date()),svc='ce',days=5,start=null;
   const chosen=new Map();
   const weekEl=document.getElementById('cal-week');
   const rangeEl=document.getElementById('cal-range');
