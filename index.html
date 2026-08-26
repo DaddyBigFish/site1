@@ -1025,7 +1025,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const tr=(a,b,c)=>'<tr><th>'+a+'</th><td>'+b+'</td><td>'+c+'</td></tr>';
     let h='<table class="cal-sheet">'+
       tr('Assessments',String(q.tests),'')+
-      tr('Testing',(q.tests===1?'3 days':q.tests+' × 3 days'),'')+
+      tr('Assessment duration','3 days','')+
       tr('Reporting','included','free')+
       tr('Start date',q.start||'—','')+
       tr('End date',q.end||'—','')+
