@@ -504,7 +504,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://securedbyoffense.uk","name":"Secured By Offense","description":"Independent out-of-hours penetration testing in the United Kingdom.","url":"https://securedbyoffense.uk","email":"sales@securedbyoffense.uk","areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"18:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"02:00"}],"knowsAbout":["Penetration Testing","Cyber Essentials","Attack Path Simulation","Internal Infrastructure Assessment","Web Application Security Testing"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When is testing carried out?","acceptedAnswer":{"@type":"Answer","text":"Out of hours only. Weekdays from 18:00 United Kingdom time, weekend from 10:00 Saturday through to 02:00 Monday."}},{"@type":"Question","name":"How are fees calculated?","acceptedAnswer":{"@type":"Answer","text":"A three-day assessment is £2,000 including VAT. Every option is secured by a £300 initial payment. A one-off is then paid upfront. Two-year is two assessments at £125 a month for 24 months after the initial payment. Three-year is three assessments at £125 a month for 36 months after the initial payment. The report is included free of charge."}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://securedbyoffense.uk","name":"Secured By Offense","description":"Independent out-of-hours penetration testing in the United Kingdom.","url":"https://securedbyoffense.uk","email":"sales@securedbyoffense.uk","areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"18:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"02:00"}],"knowsAbout":["Penetration Testing","Cyber Essentials","Attack Path Simulation","Internal Infrastructure Assessment","Web Application Security Testing"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When is testing carried out?","acceptedAnswer":{"@type":"Answer","text":"Out of hours only. Weekdays from 18:00 United Kingdom time, weekend from 10:00 Saturday through to 02:00 Monday."}},{"@type":"Question","name":"How are fees calculated?","acceptedAnswer":{"@type":"Answer","text":"A three-day assessment is £2,000 including VAT. Every option is secured by a £300 initial payment. A one-off is then paid upfront. Two-year is two assessments, 20% off, paid monthly after the initial payment. Three-year is three assessments, 25% off, paid monthly after the initial payment. The report is included free of charge."}}]}]}
 </script>
 </head>
 <body>
@@ -711,14 +711,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
             <input type="checkbox" id="cal-two">
             <span>
               <span class="cal-tog-title">Two-year</span>
-              <span class="cal-tog-text">Two assessments · £125 a month after a £300 initial payment · 17.5% off</span>
+              <span class="cal-tog-text">Two assessments · £120.83 a month after a £300 initial payment · 20% off</span>
             </span>
           </label>
           <label class="cal-tog" id="tog-three">
             <input type="checkbox" id="cal-three">
             <span>
               <span class="cal-tog-title">Three-year</span>
-              <span class="cal-tog-text">Three assessments · £125 a month after a £300 initial payment · 20% off</span>
+              <span class="cal-tog-text">Three assessments · £116.67 a month after a £300 initial payment · 25% off</span>
             </span>
           </label>
         </div>
@@ -973,7 +973,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   const clearBtn=document.getElementById('cal-clear');
   const two=document.getElementById('cal-two');
   const three=document.getElementById('cal-three');
-  const INIT=300, ONE=2000, TWO=3300, THREE=4800, MONTH=125;
+  const INIT=300, ONE=2000, TWO=3200, THREE=4500;
 
   function refill(){
     chosen.clear();
@@ -987,9 +987,9 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const service=names.length?names.join(', '):'Three-day assessment';
     let tests=1,months=0,monthly=0,total=ONE,contract=ONE,full=ONE,saving=0,off='',label=gbp(ONE),pkg='One assessment',rest=ONE-INIT,upfront=true;
     if(two.checked){
-      tests=2;months=24;monthly=MONTH;total=TWO;contract=TWO;full=ONE*2;saving=full-TWO;off='17.5%';label=gbp(monthly);pkg='Two-year';rest=TWO-INIT;upfront=false;
+      tests=2;months=24;monthly=(TWO-INIT)/24;total=TWO;contract=TWO;full=ONE*2;saving=full-TWO;off='20%';label=gbp(monthly);pkg='Two-year';rest=TWO-INIT;upfront=false;
     }else if(three.checked){
-      tests=3;months=36;monthly=MONTH;total=THREE;contract=THREE;full=ONE*3;saving=full-THREE;off='20%';label=gbp(monthly);pkg='Three-year';rest=THREE-INIT;upfront=false;
+      tests=3;months=36;monthly=(THREE-INIT)/36;total=THREE;contract=THREE;full=ONE*3;saving=full-THREE;off='25%';label=gbp(monthly);pkg='Three-year';rest=THREE-INIT;upfront=false;
     }
     const first=list[0],last=list[list.length-1];
     const sd=first?new Date(first.s):null,ed=last?new Date(last.e):null;
