@@ -1026,7 +1026,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       tr('Initial payment',q.initLabel);
     if(q.tests===1){
       h+=tr('Final payment',q.restLabel)+
-        '<tr class="total"><th>Total</th><td>'+q.totalLabel+'<div class="cal-total-note">payable in full, inc. VAT</div></td></tr>';
+        '<tr class="total"><th>Total</th><td><div class="cal-sheet-amt">'+q.totalLabel+'</div><div class="cal-total-note">payable in full, inc. VAT</div></td></tr>';
     }else{
       if(q.saving) h+='<tr class="save"><th>Saving</th><td>−'+q.savingLabel+' ('+q.off+' off)</td></tr>';
       h+='<tr class="total"><th>Total</th><td><div class="dd-mid"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>'+q.monthlyLabel+' × '+q.months+' months, inc. VAT</div><div class="cal-sheet-amt">'+q.contractLabel+'</div></td></tr>';
@@ -1116,7 +1116,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       tr('Initial payment',q.initLabel);
     if(q.tests===1){
       h+=tr('Final payment',q.restLabel)+
-        '<tr class="total"><th>Total</th><td>'+q.totalLabel+'<div class="cal-total-note">payable in full, inc. VAT</div></td></tr>';
+        '<tr class="total"><th>Total</th><td><div class="cal-sheet-amt">'+q.totalLabel+'</div><div class="cal-total-note">payable in full, inc. VAT</div></td></tr>';
     }else{
       if(q.saving) h+='<tr class="save"><th>Saving</th><td>−'+q.savingLabel+' ('+q.off+' off)</td></tr>';
       h+='<tr class="total"><th>Total</th><td><div class="dd-mid"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>'+q.monthlyLabel+' × '+q.months+' months, inc. VAT</div><div class="cal-sheet-amt">'+q.contractLabel+'</div></td></tr>';
