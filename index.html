@@ -1036,7 +1036,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       tr('Initial payment','secures the work',q.initLabel);
     if(q.tests===1){
       h+=tr('Final payment','upfront',q.restLabel)+
-        '<tr class="total"><th>Total</th><td>inc. VAT, upfront</td><td>'+q.totalLabel+'</td></tr>';
+        '<tr class="total"><th>Total</th><td>payable upfront, inc. VAT</td><td>'+q.totalLabel+'</td></tr>';
     }else{
       if(q.saving) h+='<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>';
       h+='<tr class="total"><th>Total</th><td class="dd-mid"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>'+q.monthlyLabel+' × '+q.months+' months, inc. VAT</td><td>'+q.contractLabel+'</td></tr>';
