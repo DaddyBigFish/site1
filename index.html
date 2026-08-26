@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=overlays-content">
-<title>Out of Hours Penetration Testing | After the working day | Secured By Offense</title>
-<meta name="description" content="Penetration testing after the working day, not in the middle of it. Web, infrastructure and attack path simulation. Fixed fees including VAT. United Kingdom.">
+<title>Out of Hours Penetration Testing | 3 days, report included | Secured By Offense</title>
+<meta name="description" content="Three days of penetration testing after the working day. Report included, free of charge. Web, infrastructure, attack path or Cyber Essentials, one or a mix. From £2,000 including VAT. United Kingdom.">
 <link rel="canonical" href="https://securedbyoffense.uk/">
 <link rel="icon" href="https://securedbyoffense.uk/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -381,6 +381,47 @@ main{padding-top:64px}
 .cf-quote .cq-k{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
 .cf-quote[hidden]{display:none}
 
+.offer-grid{
+  display:grid;gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:4px;overflow:hidden;
+}
+.offer{
+  background:var(--bg-2);padding:32px 28px;
+  display:flex;flex-direction:column;min-width:0;
+}
+.offer.best{background:var(--bg-3)}
+.offer-tag{
+  font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px;
+}
+.offer h3{font-size:1.2rem;font-weight:800;margin-bottom:6px;color:var(--text)}
+.offer-sub{font-size:.88rem;color:var(--muted);margin-bottom:18px;line-height:1.5}
+.offer-was{
+  font-size:.88rem;color:var(--dim);text-decoration:line-through;
+  font-variant-numeric:tabular-nums;margin-bottom:4px;
+}
+.offer-price{
+  font-size:clamp(2rem,4.5vw,2.6rem);font-weight:900;letter-spacing:-.04em;
+  line-height:1;color:var(--text);font-variant-numeric:tabular-nums;margin:0 0 8px;
+}
+.offer-save{font-size:.95rem;font-weight:700;color:var(--green);margin:0 0 10px}
+.offer-pay{font-size:.88rem;color:var(--muted);line-height:1.6;margin:0 0 16px}
+.offer-free{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.88rem;font-weight:700;color:var(--text);
+  border:1px solid var(--green);background:rgba(34,197,94,.1);
+  border-radius:6px;padding:8px 12px;margin:0 0 18px;width:fit-content;
+}
+.offer-free svg{color:var(--green);flex-shrink:0}
+.offer .btn{width:100%;justify-content:center;margin-top:auto}
+.offer-dd{display:flex;align-items:center;gap:12px;margin:0 0 18px}
+@media(min-width:860px){
+  .offer-grid{grid-template-columns:repeat(3,1fr)}
+  .offer,.offer.best{padding:36px 28px}
+}
+#offer .pf-includes{padding-top:48px}
+.offer.best{box-shadow:inset 0 3px 0 0 var(--accent)}
+
 /* ACCREDITATION */
 .accred-head{text-align:center;margin-bottom:52px}
 .accred-head h2{margin-bottom:0}
@@ -401,6 +442,7 @@ main{padding-top:64px}
 .form-section-num{font-size:.7rem;font-weight:700;letter-spacing:.1em;color:var(--dim)}
 .form-section-title{font-size:.88rem;font-weight:700;color:var(--text)}
 .opt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:4px}
+#pkg-grid{grid-template-columns:1fr}
 .opt-btn{
   background:var(--bg-3);border:1px solid var(--border);border-radius:6px;
   padding:10px 14px;font-size:.84rem;font-weight:500;color:var(--muted);
@@ -448,6 +490,7 @@ main{padding-top:64px}
 @media(min-width:560px){
   .form-row{grid-template-columns:1fr 1fr}
   .opt-grid{grid-template-columns:repeat(3,1fr)}
+  #pkg-grid{grid-template-columns:1fr}
 }
 
 /* FOOTER */
@@ -504,7 +547,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://securedbyoffense.uk","name":"Secured By Offense","description":"Independent out-of-hours penetration testing in the United Kingdom.","url":"https://securedbyoffense.uk","email":"sales@securedbyoffense.uk","areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"18:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"02:00"}],"knowsAbout":["Penetration Testing","Cyber Essentials","Attack Path Simulation","Internal Infrastructure Assessment","Web Application Security Testing"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When is testing carried out?","acceptedAnswer":{"@type":"Answer","text":"Out of hours only. Weekdays from 18:00 United Kingdom time, weekend from 10:00 Saturday through to 02:00 Monday."}},{"@type":"Question","name":"How are fees calculated?","acceptedAnswer":{"@type":"Answer","text":"Fees are set by the days required. Figures include VAT. Reporting is included. A written quotation follows scoping."}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://securedbyoffense.uk","name":"Secured By Offense","description":"Independent out-of-hours penetration testing in the United Kingdom. Three days, report included.","url":"https://securedbyoffense.uk","email":"sales@securedbyoffense.uk","areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"18:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"02:00"}],"knowsAbout":["Penetration Testing","Cyber Essentials","Attack Path Simulation","Internal Infrastructure Assessment","Web Application Security Testing"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When is testing carried out?","acceptedAnswer":{"@type":"Answer","text":"Out of hours only. Weekdays from 18:00 United Kingdom time, weekend from 10:00 Saturday through to 02:00 Monday."}},{"@type":"Question","name":"What does the fee include?","acceptedAnswer":{"@type":"Answer","text":"Three days of testing and the report, with no extra fee for the report. Figures include VAT. One assessment is £2,000 upfront. Two assessments are £4,000 over 24 months by Direct Debit. Four assessments are £6,000 over 48 months by Direct Debit."}},{"@type":"Question","name":"Can the three days cover more than one kind of work?","acceptedAnswer":{"@type":"Answer","text":"Yes. The three days may be spent on web application and API testing, internal infrastructure, attack path simulation, Cyber Essentials, or any mix of those in the same engagement."}}]}]}
 </script>
 </head>
 <body>
@@ -523,11 +566,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#hours">Hours</a>
-      <a href="#services">Services</a>
-      <a href="#estimate">Fees</a>
+      <a href="#work">The days</a>
+      <a href="#offer">Offer</a>
       <a href="#accreditation">Accreditation</a>
     </nav>
-    <a href="#estimate" class="btn btn-primary nav-cta" style="padding:10px 20px;min-height:38px;font-size:.85rem;border-radius:4px">Estimate</a>
+    <a href="#offer" class="btn btn-primary nav-cta" style="padding:10px 20px;min-height:38px;font-size:.85rem;border-radius:4px">Offer</a>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -535,10 +578,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
   <nav class="mobile-menu" id="mobileMenu">
     <a href="#about"><span class="mm-num">01</span>About</a>
     <a href="#hours"><span class="mm-num">02</span>Hours</a>
-    <a href="#services"><span class="mm-num">03</span>Services</a>
-    <a href="#estimate"><span class="mm-num">04</span>Fees</a>
+    <a href="#work"><span class="mm-num">03</span>The days</a>
+    <a href="#offer"><span class="mm-num">04</span>Offer</a>
     <a href="#accreditation"><span class="mm-num">05</span>Accreditation</a>
-    <div class="mm-cta"><a href="#estimate" class="btn btn-primary">Estimate</a></div>
+    <div class="mm-cta"><a href="#offer" class="btn btn-primary">Offer</a></div>
   </nav>
 </header>
 
@@ -549,13 +592,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
   <div class="hero-inner">
     <div>
       <h1 class="display reveal">Out of Hours<br><em>Penetration Testing</em></h1>
-      <p class="lead hero-lead reveal">Most tests get in the way of the business. Ours do not. We work from six in the evening, through the weekend, so your people keep the day. Manual testing, a fixed fee including VAT, and a report written for the people who have to fix it.</p>
+      <p class="lead hero-lead reveal">Three days, after the working day. The report is included, free of charge — it is in the price, not an extra. Those days can be web, infrastructure, attack path or Cyber Essentials, one of them or a mix.</p>
       <div class="hero-btns reveal">
-        <a href="#estimate" class="btn btn-primary">
-          Estimate
+        <a href="#offer" class="btn btn-primary">
+          Offer
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a href="#services" class="btn btn-ghost">Services</a>
+        <a href="#work" class="btn btn-ghost">The days</a>
       </div>
     </div>
   </div>
@@ -582,8 +625,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
         <h2 class="headline reveal">Secured By Offense</h2>
         <p class="reveal">Secured By Offense is an independent penetration testing consultancy based in the United Kingdom. Testing is done out of hours, so it does not interrupt the working day.</p>
         <p class="reveal">Nothing begins without a written contract, signed Rules of Engagement and a non-disclosure agreement.</p>
-        <a href="#estimate" class="btn btn-primary reveal">
-          Estimate
+        <a href="#offer" class="btn btn-primary reveal">
+          Offer
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -591,12 +634,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services" class="s1">
+<!-- THE DAYS -->
+<section id="work" class="s1">
   <div class="wrap">
-    <div style="max-width:560px;margin-bottom:48px">
-      <p class="label reveal">Services</p>
-      <h2 class="headline reveal">What we test</h2>
+    <div style="max-width:640px;margin-bottom:48px">
+      <p class="label reveal">The three days</p>
+      <h2 class="headline reveal">Any one, or a mix</h2>
+      <p class="reveal" style="margin-top:16px">The engagement is three days. Those days are not four separate products. Spend them on one of the following, or split them across any range of them in the same test.</p>
     </div>
     <div class="services-grid">
       <div class="svc reveal">
@@ -649,96 +693,82 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
   </div>
 </section>
 
-<!-- FEES -->
-<section id="estimate" class="s1">
+<!-- OFFER -->
+<section id="offer" class="s1">
   <div class="wrap">
     <div class="pricing-intro">
-      <p class="label reveal">Fees</p>
-      <h2 class="headline reveal">Estimate a fee</h2>
-      <p class="reveal">Choose the work, set the days, mark a start. Figures include VAT. A written quotation follows scoping.</p>
+      <p class="label reveal">Offer</p>
+      <h2 class="headline reveal">Three days, report included</h2>
+      <p class="reveal">One price for the test. The report is included, free of charge — it is not billed on top. Figures include VAT. A written quotation follows scoping.</p>
     </div>
 
-    <div class="pricing-panel reveal">
-      <div class="cal-block">
-        <div class="cal-kicker"><span>01</span>The work</div>
-        <div class="opt-grid cal-svc" id="cal-svc">
-          <button type="button" class="opt-btn active" data-svc="ce">Cyber Essentials</button>
-          <button type="button" class="opt-btn" data-svc="web">Web application and API</button>
-          <button type="button" class="opt-btn" data-svc="inf">Internal infrastructure</button>
-          <button type="button" class="opt-btn" data-svc="aps">Attack path simulation</button>
+    <div class="offer-grid reveal">
+      <div class="offer">
+        <div class="offer-tag">One assessment</div>
+        <h3>3 days</h3>
+        <p class="offer-sub">One out of hours pentest. Web, infrastructure, attack path, Cyber Essentials, or a mix.</p>
+        <div class="offer-price">£2,000</div>
+        <p class="offer-pay">Upfront, including VAT</p>
+        <div class="offer-free">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Report included, free
         </div>
-        <p class="cal-copy" id="cal-copy"></p>
-      </div>
-
-      <div class="cal-block" id="cal-step">
-        <div class="cal-kicker"><span>02</span>Days</div>
-        <div class="cal-days-row">
-          <div class="cal-step-ctrl">
-            <button type="button" class="cal-arrow" id="cal-minus" aria-label="Fewer days">&minus;</button>
-            <div class="cal-step-n" id="cal-days">2</div>
-            <button type="button" class="cal-arrow" id="cal-plus" aria-label="More days">+</button>
-          </div>
-          <div class="cal-cov" id="cal-cov"></div>
-        </div>
-        <p class="cal-cov-note" id="cal-cov-note"></p>
-      </div>
-
-      <div class="cal-block">
-        <div class="cal-kicker"><span>03</span>When</div>
-        <div class="cal-nav">
-          <button type="button" class="cal-arrow" id="cal-prev" aria-label="Previous week">&#8249;</button>
-          <div class="cal-nav-mid">
-            <div class="cal-nav-title" id="cal-range"></div>
-          </div>
-          <button type="button" class="cal-arrow" id="cal-next" aria-label="Next week">&#8250;</button>
-        </div>
-        <div class="cal-week" id="cal-week"></div>
-        <button type="button" class="cal-clear" id="cal-clear" disabled>Clear hours</button>
-        <p class="cal-meta" id="cal-meta"></p>
-      </div>
-
-      <div class="cal-block">
-        <div class="cal-kicker"><span>04</span>Indicative fee</div>
-        <div id="cal-break" hidden></div>
-        <div class="cal-total" id="cal-total">£0</div>
-        <div class="cal-foot">
-          <p class="cal-period" id="cal-period">Including VAT</p>
-          <div class="dd-row" id="cal-dd" hidden>
-            <span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>
-          </div>
-        </div>
-        <p class="cal-save-line" id="cal-save" hidden></p>
-        <p class="cal-hint" id="cal-hint"></p>
-        <div class="cal-toggles">
-          <label class="cal-tog" id="tog-rpt">
-            <input type="checkbox" id="cal-rpt">
-            <span>
-              <span class="cal-tog-title">One-year contract</span>
-              <span class="cal-tog-text">Two assessments</span>
-            </span>
-          </label>
-          <label class="cal-tog" id="tog-ret">
-            <input type="checkbox" id="cal-ret">
-            <span>
-              <span class="cal-tog-title">Three-year contract</span>
-              <span class="cal-tog-text">Six assessments</span>
-            </span>
-          </label>
-        </div>
-        <a href="#contact" class="btn btn-primary" id="cal-go">
-          Request this quotation
+        <button type="button" class="btn btn-primary" data-pkg="one">
+          Request this
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+        </button>
       </div>
 
-      <div class="pf-includes">
-        <div class="pf-includes-title">Included</div>
-        <div class="pf-includes-grid">
-          <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Technical report and executive summary</div>
-          <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Contract, Rules of Engagement and NDA</div>
-          <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Fixed fee, agreed in writing</div>
-          <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Scoping discussion</div>
+      <div class="offer">
+        <div class="offer-tag">Two assessments</div>
+        <h3>2 × 3 days</h3>
+        <p class="offer-sub">Two tests in the term. Each can mix the work as you need.</p>
+        <div class="offer-price">£4,000</div>
+        <p class="offer-pay">£166.67 a month × 24 months, including VAT</p>
+        <div class="offer-dd">
+          <span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>
         </div>
+        <div class="offer-free">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Report included, free, each time
+        </div>
+        <button type="button" class="btn btn-primary" data-pkg="two">
+          Request this
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <div class="offer best">
+        <div class="offer-tag">Four assessments</div>
+        <h3>4 × 3 days</h3>
+        <p class="offer-sub">Four tests in the term. £2,000 off four singles.</p>
+        <div class="offer-was">£8,000</div>
+        <div class="offer-price">£6,000</div>
+        <p class="offer-save">Save £2,000</p>
+        <p class="offer-pay">£125 a month × 48 months, including VAT</p>
+        <div class="offer-dd">
+          <span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>
+        </div>
+        <div class="offer-free">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Report included, free, each time
+        </div>
+        <button type="button" class="btn btn-primary" data-pkg="four">
+          Request this
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="pf-includes">
+      <div class="pf-includes-title">Included in every assessment</div>
+      <div class="pf-includes-grid">
+        <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Report included, free of charge</div>
+        <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Technical report and executive summary</div>
+        <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Any one or a mix of the four kinds of work</div>
+        <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Contract, Rules of Engagement and NDA</div>
+        <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Fixed fee, including VAT</div>
+        <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Scoping discussion</div>
       </div>
     </div>
 
@@ -772,7 +802,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
   <div class="wrap">
     <p class="label reveal" style="display:block;text-align:center">Contact</p>
     <h2 class="headline reveal" style="text-align:center">Enquire</h2>
-    <p class="reveal" style="text-align:center">Set out what you need. Hours marked on the calendar come with the enquiry.</p>
+    <p class="reveal" style="text-align:center">Choose a package and how you want the three days used. The report is included, free of charge.</p>
 
     <div class="contact-form reveal">
       <div class="cf-quote" id="cf-quote" hidden></div>
@@ -792,22 +822,33 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
       <div class="form-section">
         <div class="form-section-head">
           <span class="form-section-num">02</span>
-          <span class="form-section-title">The work</span>
+          <span class="form-section-title">The package</span>
         </div>
-        <div class="opt-grid" id="scope-grid">
-          <button type="button" class="opt-btn" data-val="Cyber Essentials">Cyber Essentials</button>
-          <button type="button" class="opt-btn" data-val="Web application and API">Web application and API</button>
-          <button type="button" class="opt-btn" data-val="Internal infrastructure">Internal infrastructure</button>
-          <button type="button" class="opt-btn" data-val="Attack path simulation">Attack path simulation</button>
-          <button type="button" class="opt-btn" data-val="One-year contract">One-year contract</button>
-          <button type="button" class="opt-btn" data-val="Three-year contract">Three-year contract</button>
-          <button type="button" class="opt-btn" data-val="Not yet decided">Not yet decided</button>
+        <div class="opt-grid" id="pkg-grid">
+          <button type="button" class="opt-btn" data-pkg="one">One assessment · £2,000 upfront</button>
+          <button type="button" class="opt-btn" data-pkg="two">Two assessments · £4,000 over 24 months</button>
+          <button type="button" class="opt-btn" data-pkg="four">Four assessments · £6,000 over 48 months</button>
         </div>
       </div>
 
       <div class="form-section">
         <div class="form-section-head">
           <span class="form-section-num">03</span>
+          <span class="form-section-title">How to use the three days</span>
+        </div>
+        <p style="font-size:.82rem;color:var(--muted);margin:0 0 12px;line-height:1.55">Any one, or a mix, in the same three days.</p>
+        <div class="opt-grid" id="scope-grid">
+          <button type="button" class="opt-btn" data-val="Cyber Essentials">Cyber Essentials</button>
+          <button type="button" class="opt-btn" data-val="Web application and API">Web application and API</button>
+          <button type="button" class="opt-btn" data-val="Internal infrastructure">Internal infrastructure</button>
+          <button type="button" class="opt-btn" data-val="Attack path simulation">Attack path simulation</button>
+          <button type="button" class="opt-btn" data-val="Not yet decided">Not yet decided</button>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-section-head">
+          <span class="form-section-num">04</span>
           <span class="form-section-title">Your details</span>
         </div>
 
@@ -885,8 +926,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
       <nav class="footer-nav">
         <a href="#about">About</a>
         <a href="#hours">Hours</a>
-        <a href="#services">Services</a>
-        <a href="#estimate">Fees</a>
+        <a href="#work">The days</a>
+        <a href="#offer">Offer</a>
         <a href="#accreditation">Accreditation</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -909,296 +950,40 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
 </script>
 <script>
 (function(){
-  const SVCS={
-    web:{name:'Web application and API',rate:900,min:2,typical:'two to five',scope:'Web application and API'},
-    inf:{name:'Internal infrastructure',rate:1100,min:4,typical:'four to seven',scope:'Internal infrastructure'},
-    aps:{name:'Attack path simulation',rate:1400,min:20,typical:'twenty to thirty',scope:'Attack path simulation'},
-    ce:{name:'Cyber Essentials',rate:1125,min:5,typical:'five to seven',scope:'Cyber Essentials'}
+  const PKGS={
+    one:{name:'One assessment',tests:'3 days',total:'£2,000',pay:'£2,000 upfront, including VAT',save:'',dd:false},
+    two:{name:'Two assessments',tests:'2 × 3 days',total:'£4,000',pay:'£166.67 a month × 24 months, including VAT',save:'',dd:true},
+    four:{name:'Four assessments',tests:'4 × 3 days',total:'£6,000',pay:'£125 a month × 48 months, including VAT',save:'Save £2,000 (four singles £8,000)',dd:true}
   };
-  const MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
-  const DY=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-  const pad=n=>String(n).padStart(2,'0');
-  const ymd=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
-  const hhmm=d=>pad(d.getHours())+':'+pad(d.getMinutes());
-  const gbp=n=>'£'+Math.round(n).toLocaleString('en-GB');
-  function ord(n){const j=n%10,k=n%100;if(k>10&&k<14) return n+'th';if(j===1) return n+'st';if(j===2) return n+'nd';if(j===3) return n+'rd';return n+'th'}
-  const civil=d=>DY[(d.getDay()+6)%7]+' '+ord(d.getDate())+' '+MN[d.getMonth()]+' '+d.getFullYear();
-  function monday(d){const x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-((x.getDay()+6)%7));return x}
-  function slotsFor(day){
-    const y=day.getFullYear(),m=day.getMonth(),d=day.getDate(),dow=(day.getDay()+6)%7;
-    const mk=(sh,sm,eh,em,plus)=>{
-      const s=new Date(y,m,d,sh,sm,0,0);
-      const e=new Date(y,m,d,eh,em,0,0);
-      if(plus) e.setDate(e.getDate()+plus);
-      return {id:ymd(s)+'T'+hhmm(s),s:s.getTime(),e:e.getTime(),label:hhmm(s)+' – '+hhmm(e),date:new Date(y,m,d)};
-    };
-    if(dow<=4) return [mk(18,0,2,0,1)];
-    if(dow===5) return [mk(10,0,18,0,0),mk(18,0,2,0,1)];
-    return [mk(10,0,18,0,0),mk(18,0,2,0,1)];
+  function quoteHtml(q){
+    let h='<p class="cq-k">Proposed work</p><p><b>'+q.name+'</b></p>';
+    h+='<p>'+q.tests+'</p>';
+    h+='<p>'+q.total+'</p>';
+    h+='<p>'+q.pay+'</p>';
+    if(q.save) h+='<p>'+q.save+'</p>';
+    if(q.dd) h+='<p>Payable by Direct Debit</p>';
+    h+='<p>Report included, free of charge — in the price, not an extra.</p>';
+    h+='<p>The three days may be one kind of work, or a mix.</p>';
+    return h;
   }
-  function cover(key,n){
-    if(key==='web') return {
-      items:[
-        {n:n*20,l:'functions'},
-        {n:n*2,l:'user roles'}
-      ],
-      extra:'',
-      copy:'Web applications and APIs, tested by hand.'
-    };
-    if(key==='inf') return {
-      items:[
-        {n:n*10,l:'live IP addresses'},
-        {n:n*3,l:'VLANs'}
-      ],
-      extra:'',
-      copy:'Internal systems, from inside the estate.'
-    };
-    if(key==='aps') return {
-      items:[],
-      extra:'',
-      copy:'The estate in scope. Paths through to administrative control.'
-    };
-    return {
-      items:[],
-      extra:'',
-      copy:'Hands-on assessment of office, remote working and cloud against Cyber Essentials v3.3.'
-    };
-  }
-  function reportDays(n){
-    if(n<=5) return 1;
-    if(n<=9) return 2;
-    if(n<=13) return 3;
-    return Math.ceil(n*0.2);
-  }
-  function takeSlots(from,count){
-    const out=[];
-    const d=new Date(from);
-    d.setHours(0,0,0,0);
-    let g=0;
-    while(out.length<count && g++<500){
-      slotsFor(d).forEach(slot=>{
-        if(out.length<count && slot.s>=from && slot.e>Date.now()) out.push(slot);
-      });
-      d.setDate(d.getDate()+1);
-    }
-    return out;
-  }
-
-  let week=monday(new Date()),svc='ce',days=5,start=null;
-  const chosen=new Map();
-  const weekEl=document.getElementById('cal-week');
-  const rangeEl=document.getElementById('cal-range');
-  const copyEl=document.getElementById('cal-copy');
-  const totEl=document.getElementById('cal-total');
-  const periodEl=document.getElementById('cal-period');
-  const saveEl=document.getElementById('cal-save');
-  const metaEl=document.getElementById('cal-meta');
-  const hintEl=document.getElementById('cal-hint');
-  const daysEl=document.getElementById('cal-days');
-  const stepEl=document.getElementById('cal-step');
-  const covEl=document.getElementById('cal-cov');
-  const covNote=document.getElementById('cal-cov-note');
-  const breakEl=document.getElementById('cal-break');
-  const clearBtn=document.getElementById('cal-clear');
-  const minusBtn=document.getElementById('cal-minus');
-  const rpt=document.getElementById('cal-rpt');
-  const ret=document.getElementById('cal-ret');
-
-  function refill(){
-    chosen.clear();
-    if(!start || SVCS[svc].rate==null) return;
-    takeSlots(start.s,days).forEach(x=>chosen.set(x.id,x));
-  }
-  function selected(){return Array.from(chosen.values()).sort((a,b)=>a.s-b.s)}
-  function quote(){
-    const s=SVCS[svc],c=cover(svc,days),list=selected();
-    const rd=s.rate==null?0:reportDays(days);
-    let note='',total=0,label='',gross=0,monthly=0,tests=0,months=0,contract=0,full=0,saving=0,off='';
-    if(s.rate==null){
-      label=gbp(s.band[0])+' – '+gbp(s.band[1]);
-      note='Cyber Essentials is quoted as an engagement. The windows marked are the hours you would prefer.';
-    }else{
-      gross=(days+rd)*s.rate;
-      if(rpt.checked){
-        tests=2;months=12;full=gross*tests;saving=Math.round(full*0.25);contract=full-saving;monthly=Math.round(contract/months);total=contract;off='25%';
-        label=gbp(monthly);
-        note='';
-      }else if(ret.checked){
-        tests=6;months=36;full=gross*tests;saving=Math.round(full*0.5);contract=full-saving;monthly=Math.round(contract/months);total=contract;off='50%';
-        label=gbp(monthly);
-        note='';
-      }else{
-        total=gross;label=gbp(total);
-        note='';
-      }
-    }
-    const first=list[0],last=list[list.length-1];
-    const sd=first?new Date(first.s):null,ed=last?new Date(last.e):null;
-    const startTxt=sd?civil(sd)+' at '+hhmm(sd):'';
-    const endTxt=ed?civil(ed)+' at '+hhmm(ed):'';
-    window.__quote={
-      service:s.name,scope:s.scope,days:s.rate==null?list.length:days,report:rd,
-      billDays:s.rate==null?0:days+rd,totalLabel:label,total:total,gross:gross,
-      monthly:monthly,tests:tests,months:months,contract:contract,
-      monthlyLabel:monthly?gbp(monthly):'',contractLabel:contract?gbp(contract):'',
-      full:full,saving:saving,off:off,savingLabel:saving?gbp(saving):'',fullLabel:full?gbp(full):'',
-      start:startTxt,end:endTxt,
-      blocks:list.map(x=>civil(x.date)+', '+x.label),
-      coverage:c.items.map(i=>i.n+' '+i.l),
-      copy:c.copy,extra:c.extra,rpt:rpt.checked,ret:ret.checked,note
-    };
-    return window.__quote;
-  }
-  function paintSum(){
-    const q=quote(),s=SVCS[svc],c=cover(svc,days);
-    copyEl.textContent=c.copy;
-    daysEl.textContent=String(days);
-    stepEl.hidden=s.rate==null;
-    minusBtn.disabled=days<=s.min;
-    covEl.hidden=!c.items.length;
-    covEl.innerHTML=c.items.map(i=>'<div class="cal-cov-item"><div class="cal-cov-n">'+i.n.toLocaleString('en-GB')+'</div><div class="cal-cov-l">'+i.l+'</div></div>').join('');
-    covNote.textContent=c.extra;covNote.hidden=!c.extra;
-    if(s.rate==null){
-      breakEl.hidden=true;breakEl.innerHTML='';
-    }else{
-      breakEl.hidden=false;
-      const tr=(a,b,c)=>'<tr><th>'+a+'</th><td>'+b+'</td><td>'+c+'</td></tr>';
-      let h='<table class="cal-sheet">'+
-        tr('Testing',days+' days',gbp(days*s.rate))+
-        tr('Reporting',q.report+' day'+(q.report===1?'':'s'),gbp(q.report*s.rate));
-      if(q.tests){
-        h+=tr('One assessment','',gbp(q.gross))+
-          tr((q.tests===2?'Two':'Six')+' assessments','full rate',q.fullLabel)+
-          '<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>'+
-          '<tr class="total"><th>Total</th><td class="dd-mid"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>'+q.monthlyLabel+' × '+q.months+' months, inc. VAT</td><td>'+q.contractLabel+'</td></tr>';
-      }else{
-        h+='<tr class="total"><th>Total</th><td>inc. VAT</td><td>'+q.totalLabel+'</td></tr>';
-      }
-      breakEl.innerHTML=h+'</table>';
-    }
-    totEl.textContent=q.totalLabel;
-    periodEl.hidden=true;
-    document.getElementById('cal-dd').hidden=true;
-    saveEl.hidden=true;saveEl.textContent='';
-    clearBtn.disabled=!start && !chosen.size;
-    if(s.rate==null){
-      metaEl.textContent=chosen.size?chosen.size+' window'+(chosen.size===1?'':'s')+' marked.':'Mark the windows you prefer.';
-    }else if(!start){
-      metaEl.textContent='Mark a start on the calendar. The testing days fill from that point.';
-    }else{
-      metaEl.textContent='Assessment starts '+q.start+' and finishes '+q.end+'.';
-    }
-    hintEl.textContent=q.note;hintEl.hidden=!q.note;
-    document.getElementById('tog-rpt').classList.toggle('on',rpt.checked);
-    document.getElementById('tog-ret').classList.toggle('on',ret.checked);
-  }
-  function paintWeek(){
-    weekEl.innerHTML='';
-    const end=new Date(week);end.setDate(end.getDate()+6);
-    rangeEl.textContent=week.getMonth()===end.getMonth()
-      ? week.getDate()+' – '+end.getDate()+' '+MN[week.getMonth()]+' '+week.getFullYear()
-      : week.getDate()+' '+MN[week.getMonth()]+' – '+end.getDate()+' '+MN[end.getMonth()]+' '+end.getFullYear();
-    const now=Date.now(),today=ymd(new Date());
-    for(let i=0;i<7;i++){
-      const day=new Date(week.getFullYear(),week.getMonth(),week.getDate()+i);
-      const dow=(day.getDay()+6)%7;
-      const col=document.createElement('div');
-      col.className='cal-day'+(dow>=5?' wknd':'')+(ymd(day)===today?' today':'');
-      const head=document.createElement('div');
-      head.innerHTML='<div class="cal-dow">'+DY[dow].slice(0,3)+'</div><div class="cal-dom">'+day.getDate()+' '+MN[day.getMonth()].slice(0,3)+'</div>';
-      col.appendChild(head);
-      const body=document.createElement('div');
-      const wrap=document.createElement('div');
-      wrap.className='cal-slots';
-      slotsFor(day).forEach(slot=>{
-        const b=document.createElement('button');
-        b.type='button';
-        b.className='cal-slot';
-        b.textContent=slot.label;
-        const dead=slot.e<=now;
-        if(dead){b.classList.add('dead');b.disabled=true}
-        if(chosen.has(slot.id)) b.classList.add('on');
-        if(!dead) b.addEventListener('click',()=>{
-          if(SVCS[svc].rate==null){
-            if(chosen.has(slot.id)) chosen.delete(slot.id);
-            else chosen.set(slot.id,slot);
-          }else{
-            start=slot;
-            refill();
-          }
-          paintWeek();paintSum();
-        });
-        wrap.appendChild(b);
-      });
-      body.appendChild(wrap);
-      col.appendChild(body);
-      weekEl.appendChild(col);
-    }
-  }
-  function setDays(n){
-    days=Math.max(SVCS[svc].min||1,n);
-    refill();paintWeek();paintSum();
-  }
-  document.querySelectorAll('#cal-svc .opt-btn').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      document.querySelectorAll('#cal-svc .opt-btn').forEach(x=>x.classList.remove('active'));
-      btn.classList.add('active');
-      svc=btn.dataset.svc;
-      days=SVCS[svc].min;
-      if(SVCS[svc].rate==null){start=null;chosen.clear()}
-      else refill();
-      paintWeek();paintSum();
-    });
-  });
-  document.getElementById('cal-prev').addEventListener('click',()=>{week.setDate(week.getDate()-7);paintWeek()});
-  document.getElementById('cal-next').addEventListener('click',()=>{week.setDate(week.getDate()+7);paintWeek()});
-  document.getElementById('cal-minus').addEventListener('click',()=>setDays(days-1));
-  document.getElementById('cal-plus').addEventListener('click',()=>setDays(days+1));
-  clearBtn.addEventListener('click',()=>{start=null;chosen.clear();paintWeek();paintSum()});
-  rpt.addEventListener('change',()=>{if(rpt.checked) ret.checked=false;paintSum()});
-  ret.addEventListener('change',()=>{if(ret.checked) rpt.checked=false;paintSum()});
-  document.getElementById('cal-go').addEventListener('click',e=>{
-    e.preventDefault();
-    paintSum();
-    const q=window.__quote;
+  function pickPkg(key,scroll){
+    const q=PKGS[key];
+    if(!q) return;
+    window.__pkg=q;
+    window.__pkgKey=key;
+    document.querySelectorAll('#pkg-grid .opt-btn').forEach(b=>b.classList.toggle('active',b.dataset.pkg===key));
     const box=document.getElementById('cf-quote');
     box.hidden=false;
-    let h='<p class="cq-k">Proposed work</p><p><b>'+q.service+'</b></p>';
-    h+='<p>'+q.days+' days testing'+(q.report?', '+q.report+' day'+(q.report===1?'':'s')+' reporting':'')+'</p>';
-    if(q.rpt) h+='<p>One-year contract, two assessments</p>';
-    if(q.ret) h+='<p>Three-year contract, six assessments</p>';
-    if(q.monthly){
-      h+='<p>'+q.monthlyLabel+' a month × '+q.months+' months</p>';
-      h+='<p>Total '+q.contractLabel+', including VAT</p>';
-      if(q.saving) h+='<p>Saving '+q.savingLabel+' ('+q.off+' off)</p>';
-      h+='<p>Payable by Direct Debit</p>';
-    }else{
-      h+='<p>'+q.totalLabel+', including VAT</p>';
-    }
-    if(q.start&&q.end) h+='<p>Assessment starts '+q.start+' and finishes '+q.end+'.</p>';
-    else if(q.start) h+='<p>Assessment starts '+q.start+'.</p>';
-    if(q.coverage.length) h+='<p>'+q.coverage.join(', ')+'</p>';
-    box.innerHTML=h;
+    box.innerHTML=quoteHtml(q);
     document.querySelectorAll('#enquiry-grid .opt-btn').forEach(b=>b.classList.toggle('active',b.dataset.val==='Request a quotation'));
-    document.querySelectorAll('#scope-grid .opt-btn').forEach(b=>{
-      const on=b.dataset.val===q.scope||(q.rpt&&b.dataset.val==='One-year contract')||(q.ret&&b.dataset.val==='Three-year contract');
-      b.classList.toggle('active',on);
-    });
-    const startSel=document.getElementById('cf-start');
-    if(q.start){
-      let opt=Array.from(startSel.options).find(o=>o.dataset.cal==='1');
-      if(!opt){opt=document.createElement('option');opt.dataset.cal='1';startSel.appendChild(opt)}
-      opt.value=q.start;
-      opt.textContent=q.start;
-      startSel.value=q.start;
-    }
-    document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    if(scroll) document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+  }
+  document.querySelectorAll('.offer [data-pkg]').forEach(el=>{
+    el.addEventListener('click',()=>pickPkg(el.dataset.pkg,true));
   });
-  paintWeek();paintSum();
-})();
-</script>
-<script>
-(function(){
+  document.querySelectorAll('#pkg-grid .opt-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>pickPkg(btn.dataset.pkg,false));
+  });
   function bindGrid(id){
     document.querySelectorAll('#'+id+' .opt-btn').forEach(btn=>{
       btn.addEventListener('click',()=>btn.classList.toggle('active'));
@@ -1235,7 +1020,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       TIMES.forEach(([v,s])=>{
         const b = document.createElement('button');
         b.type = 'button';
-        b.className = 'time-btn' + (dayTimes[day]?.has(v) ? ' active' : '');
+        b.className = 'time-btn' + (dayTimes[day] && dayTimes[day].has(v) ? ' active' : '');
         b.innerHTML = '<span class="t-full">'+v+'</span><span class="t-short">'+s+'</span>';
         b.addEventListener('click',()=>{
           if(!dayTimes[day]) dayTimes[day] = new Set();
@@ -1277,26 +1062,25 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       const t = dayTimes[d] && dayTimes[d].size ? Array.from(dayTimes[d]).join(', ') : 'Any time';
       return d + ': ' + t;
     }).join(' | ') : 'No preference';
-    const q = window.__quote;
+    const q = window.__pkg;
     let cal = '';
-    if(q && (q.days || q.blocks.length)){
+    if(q){
       cal =
         '\nProposed work\n' +
-        q.service + '\n' +
-        q.days + ' days testing' + (q.report ? ', ' + q.report + ' day' + (q.report===1?'':'s') + ' reporting' : '') + '\n' +
-        (q.rpt ? 'One-year contract, two assessments\n' : '') +
-        (q.ret ? 'Three-year contract, six assessments\n' : '') +
-        (q.monthly
-          ? q.monthlyLabel + ' a month × ' + q.months + ' months\nTotal ' + q.contractLabel + ', including VAT\n' + (q.saving ? 'Saving ' + q.savingLabel + ' (' + q.off + ' off)\n' : '') + 'Payable by Direct Debit\n'
-          : q.totalLabel + ', including VAT\n') +
-        (q.start && q.end ? 'Assessment starts ' + q.start + ' and finishes ' + q.end + '.\n' : q.start ? 'Assessment starts ' + q.start + '.\n' : '') +
-        (q.coverage && q.coverage.length ? q.coverage.join(', ') + '\n' : '');
+        q.name + '\n' +
+        q.tests + '\n' +
+        q.total + '\n' +
+        q.pay + '\n' +
+        (q.save ? q.save + '\n' : '') +
+        (q.dd ? 'Payable by Direct Debit\n' : '') +
+        'Report included, free of charge\n' +
+        'How to use the three days: ' + scope + '\n';
     }
-
-    const subject = encodeURIComponent('Enquiry: ' + enquiry + (org ? ' — ' + org : ''));
+    const subject = encodeURIComponent('Enquiry: ' + (q ? q.name : enquiry) + (org ? ' — ' + org : ''));
     const body = encodeURIComponent(
       'Enquiry type: '   + enquiry + '\n' +
-      'The work: '       + scope   + '\n' +
+      (q ? 'Package: ' + q.name + '\n' : '') +
+      'How to use the three days: ' + scope + '\n' +
       (org   ? 'Organisation: '  + org   + '\n' : '') +
       (name  ? 'Name: '          + name  + '\n' : '') +
       (email ? 'Email: '         + email + '\n' : '') +
