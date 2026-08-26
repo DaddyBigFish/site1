@@ -504,7 +504,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://securedbyoffense.uk","name":"Secured By Offense","description":"Independent out-of-hours penetration testing in the United Kingdom.","url":"https://securedbyoffense.uk","email":"sales@securedbyoffense.uk","areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"18:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"02:00"}],"knowsAbout":["Penetration Testing","Cyber Essentials","Attack Path Simulation","Internal Infrastructure Assessment","Web Application Security Testing"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When is testing carried out?","acceptedAnswer":{"@type":"Answer","text":"Out of hours only. Weekdays from 18:00 United Kingdom time, weekend from 10:00 Saturday through to 02:00 Monday."}},{"@type":"Question","name":"How are fees calculated?","acceptedAnswer":{"@type":"Answer","text":"A three-day assessment is £2,000 including VAT. Every option is secured by a £300 initial payment. A one-off is then paid upfront. Two-year is two assessments, 20% off, paid monthly after the initial payment. Three-year is three assessments, 25% off, paid monthly after the initial payment. The report is included free of charge."}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://securedbyoffense.uk","name":"Secured By Offense","description":"Independent out-of-hours penetration testing in the United Kingdom.","url":"https://securedbyoffense.uk","email":"sales@securedbyoffense.uk","areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"18:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"02:00"}],"knowsAbout":["Penetration Testing","Cyber Essentials","Attack Path Simulation","Internal Infrastructure Assessment","Web Application Security Testing"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When is testing carried out?","acceptedAnswer":{"@type":"Answer","text":"Out of hours only. Weekdays from 18:00 United Kingdom time, weekend from 10:00 Saturday through to 02:00 Monday."}},{"@type":"Question","name":"How are fees calculated?","acceptedAnswer":{"@type":"Answer","text":"A three-day assessment is £2,000 including VAT. Every option is secured by a £300 initial payment. A one-off is then paid in full. Two-year is two assessments, 20% off, paid monthly after the initial payment. Three-year is three assessments, 25% off, paid monthly after the initial payment. The report is included free of charge."}}]}]}
 </script>
 </head>
 <body>
@@ -1035,8 +1035,8 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       tr('Expected final report date',q.reportDue||'—','')+
       tr('Initial payment','secures the work',q.initLabel);
     if(q.tests===1){
-      h+=tr('Final payment','upfront',q.restLabel)+
-        '<tr class="total"><th>Total</th><td>payable upfront, inc. VAT</td><td>'+q.totalLabel+'</td></tr>';
+      h+=tr('Final payment','in full',q.restLabel)+
+        '<tr class="total"><th>Total</th><td>payable in full, inc. VAT</td><td>'+q.totalLabel+'</td></tr>';
     }else{
       if(q.saving) h+='<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>';
       h+='<tr class="total"><th>Total</th><td class="dd-mid"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>'+q.monthlyLabel+' × '+q.months+' months, inc. VAT</td><td>'+q.contractLabel+'</td></tr>';
@@ -1122,7 +1122,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       h+='<p>Final payment by Direct Debit. Total '+q.contractLabel+', including VAT</p>';
       if(q.saving) h+='<p>Saving '+q.savingLabel+'</p>';
     }else{
-      h+='<p>Final payment '+q.restLabel+' upfront. Total '+q.totalLabel+', including VAT</p>';
+      h+='<p>Final payment '+q.restLabel+' in full. Total '+q.totalLabel+', including VAT</p>';
     }
     if(q.start&&q.end) h+='<p>Assessment starts '+q.start+' and finishes '+q.end+'.</p>';
     else if(q.start) h+='<p>Assessment starts '+q.start+'.</p>';
@@ -1239,7 +1239,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
         (q.three ? 'Three-year, three assessments\n' : '') +
         (q.monthly
           ? q.monthlyLabel + ' a month × ' + q.months + ' months after the initial payment\nTotal ' + q.contractLabel + ', including VAT\n' + (q.saving ? 'Saving ' + q.savingLabel + '\n' : '') + 'Final payment by Direct Debit\n'
-          : 'Final payment ' + q.restLabel + ' upfront\nTotal ' + q.totalLabel + ', including VAT\n') +
+          : 'Final payment ' + q.restLabel + ' in full\nTotal ' + q.totalLabel + ', including VAT\n') +
         (q.start && q.end ? 'Assessment starts ' + q.start + ' and finishes ' + q.end + '.\n' : q.start ? 'Assessment starts ' + q.start + '.\n' : '') +
         (q.reportDue ? 'Expected final report date ' + q.reportDue + '.\n' : '');
     }
