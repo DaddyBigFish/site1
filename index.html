@@ -1035,7 +1035,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       tr('Expected final report date',q.reportDue||'—','')+
       tr('Initial payment','secures the work',q.initLabel);
     if(q.tests===1){
-      h+=tr('Remainder','upfront',q.restLabel)+
+      h+=tr('Final payment','upfront',q.restLabel)+
         '<tr class="total"><th>Total</th><td>inc. VAT, upfront</td><td>'+q.totalLabel+'</td></tr>';
     }else{
       if(q.saving) h+='<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>';
@@ -1119,10 +1119,10 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     if(q.two) h+='<p>Two-year, two assessments, '+q.monthlyLabel+' a month × 24 months after the initial payment</p>';
     if(q.three) h+='<p>Three-year, three assessments, '+q.monthlyLabel+' a month × 36 months after the initial payment</p>';
     if(q.monthly){
-      h+='<p>Remainder by Direct Debit. Total '+q.contractLabel+', including VAT</p>';
+      h+='<p>Final payment by Direct Debit. Total '+q.contractLabel+', including VAT</p>';
       if(q.saving) h+='<p>Saving '+q.savingLabel+'</p>';
     }else{
-      h+='<p>Remainder '+q.restLabel+' upfront. Total '+q.totalLabel+', including VAT</p>';
+      h+='<p>Final payment '+q.restLabel+' upfront. Total '+q.totalLabel+', including VAT</p>';
     }
     if(q.start&&q.end) h+='<p>Assessment starts '+q.start+' and finishes '+q.end+'.</p>';
     else if(q.start) h+='<p>Assessment starts '+q.start+'.</p>';
@@ -1238,8 +1238,8 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
         (q.two ? 'Two-year, two assessments\n' : '') +
         (q.three ? 'Three-year, three assessments\n' : '') +
         (q.monthly
-          ? q.monthlyLabel + ' a month × ' + q.months + ' months after the initial payment\nTotal ' + q.contractLabel + ', including VAT\n' + (q.saving ? 'Saving ' + q.savingLabel + '\n' : '') + 'Remainder by Direct Debit\n'
-          : 'Remainder ' + q.restLabel + ' upfront\nTotal ' + q.totalLabel + ', including VAT\n') +
+          ? q.monthlyLabel + ' a month × ' + q.months + ' months after the initial payment\nTotal ' + q.contractLabel + ', including VAT\n' + (q.saving ? 'Saving ' + q.savingLabel + '\n' : '') + 'Final payment by Direct Debit\n'
+          : 'Final payment ' + q.restLabel + ' upfront\nTotal ' + q.totalLabel + ', including VAT\n') +
         (q.start && q.end ? 'Assessment starts ' + q.start + ' and finishes ' + q.end + '.\n' : q.start ? 'Assessment starts ' + q.start + '.\n' : '') +
         (q.reportDue ? 'Expected final report date ' + q.reportDue + '.\n' : '');
     }
