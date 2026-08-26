@@ -668,7 +668,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
           <button type="button" class="opt-btn" data-svc="inf">Internal infrastructure</button>
           <button type="button" class="opt-btn" data-svc="aps">Attack path simulation</button>
         </div>
-        <p class="cal-copy" id="cal-copy">Any one of these, or a mix, in the same three days.</p>
+        <p class="cal-copy" id="cal-copy">Pick the work for the three days.</p>
       </div>
 
       <div class="cal-block" id="cal-step">
@@ -1014,9 +1014,13 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   function paintSum(){
     const q=quote();
     const names=mix();
-    copyEl.textContent=names.length
-      ? names.join(', ')+' — in the same three days.'
-      : 'Any one of these, or a mix, in the same three days.';
+    copyEl.textContent=!names.length
+      ? 'Pick the work for the three days.'
+      : names.length===1
+        ? 'The assessment will include '+names[0]+'.'
+        : names.length===2
+          ? 'The assessment will include a mix of '+names[0]+' and '+names[1]+'.'
+          : 'The assessment will include a mix of '+names.slice(0,-1).join(', ')+' and '+names[names.length-1]+'.';
     daysEl.textContent='3';
     covEl.hidden=true;covEl.innerHTML='';
     covNote.textContent='';
