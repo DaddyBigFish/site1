@@ -379,7 +379,8 @@ main{padding-top:64px}
 .cf-quote b{color:var(--text);font-size:1rem}
 .cf-quote p{margin:0 0 6px}
 .cf-quote p:last-child{margin-bottom:0}
-.cf-quote .cq-k{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+.cf-quote .cq-k{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+.cf-quote .cal-sheet{margin:0}
 .cf-quote[hidden]{display:none}
 
 /* ACCREDITATION */
@@ -1100,21 +1101,26 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const q=window.__quote;
     const box=document.getElementById('cf-quote');
     box.hidden=false;
-    let h='<p class="cq-k">Proposed assessment</p><p><b>'+q.pkg+'</b></p>';
-    h+='<p>3 days testing. Report included, free of charge.</p>';
-    h+='<p>'+q.service+'</p>';
-    h+='<p>Initial payment '+q.initLabel+', secures the assessment.</p>';
-    if(q.two) h+='<p>Two-year, two assessments, '+q.monthlyLabel+' a month × 24 months after the initial payment</p>';
-    if(q.three) h+='<p>Three-year, three assessments, '+q.monthlyLabel+' a month × 36 months after the initial payment</p>';
-    if(q.monthly){
-      h+='<p>Final payment by Direct Debit. Total '+q.contractLabel+', including VAT</p>';
-      if(q.saving) h+='<p>Saving '+q.savingLabel+'</p>';
+    const contract=q.two?'Two year contract':q.three?'Three year contract':'One assessment';
+    const tr=(a,b,c)=>'<tr><th>'+a+'</th><td>'+b+'</td><td>'+c+'</td></tr>';
+    let h='<p class="cq-k">Proposed assessment</p><table class="cal-sheet">'+
+      tr('Contract',contract,'')+
+      tr('Assessments',String(q.tests),'')+
+      tr('Scope',q.service,'')+
+      tr('Per assessment duration','3 days','')+
+      tr('Start date',q.start||'—','')+
+      tr('End date',q.end||'—','')+
+      tr('Report writing','included','free')+
+      tr('Expected final report date',q.reportDue||'—','')+
+      tr('Initial payment','secures the assessment',q.initLabel);
+    if(q.tests===1){
+      h+=tr('Final payment','in full',q.restLabel)+
+        '<tr class="total"><th>Total</th><td>payable in full, inc. VAT</td><td>'+q.totalLabel+'</td></tr>';
     }else{
-      h+='<p>Final payment '+q.restLabel+' in full. Total '+q.totalLabel+', including VAT</p>';
+      if(q.saving) h+='<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>';
+      h+='<tr class="total"><th>Total</th><td class="dd-mid"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>'+q.monthlyLabel+' × '+q.months+' months, inc. VAT</td><td>'+q.contractLabel+'</td></tr>';
     }
-    if(q.start&&q.end) h+='<p>Assessment starts '+q.start+' and finishes '+q.end+'.</p>';
-    else if(q.start) h+='<p>Assessment starts '+q.start+'.</p>';
-    if(q.reportDue) h+='<p>Expected final report date '+q.reportDue+'.</p>';
+    h+='</table>';
     box.innerHTML=h;
     document.querySelectorAll('#enquiry-grid .opt-btn').forEach(b=>b.classList.toggle('active',b.dataset.val==='Request a quotation'));
     document.querySelectorAll('#scope-grid .opt-btn').forEach(b=>{
@@ -1217,19 +1223,22 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const q = window.__quote;
     let cal = '';
     if(q && (q.days || q.blocks.length)){
+      const contract=q.two?'Two year contract':q.three?'Three year contract':'One assessment';
       cal =
         '\nProposed assessment\n' +
-        (q.pkg ? q.pkg + '\n' : '') +
-        q.service + '\n' +
-        '3 days testing. Report included, free of charge.\n' +
-        'Initial payment ' + q.initLabel + ', secures the assessment.\n' +
-        (q.two ? 'Two-year, two assessments\n' : '') +
-        (q.three ? 'Three-year, three assessments\n' : '') +
+        'Contract: ' + contract + '\n' +
+        'Assessments: ' + q.tests + '\n' +
+        'Scope: ' + q.service + '\n' +
+        'Per assessment duration: 3 days\n' +
+        'Start date: ' + (q.start || '—') + '\n' +
+        'End date: ' + (q.end || '—') + '\n' +
+        'Report writing: included, free\n' +
+        'Expected final report date: ' + (q.reportDue || '—') + '\n' +
+        'Initial payment: ' + q.initLabel + '\n' +
         (q.monthly
-          ? q.monthlyLabel + ' a month × ' + q.months + ' months after the initial payment\nTotal ' + q.contractLabel + ', including VAT\n' + (q.saving ? 'Saving ' + q.savingLabel + '\n' : '') + 'Final payment by Direct Debit\n'
-          : 'Final payment ' + q.restLabel + ' in full\nTotal ' + q.totalLabel + ', including VAT\n') +
-        (q.start && q.end ? 'Assessment starts ' + q.start + ' and finishes ' + q.end + '.\n' : q.start ? 'Assessment starts ' + q.start + '.\n' : '') +
-        (q.reportDue ? 'Expected final report date ' + q.reportDue + '.\n' : '');
+          ? (q.saving ? 'Saving: ' + q.off + ' off (−' + q.savingLabel + ')\n' : '') +
+            'Total: ' + q.monthlyLabel + ' × ' + q.months + ' months, inc. VAT ' + q.contractLabel + '\n'
+          : 'Final payment: ' + q.restLabel + ' in full\nTotal: ' + q.totalLabel + ', payable in full, inc. VAT\n');
     }
 
     const subject = encodeURIComponent('Enquiry: ' + enquiry + (org ? ' — ' + org : ''));
