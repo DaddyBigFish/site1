@@ -1,4 +1,8 @@
-<path stroke-linejoin="round" stroke-width="8" stroke="#e8192c" fill="
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="30 0 70 80" width="200" height="200">
+  <path stroke-linejoin="round" stroke-width="8" stroke="#e8192c" fill="#1e1e23" d="M38 15 L65 8 L92 15 L92 42 Q92 62 65 73 Q38 62 38 42 Z"></path>
+  <path fill-opacity="0.18" fill="#e8192c" d="M48 22 L65 17 L82 22 L82 40 Q82 53 65 60 Q48 53 48 40 Z"></path>
+  <polyline points="53,39 62,48 77,30" stroke="#e8192c" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+</svg><path stroke-linejoin="round" stroke-width="8" stroke="#e8192c" fill="
 #1e1e23" d="M38 15 L65 8 L92 15 L92 42 Q92 62 65 73 Q38 62 38 42 Z"></path>
         <path fill-opacity="0.18" fill="
 #e8192c" d="M48 22 L65 17 L82 22 L82 40 Q82 53 65 60 Q48 53 48 40 Z"></path>
