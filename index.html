@@ -652,19 +652,19 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
     <div class="pricing-intro">
       <p class="label reveal">Fees</p>
       <h2 class="headline reveal">Estimate a fee</h2>
-      <p class="reveal">Choose the work, mark a start. Figures include VAT. A written quotation follows scoping.</p>
+      <p class="reveal">Choose the assessment, mark a start. Figures include VAT. A written quotation follows scoping.</p>
     </div>
 
     <div class="pricing-panel reveal">
       <div class="cal-block">
-        <div class="cal-kicker"><span>01</span>The work</div>
+        <div class="cal-kicker"><span>01</span>The assessment</div>
         <div class="opt-grid cal-svc" id="cal-svc">
           <button type="button" class="opt-btn" data-svc="ce">Cyber Essentials</button>
           <button type="button" class="opt-btn" data-svc="web">Web application and API</button>
           <button type="button" class="opt-btn" data-svc="inf">Internal infrastructure</button>
           <button type="button" class="opt-btn" data-svc="aps">Attack path simulation</button>
         </div>
-        <p class="cal-copy" id="cal-copy">Pick the work for the three days.</p>
+        <p class="cal-copy" id="cal-copy">Pick the assessment for the three days.</p>
       </div>
 
       <div class="cal-block" id="cal-step">
@@ -789,7 +789,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
       <div class="form-section">
         <div class="form-section-head">
           <span class="form-section-num">02</span>
-          <span class="form-section-title">The work</span>
+          <span class="form-section-title">The assessment</span>
         </div>
         <div class="opt-grid" id="scope-grid">
           <button type="button" class="opt-btn" data-val="Cyber Essentials">Cyber Essentials</button>
@@ -1014,7 +1014,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const q=quote();
     const names=mix();
     copyEl.textContent=!names.length
-      ? 'Pick the work for the three days.'
+      ? 'Pick the assessment for the three days.'
       : names.length===1
         ? 'The assessment will include '+names[0]+'.'
         : names.length===2
@@ -1111,7 +1111,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const q=window.__quote;
     const box=document.getElementById('cf-quote');
     box.hidden=false;
-    let h='<p class="cq-k">Proposed work</p><p><b>'+q.pkg+'</b></p>';
+    let h='<p class="cq-k">Proposed assessment</p><p><b>'+q.pkg+'</b></p>';
     h+='<p>3 days testing. Report included, free of charge.</p>';
     h+='<p>'+q.service+'</p>';
     h+='<p>Initial payment '+q.initLabel+', secures the assessment.</p>';
@@ -1229,7 +1229,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     let cal = '';
     if(q && (q.days || q.blocks.length)){
       cal =
-        '\nProposed work\n' +
+        '\nProposed assessment\n' +
         (q.pkg ? q.pkg + '\n' : '') +
         q.service + '\n' +
         '3 days testing. Report included, free of charge.\n' +
@@ -1246,7 +1246,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const subject = encodeURIComponent('Enquiry: ' + enquiry + (org ? ' — ' + org : ''));
     const body = encodeURIComponent(
       'Enquiry type: '   + enquiry + '\n' +
-      'The work: '       + scope   + '\n' +
+      'The assessment: ' + scope   + '\n' +
       (org   ? 'Organisation: '  + org   + '\n' : '') +
       (name  ? 'Name: '          + name  + '\n' : '') +
       (email ? 'Email: '         + email + '\n' : '') +
