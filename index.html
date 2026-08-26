@@ -253,18 +253,19 @@ main{padding-top:64px}
 }
 .cal-sheet td{
   padding:8px 0;border-bottom:1px solid var(--border);color:var(--text);
-  font-variant-numeric:tabular-nums;text-align:right;
+  font-variant-numeric:tabular-nums;text-align:right;font-weight:700;
 }
-.cal-sheet td:last-child{font-weight:700;width:7.5rem}
 .cal-sheet tr.total th,.cal-sheet tr.total td{
   border-bottom:none;padding-top:16px;color:var(--text);font-weight:800;vertical-align:middle;
 }
-.cal-sheet tr.total td:last-child{
-  font-size:clamp(1.35rem,3vw,1.8rem);letter-spacing:-.03em;line-height:1.1;
-}
-.cal-sheet tr.total td.dd-mid{
+.cal-sheet .dd-mid{
   display:flex;align-items:center;justify-content:flex-end;gap:12px;text-align:right;
+  font-size:.88rem;font-weight:600;
 }
+.cal-sheet-amt{
+  font-size:clamp(1.35rem,3vw,1.8rem);letter-spacing:-.03em;line-height:1.1;margin-top:6px;
+}
+.cal-total-note{font-size:.88rem;font-weight:500;color:var(--muted);margin-top:4px}
 #cal-break[hidden]{display:none}
 .cal-total{display:none}
 .cal-nav{
@@ -1014,21 +1015,21 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     covEl.hidden=true;covEl.innerHTML='';
     covNote.textContent='';
     covNote.hidden=true;
-    const tr=(a,b,c)=>'<tr><th>'+a+'</th><td>'+b+'</td><td>'+c+'</td></tr>';
+    const tr=(a,b)=>'<tr><th>'+a+'</th><td>'+b+'</td></tr>';
     let h='<table class="cal-sheet">'+
-      tr('Assessments',String(q.tests),'')+
-      tr('Per assessment duration','3 days','')+
-      tr('Start date',q.start||'—','')+
-      tr('End date',q.end||'—','')+
-      tr('Report writing','included','free')+
-      tr('Expected final report date',q.reportDue||'—','')+
-      tr('Initial payment','secures the assessment',q.initLabel);
+      tr('Assessments',String(q.tests))+
+      tr('Per assessment duration','3 days')+
+      tr('Start date',q.start||'—')+
+      tr('End date',q.end||'—')+
+      tr('Report writing','included, free')+
+      tr('Expected final report date',q.reportDue||'—')+
+      tr('Initial payment',q.initLabel);
     if(q.tests===1){
-      h+=tr('Final payment','in full',q.restLabel)+
-        '<tr class="total"><th>Total</th><td>payable in full, inc. VAT</td><td>'+q.totalLabel+'</td></tr>';
+      h+=tr('Final payment',q.restLabel)+
+        '<tr class="total"><th>Total</th><td>'+q.totalLabel+'<div class="cal-total-note">payable in full, inc. VAT</div></td></tr>';
     }else{
-      if(q.saving) h+='<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>';
-      h+='<tr class="total"><th>Total</th><td class="dd-mid"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>'+q.monthlyLabel+' × '+q.months+' months, inc. VAT</td><td>'+q.contractLabel+'</td></tr>';
+      if(q.saving) h+='<tr class="save"><th>Saving</th><td>−'+q.savingLabel+' ('+q.off+' off)</td></tr>';
+      h+='<tr class="total"><th>Total</th><td><div class="dd-mid"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>'+q.monthlyLabel+' × '+q.months+' months, inc. VAT</div><div class="cal-sheet-amt">'+q.contractLabel+'</div></td></tr>';
     }
     breakEl.hidden=false;
     breakEl.innerHTML=h+'</table>';
@@ -1102,23 +1103,23 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const box=document.getElementById('cf-quote');
     box.hidden=false;
     const contract=q.two?'Two year contract':q.three?'Three year contract':'One assessment';
-    const tr=(a,b,c)=>'<tr><th>'+a+'</th><td>'+b+'</td><td>'+c+'</td></tr>';
+    const tr=(a,b)=>'<tr><th>'+a+'</th><td>'+b+'</td></tr>';
     let h='<p class="cq-k">Proposed assessment</p><table class="cal-sheet">'+
-      tr('Contract',contract,'')+
-      tr('Assessments',String(q.tests),'')+
-      tr('Scope',q.service,'')+
-      tr('Per assessment duration','3 days','')+
-      tr('Start date',q.start||'—','')+
-      tr('End date',q.end||'—','')+
-      tr('Report writing','included','free')+
-      tr('Expected final report date',q.reportDue||'—','')+
-      tr('Initial payment','secures the assessment',q.initLabel);
+      tr('Contract',contract)+
+      tr('Assessments',String(q.tests))+
+      tr('Scope',q.service)+
+      tr('Per assessment duration','3 days')+
+      tr('Start date',q.start||'—')+
+      tr('End date',q.end||'—')+
+      tr('Report writing','included, free')+
+      tr('Expected final report date',q.reportDue||'—')+
+      tr('Initial payment',q.initLabel);
     if(q.tests===1){
-      h+=tr('Final payment','in full',q.restLabel)+
-        '<tr class="total"><th>Total</th><td>payable in full, inc. VAT</td><td>'+q.totalLabel+'</td></tr>';
+      h+=tr('Final payment',q.restLabel)+
+        '<tr class="total"><th>Total</th><td>'+q.totalLabel+'<div class="cal-total-note">payable in full, inc. VAT</div></td></tr>';
     }else{
-      if(q.saving) h+='<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>';
-      h+='<tr class="total"><th>Total</th><td class="dd-mid"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>'+q.monthlyLabel+' × '+q.months+' months, inc. VAT</td><td>'+q.contractLabel+'</td></tr>';
+      if(q.saving) h+='<tr class="save"><th>Saving</th><td>−'+q.savingLabel+' ('+q.off+' off)</td></tr>';
+      h+='<tr class="total"><th>Total</th><td><div class="dd-mid"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>'+q.monthlyLabel+' × '+q.months+' months, inc. VAT</div><div class="cal-sheet-amt">'+q.contractLabel+'</div></td></tr>';
     }
     h+='</table>';
     box.innerHTML=h;
