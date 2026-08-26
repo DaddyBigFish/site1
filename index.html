@@ -711,14 +711,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
             <input type="checkbox" id="cal-two">
             <span>
               <span class="cal-tog-title">Two-year</span>
-              <span class="cal-tog-text">Two assessments · £125 a month after a £300 initial payment · Save £700</span>
+              <span class="cal-tog-text">Two assessments · £125 a month after a £300 initial payment · 17.5% off</span>
             </span>
           </label>
           <label class="cal-tog" id="tog-three">
             <input type="checkbox" id="cal-three">
             <span>
               <span class="cal-tog-title">Three-year</span>
-              <span class="cal-tog-text">Three assessments · £125 a month after a £300 initial payment · Save £1,200</span>
+              <span class="cal-tog-text">Three assessments · £125 a month after a £300 initial payment · 20% off</span>
             </span>
           </label>
         </div>
@@ -987,9 +987,9 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const service=names.length?names.join(', '):'Three-day assessment';
     let tests=1,months=0,monthly=0,total=ONE,contract=ONE,full=ONE,saving=0,off='',label=gbp(ONE),pkg='One assessment',rest=ONE-INIT,upfront=true;
     if(two.checked){
-      tests=2;months=24;monthly=MONTH;total=TWO;contract=TWO;full=ONE*2;saving=full-TWO;off=gbp(saving);label=gbp(monthly);pkg='Two-year';rest=TWO-INIT;upfront=false;
+      tests=2;months=24;monthly=MONTH;total=TWO;contract=TWO;full=ONE*2;saving=full-TWO;off='17.5%';label=gbp(monthly);pkg='Two-year';rest=TWO-INIT;upfront=false;
     }else if(three.checked){
-      tests=3;months=36;monthly=MONTH;total=THREE;contract=THREE;full=ONE*3;saving=full-THREE;off=gbp(saving);label=gbp(monthly);pkg='Three-year';rest=THREE-INIT;upfront=false;
+      tests=3;months=36;monthly=MONTH;total=THREE;contract=THREE;full=ONE*3;saving=full-THREE;off='20%';label=gbp(monthly);pkg='Three-year';rest=THREE-INIT;upfront=false;
     }
     const first=list[0],last=list[list.length-1];
     const sd=first?new Date(first.s):null,ed=last?new Date(last.e):null;
@@ -1033,15 +1033,14 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       h+=tr('Remainder','upfront',q.restLabel)+
         '<tr class="total"><th>Total</th><td>inc. VAT, upfront</td><td>'+q.totalLabel+'</td></tr>';
     }else{
-      if(q.saving) h+='<tr class="save"><th>Saving</th><td>vs '+q.tests+' singles</td><td>−'+q.savingLabel+'</td></tr>';
-      h+=tr('Remainder','Direct Debit',q.monthlyLabel+' × '+q.months)+
-        '<tr class="total"><th>Total</th><td class="dd-mid"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>after initial payment, inc. VAT</td><td>'+q.contractLabel+'</td></tr>';
+      if(q.saving) h+='<tr class="save"><th>Saving</th><td>'+q.off+' off</td><td>−'+q.savingLabel+'</td></tr>';
+      h+='<tr class="total"><th>Total</th><td class="dd-mid"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>'+q.monthlyLabel+' × '+q.months+' months, inc. VAT</td><td>'+q.contractLabel+'</td></tr>';
     }
     breakEl.hidden=false;
     breakEl.innerHTML=h+'</table>';
     totEl.textContent=q.totalLabel;
     document.getElementById('cal-dd').hidden=true;
-    saveEl.hidden=!q.saving;saveEl.textContent=q.saving?'Save '+q.savingLabel:'';
+    saveEl.hidden=!q.saving;saveEl.textContent=q.saving?q.off+' off':'';
     clearBtn.disabled=!start && !chosen.size;
     if(!start){
       metaEl.textContent='Mark a start on the calendar. The three testing days fill from that point.';
