@@ -733,7 +733,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
           <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Technical report and executive summary</div>
           <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Contract, Rules of Engagement and NDA</div>
           <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Fixed fee, including VAT</div>
-          <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>£300 initial payment to secure the work</div>
+          <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>£300 initial payment to secure the assessment</div>
           <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Scoping discussion</div>
         </div>
       </div>
@@ -1032,7 +1032,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       tr('End date',q.end||'—','')+
       tr('Report writing','included','free')+
       tr('Expected final report date',q.reportDue||'—','')+
-      tr('Initial payment','secures the work',q.initLabel);
+      tr('Initial payment','secures the assessment',q.initLabel);
     if(q.tests===1){
       h+=tr('Final payment','in full',q.restLabel)+
         '<tr class="total"><th>Total</th><td>payable in full, inc. VAT</td><td>'+q.totalLabel+'</td></tr>';
@@ -1114,7 +1114,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     let h='<p class="cq-k">Proposed work</p><p><b>'+q.pkg+'</b></p>';
     h+='<p>3 days testing. Report included, free of charge.</p>';
     h+='<p>'+q.service+'</p>';
-    h+='<p>Initial payment '+q.initLabel+', secures the work.</p>';
+    h+='<p>Initial payment '+q.initLabel+', secures the assessment.</p>';
     if(q.two) h+='<p>Two-year, two assessments, '+q.monthlyLabel+' a month × 24 months after the initial payment</p>';
     if(q.three) h+='<p>Three-year, three assessments, '+q.monthlyLabel+' a month × 36 months after the initial payment</p>';
     if(q.monthly){
@@ -1233,7 +1233,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
         (q.pkg ? q.pkg + '\n' : '') +
         q.service + '\n' +
         '3 days testing. Report included, free of charge.\n' +
-        'Initial payment ' + q.initLabel + ', secures the work.\n' +
+        'Initial payment ' + q.initLabel + ', secures the assessment.\n' +
         (q.two ? 'Two-year, two assessments\n' : '') +
         (q.three ? 'Three-year, three assessments\n' : '') +
         (q.monthly
