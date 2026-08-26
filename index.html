@@ -993,13 +993,16 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const sd=first?new Date(first.s):null,ed=last?new Date(last.e):null;
     const startTxt=sd?civil(sd)+' at '+hhmm(sd):'';
     const endTxt=ed?civil(ed)+' at '+hhmm(ed):'';
+    const rd=ed?new Date(ed.getTime()):null;
+    if(rd) rd.setDate(rd.getDate()+7);
+    const reportTxt=rd?civil(rd):'';
     window.__quote={
       service:service,scope:service,pkg:pkg,days:days,report:0,
       billDays:days,totalLabel:gbp(total),total:total,gross:2000,
       monthly:monthly,tests:tests,months:months,contract:contract,
       monthlyLabel:monthly?gbp(monthly):'',contractLabel:contract?gbp(contract):'',
       full:full,saving:saving,off:off,savingLabel:saving?gbp(saving):'',fullLabel:full?gbp(full):'',
-      start:startTxt,end:endTxt,
+      start:startTxt,end:endTxt,reportDue:reportTxt,
       blocks:list.map(x=>civil(x.date)+', '+x.label),
       coverage:[],copy:copyEl?copyEl.textContent:'',extra:'',
       two:two.checked,three:three.checked,upfront:upfront,init:INIT,rest:rest,
@@ -1026,9 +1029,10 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     let h='<table class="cal-sheet">'+
       tr('Assessments',String(q.tests),'')+
       tr('Per assessment duration','3 days','')+
-      tr('Reporting','included','free')+
       tr('Start date',q.start||'—','')+
       tr('End date',q.end||'—','')+
+      tr('Report writing','included','free')+
+      tr('Expected final report date',q.reportDue||'—','')+
       tr('Initial payment','secures the work',q.initLabel);
     if(q.tests===1){
       h+=tr('Remainder','upfront',q.restLabel)+
@@ -1122,6 +1126,7 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     }
     if(q.start&&q.end) h+='<p>Assessment starts '+q.start+' and finishes '+q.end+'.</p>';
     else if(q.start) h+='<p>Assessment starts '+q.start+'.</p>';
+    if(q.reportDue) h+='<p>Expected final report date '+q.reportDue+'.</p>';
     box.innerHTML=h;
     document.querySelectorAll('#enquiry-grid .opt-btn').forEach(b=>b.classList.toggle('active',b.dataset.val==='Request a quotation'));
     document.querySelectorAll('#scope-grid .opt-btn').forEach(b=>{
@@ -1235,7 +1240,8 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
         (q.monthly
           ? q.monthlyLabel + ' a month × ' + q.months + ' months after the initial payment\nTotal ' + q.contractLabel + ', including VAT\n' + (q.saving ? 'Saving ' + q.savingLabel + '\n' : '') + 'Remainder by Direct Debit\n'
           : 'Remainder ' + q.restLabel + ' upfront\nTotal ' + q.totalLabel + ', including VAT\n') +
-        (q.start && q.end ? 'Assessment starts ' + q.start + ' and finishes ' + q.end + '.\n' : q.start ? 'Assessment starts ' + q.start + '.\n' : '');
+        (q.start && q.end ? 'Assessment starts ' + q.start + ' and finishes ' + q.end + '.\n' : q.start ? 'Assessment starts ' + q.start + '.\n' : '') +
+        (q.reportDue ? 'Expected final report date ' + q.reportDue + '.\n' : '');
     }
 
     const subject = encodeURIComponent('Enquiry: ' + enquiry + (org ? ' — ' + org : ''));
