@@ -655,8 +655,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
   <div class="wrap">
     <div class="pricing-intro">
       <p class="label reveal">Fees</p>
-      <h2 class="headline reveal">Three days, report included</h2>
-      <p class="reveal">Choose the work, mark a start. The report is included, free of charge — it is in the price, not an extra. Figures include VAT. A written quotation follows scoping.</p>
+      <h2 class="headline reveal">Estimate a fee</h2>
+      <p class="reveal">Choose the work, mark a start. Figures include VAT. A written quotation follows scoping.</p>
     </div>
 
     <div class="pricing-panel reveal">
@@ -681,7 +681,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
           </div>
           <div class="cal-cov" id="cal-cov" hidden></div>
         </div>
-        <p class="cal-cov-note" id="cal-cov-note">Three days. The report is included, free of charge.</p>
+        <p class="cal-cov-note" id="cal-cov-note"></p>
       </div>
 
       <div class="cal-block">
@@ -1019,8 +1019,8 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       : 'Any one of these, or a mix, in the same three days.';
     daysEl.textContent='3';
     covEl.hidden=true;covEl.innerHTML='';
-    covNote.textContent='Three days. The report is included, free of charge.';
-    covNote.hidden=false;
+    covNote.textContent='';
+    covNote.hidden=true;
     const tr=(a,b,c)=>'<tr><th>'+a+'</th><td>'+b+'</td><td>'+c+'</td></tr>';
     let h='<table class="cal-sheet">'+
       tr('Testing','3 days',gbp(2000))+
