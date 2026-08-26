@@ -504,7 +504,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
 }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://securedbyoffense.uk","name":"Secured By Offense","description":"Independent out-of-hours penetration testing in the United Kingdom.","url":"https://securedbyoffense.uk","email":"sales@securedbyoffense.uk","areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"18:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"02:00"}],"knowsAbout":["Penetration Testing","Cyber Essentials","Attack Path Simulation","Internal Infrastructure Assessment","Web Application Security Testing"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When is testing carried out?","acceptedAnswer":{"@type":"Answer","text":"Out of hours only. Weekdays from 18:00 United Kingdom time, weekend from 10:00 Saturday through to 02:00 Monday."}},{"@type":"Question","name":"How are fees calculated?","acceptedAnswer":{"@type":"Answer","text":"A three-day assessment is £2,000 including VAT, with the report included free of charge. Two assessments are £4,000 over 24 months by Direct Debit. Four assessments are £6,000 over 48 months by Direct Debit. The three days may be web application and API, internal infrastructure, attack path simulation, Cyber Essentials, or a mix."}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","LocalBusiness"],"@id":"https://securedbyoffense.uk","name":"Secured By Offense","description":"Independent out-of-hours penetration testing in the United Kingdom.","url":"https://securedbyoffense.uk","email":"sales@securedbyoffense.uk","areaServed":{"@type":"Country","name":"United Kingdom"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"18:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"02:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"02:00"}],"knowsAbout":["Penetration Testing","Cyber Essentials","Attack Path Simulation","Internal Infrastructure Assessment","Web Application Security Testing"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When is testing carried out?","acceptedAnswer":{"@type":"Answer","text":"Out of hours only. Weekdays from 18:00 United Kingdom time, weekend from 10:00 Saturday through to 02:00 Monday."}},{"@type":"Question","name":"How are fees calculated?","acceptedAnswer":{"@type":"Answer","text":"A three-day assessment is £2,000 including VAT. Every option is secured by a £300 initial payment. A one-off is then paid upfront. Two-year is two assessments at £125 a month for 24 months after the initial payment. Three-year is three assessments at £125 a month for 36 months after the initial payment. The report is included free of charge."}}]}]}
 </script>
 </head>
 <body>
@@ -710,15 +710,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
           <label class="cal-tog" id="tog-two">
             <input type="checkbox" id="cal-two">
             <span>
-              <span class="cal-tog-title">Two assessments</span>
-              <span class="cal-tog-text">£4,000 over 24 months, Direct Debit</span>
+              <span class="cal-tog-title">Two-year</span>
+              <span class="cal-tog-text">Two assessments · £125 a month after a £300 initial payment · Save £700</span>
             </span>
           </label>
-          <label class="cal-tog" id="tog-four">
-            <input type="checkbox" id="cal-four">
+          <label class="cal-tog" id="tog-three">
+            <input type="checkbox" id="cal-three">
             <span>
-              <span class="cal-tog-title">Four assessments</span>
-              <span class="cal-tog-text">£6,000 over 48 months, Direct Debit · Save £2,000</span>
+              <span class="cal-tog-title">Three-year</span>
+              <span class="cal-tog-text">Three assessments · £125 a month after a £300 initial payment · Save £1,200</span>
             </span>
           </label>
         </div>
@@ -736,6 +736,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
           <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Any one or a mix of the four kinds of work</div>
           <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Contract, Rules of Engagement and NDA</div>
           <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Fixed fee, including VAT</div>
+          <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>£300 initial payment to secure the work</div>
           <div class="pf-tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Scoping discussion</div>
         </div>
       </div>
@@ -799,8 +800,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:44px 0 38
           <button type="button" class="opt-btn" data-val="Internal infrastructure">Internal infrastructure</button>
           <button type="button" class="opt-btn" data-val="Attack path simulation">Attack path simulation</button>
           <button type="button" class="opt-btn" data-val="One assessment">One assessment</button>
-          <button type="button" class="opt-btn" data-val="Two assessments">Two assessments</button>
-          <button type="button" class="opt-btn" data-val="Four assessments">Four assessments</button>
+          <button type="button" class="opt-btn" data-val="Two-year">Two-year</button>
+          <button type="button" class="opt-btn" data-val="Three-year">Three-year</button>
           <button type="button" class="opt-btn" data-val="Not yet decided">Not yet decided</button>
         </div>
       </div>
@@ -971,7 +972,8 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   const breakEl=document.getElementById('cal-break');
   const clearBtn=document.getElementById('cal-clear');
   const two=document.getElementById('cal-two');
-  const four=document.getElementById('cal-four');
+  const three=document.getElementById('cal-three');
+  const INIT=300, ONE=2000, TWO=3300, THREE=4800, MONTH=125;
 
   function refill(){
     chosen.clear();
@@ -983,11 +985,11 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     const list=selected();
     const names=mix();
     const service=names.length?names.join(', '):'Three-day assessment';
-    let tests=1,months=0,monthly=0,total=2000,contract=2000,full=2000,saving=0,off='',label=gbp(2000),pkg='One assessment';
+    let tests=1,months=0,monthly=0,total=ONE,contract=ONE,full=ONE,saving=0,off='',label=gbp(ONE),pkg='One assessment',rest=ONE-INIT,upfront=true;
     if(two.checked){
-      tests=2;months=24;monthly=4000/24;total=4000;contract=4000;full=4000;saving=0;label=gbp(monthly);pkg='Two assessments';
-    }else if(four.checked){
-      tests=4;months=48;monthly=125;total=6000;contract=6000;full=8000;saving=2000;off='£2,000';label=gbp(monthly);pkg='Four assessments';
+      tests=2;months=24;monthly=MONTH;total=TWO;contract=TWO;full=ONE*2;saving=full-TWO;off=gbp(saving);label=gbp(monthly);pkg='Two-year';rest=TWO-INIT;upfront=false;
+    }else if(three.checked){
+      tests=3;months=36;monthly=MONTH;total=THREE;contract=THREE;full=ONE*3;saving=full-THREE;off=gbp(saving);label=gbp(monthly);pkg='Three-year';rest=THREE-INIT;upfront=false;
     }
     const first=list[0],last=list[list.length-1];
     const sd=first?new Date(first.s):null,ed=last?new Date(last.e):null;
@@ -1002,7 +1004,8 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
       start:startTxt,end:endTxt,
       blocks:list.map(x=>civil(x.date)+', '+x.label),
       coverage:[],copy:copyEl?copyEl.textContent:'',extra:'',
-      two:two.checked,four:four.checked,note:'',
+      two:two.checked,three:three.checked,upfront:upfront,init:INIT,rest:rest,
+      restLabel:gbp(rest),initLabel:gbp(INIT),note:'',
       mix:names
     };
     return window.__quote;
@@ -1023,32 +1026,32 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     covNote.hidden=true;
     const tr=(a,b,c)=>'<tr><th>'+a+'</th><td>'+b+'</td><td>'+c+'</td></tr>';
     let h='<table class="cal-sheet">'+
-      tr('Testing','3 days',gbp(2000))+
-      tr('Reporting','included','free');
-    if(q.tests===2){
-      h+=tr('Two assessments','',gbp(4000))+
-        '<tr class="total"><th>Total</th><td class="dd-mid"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>'+q.monthlyLabel+' × 24 months, inc. VAT</td><td>'+q.contractLabel+'</td></tr>';
-    }else if(q.tests===4){
-      h+=tr('Four assessments','full rate',q.fullLabel)+
-        '<tr class="save"><th>Saving</th><td>£2,000 off</td><td>−'+q.savingLabel+'</td></tr>'+
-        '<tr class="total"><th>Total</th><td class="dd-mid"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>'+q.monthlyLabel+' × 48 months, inc. VAT</td><td>'+q.contractLabel+'</td></tr>';
+      tr('Testing',(q.tests===1?'3 days':q.tests+' × 3 days'),'')+
+      tr('Reporting','included','free')+
+      tr('Initial payment','secures the work',q.initLabel);
+    if(q.tests===1){
+      h+=tr('Remainder','upfront',q.restLabel)+
+        '<tr class="total"><th>Total</th><td>inc. VAT, upfront</td><td>'+q.totalLabel+'</td></tr>';
     }else{
-      h+='<tr class="total"><th>Total</th><td>inc. VAT</td><td>'+q.totalLabel+'</td></tr>';
+      if(q.saving) h+='<tr class="save"><th>Saving</th><td>vs '+q.tests+' singles</td><td>−'+q.savingLabel+'</td></tr>';
+      h+=tr('Remainder','Direct Debit',q.monthlyLabel+' × '+q.months)+
+        '<tr class="total"><th>Total</th><td class="dd-mid"><span class="dd-badge"><img src="logos/directdebit.svg" alt="Direct Debit"></span>after initial payment, inc. VAT</td><td>'+q.contractLabel+'</td></tr>';
     }
     breakEl.hidden=false;
     breakEl.innerHTML=h+'</table>';
     totEl.textContent=q.totalLabel;
     document.getElementById('cal-dd').hidden=true;
-    saveEl.hidden=q.tests!==4;saveEl.textContent=q.tests===4?'Save £2,000':'';
+    saveEl.hidden=!q.saving;saveEl.textContent=q.saving?'Save '+q.savingLabel:'';
     clearBtn.disabled=!start && !chosen.size;
     if(!start){
       metaEl.textContent='Mark a start on the calendar. The three testing days fill from that point.';
     }else{
       metaEl.textContent='Assessment starts '+q.start+' and finishes '+q.end+'.';
     }
-    hintEl.textContent='';hintEl.hidden=true;
+    hintEl.textContent='Every option is secured by a £300 initial payment.';
+    hintEl.hidden=false;
     document.getElementById('tog-two').classList.toggle('on',two.checked);
-    document.getElementById('tog-four').classList.toggle('on',four.checked);
+    document.getElementById('tog-three').classList.toggle('on',three.checked);
   }
   function paintWeek(){
     weekEl.innerHTML='';
@@ -1097,8 +1100,8 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
   document.getElementById('cal-prev').addEventListener('click',()=>{week.setDate(week.getDate()-7);paintWeek()});
   document.getElementById('cal-next').addEventListener('click',()=>{week.setDate(week.getDate()+7);paintWeek()});
   clearBtn.addEventListener('click',()=>{start=null;chosen.clear();paintWeek();paintSum()});
-  two.addEventListener('change',()=>{if(two.checked) four.checked=false;paintSum()});
-  four.addEventListener('change',()=>{if(four.checked) two.checked=false;paintSum()});
+  two.addEventListener('change',()=>{if(two.checked) three.checked=false;paintSum()});
+  three.addEventListener('change',()=>{if(three.checked) two.checked=false;paintSum()});
   document.getElementById('cal-go').addEventListener('click',e=>{
     e.preventDefault();
     paintSum();
@@ -1108,15 +1111,14 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
     let h='<p class="cq-k">Proposed work</p><p><b>'+q.pkg+'</b></p>';
     h+='<p>3 days testing. Report included, free of charge.</p>';
     h+='<p>'+q.service+'</p>';
-    if(q.two) h+='<p>Two assessments, £4,000 over 24 months</p>';
-    if(q.four) h+='<p>Four assessments, £6,000 over 48 months</p>';
+    h+='<p>Initial payment '+q.initLabel+', secures the work.</p>';
+    if(q.two) h+='<p>Two-year, two assessments, '+q.monthlyLabel+' a month × 24 months after the initial payment</p>';
+    if(q.three) h+='<p>Three-year, three assessments, '+q.monthlyLabel+' a month × 36 months after the initial payment</p>';
     if(q.monthly){
-      h+='<p>'+q.monthlyLabel+' a month × '+q.months+' months</p>';
-      h+='<p>Total '+q.contractLabel+', including VAT</p>';
+      h+='<p>Remainder by Direct Debit. Total '+q.contractLabel+', including VAT</p>';
       if(q.saving) h+='<p>Saving '+q.savingLabel+'</p>';
-      h+='<p>Payable by Direct Debit</p>';
     }else{
-      h+='<p>'+q.totalLabel+', including VAT, upfront</p>';
+      h+='<p>Remainder '+q.restLabel+' upfront. Total '+q.totalLabel+', including VAT</p>';
     }
     if(q.start&&q.end) h+='<p>Assessment starts '+q.start+' and finishes '+q.end+'.</p>';
     else if(q.start) h+='<p>Assessment starts '+q.start+'.</p>';
@@ -1227,11 +1229,12 @@ document.querySelectorAll('.reveal,.reveal-up').forEach((el,i)=>{el.style.transi
         (q.pkg ? q.pkg + '\n' : '') +
         q.service + '\n' +
         '3 days testing. Report included, free of charge.\n' +
-        (q.two ? 'Two assessments, £4,000 over 24 months\n' : '') +
-        (q.four ? 'Four assessments, £6,000 over 48 months\n' : '') +
+        'Initial payment ' + q.initLabel + ', secures the work.\n' +
+        (q.two ? 'Two-year, two assessments\n' : '') +
+        (q.three ? 'Three-year, three assessments\n' : '') +
         (q.monthly
-          ? q.monthlyLabel + ' a month × ' + q.months + ' months\nTotal ' + q.contractLabel + ', including VAT\n' + (q.saving ? 'Saving ' + q.savingLabel + '\n' : '') + 'Payable by Direct Debit\n'
-          : q.totalLabel + ', including VAT, upfront\n') +
+          ? q.monthlyLabel + ' a month × ' + q.months + ' months after the initial payment\nTotal ' + q.contractLabel + ', including VAT\n' + (q.saving ? 'Saving ' + q.savingLabel + '\n' : '') + 'Remainder by Direct Debit\n'
+          : 'Remainder ' + q.restLabel + ' upfront\nTotal ' + q.totalLabel + ', including VAT\n') +
         (q.start && q.end ? 'Assessment starts ' + q.start + ' and finishes ' + q.end + '.\n' : q.start ? 'Assessment starts ' + q.start + '.\n' : '');
     }
 
